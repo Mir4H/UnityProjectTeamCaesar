@@ -6,10 +6,12 @@ public static class EventManager
     public static event UnityAction TimerStop;
     public static event UnityAction<float> TimerUpdate;
     public static event UnityAction Success;
+    public static event UnityAction NewBox;
 
     public static void OnTimerStart() => TimerStart?.Invoke();
     public static void OnTimerStop() => TimerStop?.Invoke();
     public static void OnTimerUpdate(float value) => TimerUpdate?.Invoke(value);
 
     public static void OnFinishSuccess() => Success?.Invoke();
+    public static void OnBoxStucked() => NewBox?.Invoke();
 }
