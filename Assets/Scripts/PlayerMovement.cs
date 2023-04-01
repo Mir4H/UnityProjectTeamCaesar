@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -44,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             Application.Quit();
         }
 
@@ -115,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
         }
     }
-    
+    /*
     private void OnApplicationFocus(bool focus)
     {
         if (focus)
@@ -127,5 +131,5 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 }
