@@ -8,8 +8,6 @@ public class CubeBehivor : MonoBehaviour
 {
     public Transform startPosition;
     public Rigidbody box;
-    public GameObject boxy;
-
 
     void Start()
     {

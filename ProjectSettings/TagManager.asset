@@ -6,6 +6,7 @@ TagManager:
   tags:
   - goal
   - backwall
+  - floor
   layers:
   - Default
   - TransparentFX

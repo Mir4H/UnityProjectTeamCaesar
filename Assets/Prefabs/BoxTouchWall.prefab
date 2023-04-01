@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6421139999885788714}
   - component: {fileID: 6421139999885788717}
   - component: {fileID: 6421139999885788713}
-  - component: {fileID: -2696153346985858443}
+  - component: {fileID: -5701693005748937942}
   m_Layer: 6
-  m_Name: Box
+  m_Name: BoxTouchWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-2696153346985858443
+--- !u!114 &-5701693005748937942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
