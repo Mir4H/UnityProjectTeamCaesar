@@ -9,7 +9,7 @@ public class BoxScript : MonoBehaviour
         if (collision.gameObject.CompareTag("backwall"))
         {
             EventManager.OnBoxStucked();
-            Destroy(gameObject, 5f); 
+            Destroy(gameObject, 20f); 
         }
     }
 }
