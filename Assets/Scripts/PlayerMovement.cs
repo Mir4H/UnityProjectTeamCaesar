@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    private bool canJump, goesBack, rotateMove = false;
+    private bool canJump, goesBack = false;
 
     void Start()
     {
@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+
         isGrounded = Physics.CheckSphere(feetTransform.position, 0.1f, floorMask);
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -55,11 +57,11 @@ public class PlayerMovement : MonoBehaviour
         {
             goesBack = true;
         }
-
+/*
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.D))
         {
             rotateMove = true;
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -95,18 +97,17 @@ public class PlayerMovement : MonoBehaviour
             goesBack = false;
         }
         else if (playerMovementInput.magnitude >= 0.1f)
-        {
+        {/*
             if (rotateMove)
             {
                 transform.Rotate(0f, playerMovementInput.x * sensitivity, 0f);
-            }
+            }*/
             float targetAngle = Mathf.Atan2(playerMovementInput.x, playerMovementInput.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * speed;
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
-
         }
 
         if (canJump)

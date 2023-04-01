@@ -33,19 +33,5 @@ public class CubeBehivor : MonoBehaviour
         EventManager.NewBox -= EventManagerOnBoxStucked;
     }
 
-
-    void Update()
-    {/*
-        if (box.transform.position.x >= 16.7)
-        {
-            Rigidbody newbox;
-            newbox = Instantiate(box, startPosition.position, Quaternion.identity);
-        }*/
-    }
-/*
-    void NewObject()
-    {
-        Instantiate(box, startPosition.position, Quaternion.identity);
-    }*/
 }
 
