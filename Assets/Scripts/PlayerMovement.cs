@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +7,7 @@ using static EventManager;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    
     [SerializeField] private float speed = 6f;
     [SerializeField] private float jumpForce;
     [SerializeField] private float sensitivity;
@@ -64,9 +64,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.D))
         {
             rotateMove = true;
-        }*/
+        }*//*
     }
-
     private void FixedUpdate()
     {
         MovePlayer();
@@ -104,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
             if (rotateMove)
             {
                 transform.Rotate(0f, playerMovementInput.x * sensitivity, 0f);
-            }*/
+            }*//*
             float targetAngle = Mathf.Atan2(playerMovementInput.x, playerMovementInput.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -131,5 +130,5 @@ public class PlayerMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-    }*/
-}
+    }
+}*/
