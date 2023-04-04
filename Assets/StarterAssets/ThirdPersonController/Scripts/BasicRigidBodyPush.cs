@@ -10,6 +10,8 @@ public class BasicRigidBodyPush : MonoBehaviour
     {
         
         Rigidbody body = hit.collider.attachedRigidbody;
+        Animator _animator = hit.controller.GetComponentInParent<Animator>();
+
         // no rigidbody
         if (body == null || body.isKinematic)
         {
@@ -36,6 +38,8 @@ public class BasicRigidBodyPush : MonoBehaviour
 
         // Apply the push
         body.velocity = pushDir * pushPower;
+        _animator.SetBool("IsPushing", true);
+
     }
 
 }
