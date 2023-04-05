@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class BasicRigidBodyPush : MonoBehaviour
 {
 
     // this script pushes all rigidbodies with tag pushable that the character touches
     float pushPower = 2.0f;
-
+    private Animator _animator;
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         
         Rigidbody body = hit.collider.attachedRigidbody;
-        Animator _animator = hit.controller.GetComponentInParent<Animator>();
+        _animator = hit.controller.GetComponentInParent<Animator>();
 
         // no rigidbody
         if (body == null || body.isKinematic)
@@ -39,7 +40,16 @@ public class BasicRigidBodyPush : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower;
         _animator.SetBool("IsPushing", true);
+        print("Box Hit");
 
+        OnTriggerExit(hit.collider);
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _animator.SetBool("IsPushing", false);
+        print("Box Exit");
     }
 
 }
