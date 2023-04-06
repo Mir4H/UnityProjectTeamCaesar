@@ -8,11 +8,6 @@ public class Triggers : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collision)
     {
-        void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
 
         if (collision.gameObject.tag == "goal")
         {
