@@ -35,10 +35,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        interactionInput.action.performed += Interact;
+        interactionInput.action.performed += LiftDrop;
     }
 
-    private void Interact(InputAction.CallbackContext obj)
+    private void LiftDrop(InputAction.CallbackContext obj)
     {
         if (hit.collider != null && inHandItem == null)
         {

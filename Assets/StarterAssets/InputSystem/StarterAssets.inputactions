@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "LiftDrop",
                     "type": "Button",
                     "id": "bd12478c-2e8e-4e51-b48f-9bc393f7d225",
                     "expectedControlType": "Button",
@@ -231,11 +231,11 @@
                 {
                     "name": "",
                     "id": "287016e2-0300-4064-bdd0-e9d6a1d19b35",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "LiftDrop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
