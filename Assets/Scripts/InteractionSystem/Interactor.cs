@@ -7,9 +7,12 @@ public class Interactor : MonoBehaviour
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.25f;
     [SerializeField] private LayerMask _interactableMask;
+    [SerializeField] private InteractionPromptUI _interactionPromptUI;
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numFound;
+
+    private IInteractable _interactable;
 
     private void Update()
     {
@@ -17,12 +20,20 @@ public class Interactor : MonoBehaviour
 
         if (_numFound > 0)
         {
-            var interactable = _colliders[0].GetComponent<IInteractable>();
+            _interactable = _colliders[0].GetComponent<IInteractable>();
 
-            if (interactable != null && Input.GetKeyDown(KeyCode.E))
+            if (_interactable != null)
             {
-                interactable.Interact(this);
+                if (!_interactionPromptUI.IsDisplayed) _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
+
+                if (Input.GetKeyDown(KeyCode.E)) _interactable.Interact(this);
             } 
+        }
+
+        else
+        {
+            if (_interactable != null) _interactable = null;
+            if (_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
         }
     }
 
