@@ -12,7 +12,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM 
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviour
+    public class ThirdPersonController : MonoBehaviour, IDataPersistence
     {
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -133,6 +133,18 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+        }
+
+        // Loading player position
+        public void LoadData(GameData data)
+        {
+            this.transform.position = data.playerPosition;
+        }
+
+        // Saving player position
+        public void SaveData(ref  GameData data)
+        {
+            data.playerPosition = this.transform.position;
         }
 
         private void Start()

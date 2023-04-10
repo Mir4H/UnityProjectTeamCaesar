@@ -39,18 +39,23 @@ public class BasicRigidBodyPush : MonoBehaviour
 
         // Apply the push
         body.velocity = pushDir * pushPower;
+        
+        /*
         _animator.SetBool("IsPushing", true);
         print("Box Hit");
 
         OnTriggerExit(hit.collider);
+        */
 
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
         _animator.SetBool("IsPushing", false);
         print("Box Exit");
     }
+    */
 
 }
 
