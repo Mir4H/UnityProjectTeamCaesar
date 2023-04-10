@@ -11,6 +11,7 @@ TagManager:
   - ChooseDoor
   - Pushable
   - Pickable
+  - PointOfInterest
   layers:
   - Default
   - TransparentFX

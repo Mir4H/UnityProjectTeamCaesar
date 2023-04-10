@@ -14,4 +14,5 @@ public static class EventManager
 
     public static void OnFinishSuccess() => Success?.Invoke();
     public static void OnBoxStucked() => NewBox?.Invoke();
+
 }

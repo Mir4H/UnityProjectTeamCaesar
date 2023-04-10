@@ -138,8 +138,8 @@ namespace StarterAssets
         private void Start()
         {
             //lockmouse
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+           // Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
 
 
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
