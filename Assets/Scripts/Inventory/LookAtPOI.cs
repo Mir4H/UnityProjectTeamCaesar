@@ -56,7 +56,7 @@ public class LookAtPOI : MonoBehaviour
         {
             Debug.Log("Collected");
             collectableItem.TryGetComponent<ItemObject>(out ItemObject item);
-            item.OnHandlePickupItem();
+            item.OnHandlePickupItem(GetComponent<InventoryHolder>());
         }
     }
 }

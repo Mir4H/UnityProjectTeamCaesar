@@ -4,14 +4,23 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 public class InventoryBarScript : MonoBehaviour
 {
     public GameObject m_slotPrefab;
+    [SerializeField] private InventoryHolder inventoryHolder;
+    private InventorySystem inventorySystem;
+
     private void Start()
     {
         gameObject.SetActive(false);
-        InventorySystem.current.OnInventoryChanged += OnUpdateInventory;
+        if (inventoryHolder != null)
+        {
+            inventorySystem = inventoryHolder.InventorySystem;
+            inventorySystem.OnInventoryChanged += OnUpdateInventory;
+        }
+        else Debug.LogWarning($"No Inventory System assigner to {this.gameObject}");
     }
 
     private void OnUpdateInventory()
@@ -32,10 +41,11 @@ public class InventoryBarScript : MonoBehaviour
 
     private void DrawInventory()
     {
-        foreach(InventoryItem item in InventorySystem.current.inventory)
-        {
-            AddInventorySlot(item);
-        }
+        foreach(InventoryItem item in inventorySystem.Inventory)
+         {
+             AddInventorySlot(item);
+         }
+
     }
 
     public void AddInventorySlot(InventoryItem item)

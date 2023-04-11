@@ -7,6 +7,7 @@ public static class EventManager
     public static event UnityAction<float> TimerUpdate;
     public static event UnityAction Success;
     public static event UnityAction NewBox;
+    public static event UnityAction OpenInventory;
 
     public static void OnTimerStart() => TimerStart?.Invoke();
     public static void OnTimerStop() => TimerStop?.Invoke();
@@ -14,5 +15,7 @@ public static class EventManager
 
     public static void OnFinishSuccess() => Success?.Invoke();
     public static void OnBoxStucked() => NewBox?.Invoke();
+
+    public static void OnOpenInventory() => OpenInventory?.Invoke();
 
 }
