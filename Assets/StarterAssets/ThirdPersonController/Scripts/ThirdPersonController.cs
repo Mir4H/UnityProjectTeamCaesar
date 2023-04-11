@@ -142,7 +142,7 @@ namespace StarterAssets
         }
 
         // Saving player position
-        public void SaveData(ref  GameData data)
+        public void SaveData(GameData data)
         {
             data.playerPosition = this.transform.position;
         }
