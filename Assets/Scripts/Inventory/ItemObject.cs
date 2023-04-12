@@ -14,4 +14,10 @@ public class ItemObject : MonoBehaviour
         //InventorySystem.current.Add(referenceItem);
         Destroy(gameObject);
     }
+
+    public void OnHandleDeleteItem(InventoryHolder inventory)
+    {
+        Debug.Log("Deleted it fro inventory");
+        inventory.InventorySystem.Remove(referenceItem);
+    }
 }

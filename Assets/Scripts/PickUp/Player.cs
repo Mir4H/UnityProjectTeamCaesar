@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -33,9 +35,49 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float pickupForce = 150.0f;
 
+    [SerializeField] private GameObject rustyKey;
+    [SerializeField] private GameObject goldKey;
+    [SerializeField] private GameObject scroll;
+    private GameObject selectedObject;
+
     private void Start()
     {
         interactionInput.action.performed += LiftDrop;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.GetInventoryItem += EventManagerOnGetInventoryItem;
+    }
+
+    private void EventManagerOnGetInventoryItem(string name)
+    {
+        GameObject inventoryItem;
+
+        if (name == "Rusty Key")
+        {
+            selectedObject = rustyKey;
+        }
+        if (name == "Gold Key")
+        {
+            selectedObject = goldKey;
+        }
+        if(name == "Scroll")
+        {
+            selectedObject = scroll;
+        }
+        if (selectedObject != null)
+        {
+            inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
+            PickupObject(inventoryItem);
+            inventoryItem.TryGetComponent<ItemObject>(out ItemObject item);
+            item.OnHandleDeleteItem(GetComponent<InventoryHolder>());
+        }
+    }
+
+    private void OnDisable()
+    {
+        EventManager.GetInventoryItem -= EventManagerOnGetInventoryItem;
     }
 
     private void LiftDrop(InputAction.CallbackContext obj)
@@ -47,7 +89,14 @@ public class Player : MonoBehaviour
         }
         else
         {
-            DropObject();
+            if(inHandItem != null)
+            {
+                DropObject();
+            }
+            else
+            {
+                return;
+            }
         }
         if (inHandItem != null)
         {

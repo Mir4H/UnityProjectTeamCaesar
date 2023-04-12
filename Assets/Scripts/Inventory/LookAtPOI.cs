@@ -54,9 +54,10 @@ public class LookAtPOI : MonoBehaviour
     {
         if(useLookAt && collectableItem != null)
         {
-            Debug.Log("Collected");
+            Debug.Log(collectableItem.ToString());
             collectableItem.TryGetComponent<ItemObject>(out ItemObject item);
             item.OnHandlePickupItem(GetComponent<InventoryHolder>());
         }
+        return;
     }
 }
