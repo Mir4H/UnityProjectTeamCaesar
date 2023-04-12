@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
             heldObjRB.transform.parent = pickUpParent;
             heldObjRB.drag = 5;
             inHandItem = pickObj;
+            inHandItem.tag = "Pickable";
         }
     }
 
@@ -134,6 +135,9 @@ public class Player : MonoBehaviour
 
     void DropObject()
     {
+        Debug.Log(inHandItem.tag);
+        inHandItem.tag = "PointOfInterest";
+        Debug.Log(inHandItem.tag);
         heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
         heldObjRB.constraints = RigidbodyConstraints.None;

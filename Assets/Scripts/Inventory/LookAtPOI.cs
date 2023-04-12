@@ -28,8 +28,7 @@ public class LookAtPOI : MonoBehaviour
             pickUpUI.SetActive(true);
             _targetPosition = collision.transform.position;
             useLookAt = true;
-            collectableItem = collision.gameObject;
-            
+            collectableItem = collision.gameObject; 
         }
     }
 

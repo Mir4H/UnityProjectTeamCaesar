@@ -509,6 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &284658113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,6 +892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &363656081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,7 +1472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575913981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.081, y: 1.643, z: 0.423}
+  m_LocalPosition: {x: 0.091, y: 1.643, z: 0.487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1555,6 +1563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &605235668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4909,6 +4921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &1753871770
 MonoBehaviour:
   m_ObjectHideFlags: 0
