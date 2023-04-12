@@ -20,5 +20,9 @@ public class SelectingInventoryItem : MonoBehaviour
         var allKids = GetComponentsInChildren<Transform>();
         var kid = allKids.Where(k => k.gameObject.name == "Label").FirstOrDefault();
         Debug.Log(kid.GetComponent<TextMeshProUGUI>().text);
+        EventManager.OnGetInventoryItem(kid.GetComponent<TextMeshProUGUI>().text);
+        EventManager.OnCloseInventory();
+
     }
+
 }
