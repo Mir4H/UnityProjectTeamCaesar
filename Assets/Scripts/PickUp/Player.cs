@@ -68,11 +68,16 @@ public class Player : MonoBehaviour
         }
         if (selectedObject != null)
         {
+            if(inHandItem != null)
+            {
+                DropObject();
+            }
             inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
             PickupObject(inventoryItem);
             inventoryItem.TryGetComponent<ItemObject>(out ItemObject item);
             item.OnHandleDeleteItem(GetComponent<InventoryHolder>());
         }
+        return;
     }
 
     private void OnDisable()

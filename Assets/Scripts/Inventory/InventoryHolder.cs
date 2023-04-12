@@ -26,3 +26,18 @@ public class InventoryHolder : MonoBehaviour
         }
     }
 }
+
+[System.Serializable]
+public struct InventorySaveData
+{
+    public InventorySystem invSystem;
+    public Vector3 position;
+    public Quaternion rotation;
+
+    public InventorySaveData(InventorySystem _invSystem, Vector3 _position, Quaternion _rotation)
+    {
+        invSystem = _invSystem;
+        position = _position;
+        rotation = _rotation;
+    }
+}
