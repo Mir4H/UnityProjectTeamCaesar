@@ -51,18 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Collect",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "2a305906-62b7-4cf1-9a17-3dd69aa10d68",
+                    "id": "69e05861-74f1-4519-be2d-8d01bd837f14",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "Collect",
                     "type": "Button",
-                    "id": "69e05861-74f1-4519-be2d-8d01bd837f14",
+                    "id": "f4d80196-092b-40a9-9c52-eb96afca4ee0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -252,19 +252,8 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyboardMouse",
                     "action": "LiftDrop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c8b1f25d-e0a7-41b0-83dd-9d326b951fc7",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Collect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -287,6 +276,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1975ec4-cb7d-4ec4-a53f-383d257aa2d3",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Collect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

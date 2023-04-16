@@ -14,7 +14,7 @@ public class CanvasInventory : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OpenInventory += EventManagerOnOpenInventory;
+       EventManager.OpenInventory += EventManagerOnOpenInventory;
        EventManager.CloseInventory += EventManagerOnCloseInventory;
     }
 

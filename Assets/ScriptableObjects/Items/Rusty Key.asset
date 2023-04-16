@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71da1ca2c7ff99b479531554784770ef, type: 3}
-  m_Name: InventoryItem_GoldKey
+  m_Name: Rusty Key
   m_EditorClassIdentifier: 
-  id: InventoryItem_GoldKey
-  displayName: Gold Key
-  icon: {fileID: 21300000, guid: 9a215ab7776143e41adb561750d5733c, type: 3}
-  prefab: {fileID: 9076291542469164221, guid: f4e570d462737bc429f0510b07c6bc9e, type: 3}
+  Id: 2
+  name_id: InventoryItem_rustyKet
+  displayName: Rusty Key
+  icon: {fileID: 21300000, guid: bb2d66435f4a4e440aeea7fa5b3d2cc3, type: 3}
+  prefab: {fileID: 6640714216250622850, guid: 9a0a1962382196840ae7a25a6669941c, type: 3}

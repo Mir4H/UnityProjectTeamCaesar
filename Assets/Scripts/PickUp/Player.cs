@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
+
 
 public class Player : MonoBehaviour
 {
+    public InventorySystem inventory;
+
+
     [SerializeField]
     private LayerMask pickableLayerMask;
 
@@ -44,12 +47,12 @@ public class Player : MonoBehaviour
     {
         interactionInput.action.performed += LiftDrop;
     }
-
+    
     private void OnEnable()
     {
         EventManager.GetInventoryItem += EventManagerOnGetInventoryItem;
     }
-
+    
     private void EventManagerOnGetInventoryItem(string name)
     {
         GameObject inventoryItem;
@@ -60,7 +63,7 @@ public class Player : MonoBehaviour
         }
         if (name == "Gold Key")
         {
-            selectedObject = goldKey;
+            selectedObject = goldKey;    
         }
         if(name == "Scroll")
         {
@@ -73,9 +76,10 @@ public class Player : MonoBehaviour
                 DropObject();
             }
             inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
+            inventoryItem.GetComponent<ItemObject>().OnHandleDeleteItem();
             PickupObject(inventoryItem);
-            inventoryItem.TryGetComponent<ItemObject>(out ItemObject item);
-            item.OnHandleDeleteItem(GetComponent<InventoryHolder>());
+            inventoryItem.TryGetComponent<ItemCollectable>(out ItemCollectable item);
+            inventory.RemoveItem(item);
         }
         return;
     }

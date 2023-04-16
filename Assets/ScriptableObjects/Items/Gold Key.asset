@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71da1ca2c7ff99b479531554784770ef, type: 3}
-  m_Name: InventoryItem_Scroll
+  m_Name: Gold Key
   m_EditorClassIdentifier: 
-  id: InventoryItem_Scroll
-  displayName: Scroll
-  icon: {fileID: 21300000, guid: 771f9df0c43f23a43b8fa02d85f84f3e, type: 3}
-  prefab: {fileID: 1674123564090992897, guid: a9d95fa0a84eea04091076f1937358ed, type: 3}
+  Id: 0
+  name_id: InventoryItem_GoldKey
+  displayName: Gold Key
+  icon: {fileID: 21300000, guid: 9a215ab7776143e41adb561750d5733c, type: 3}
+  prefab: {fileID: 9076291542469164221, guid: f4e570d462737bc429f0510b07c6bc9e, type: 3}

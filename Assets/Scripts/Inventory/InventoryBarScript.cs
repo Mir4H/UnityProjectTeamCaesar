@@ -9,29 +9,27 @@ using UnityEngine.EventSystems;
 public class InventoryBarScript : MonoBehaviour
 {
     public GameObject m_slotPrefab;
-    [SerializeField] private InventoryHolder inventoryHolder;
-    private InventorySystem inventorySystem;
+    public InventorySystem inventory;
 
     private void Start()
     {
         gameObject.SetActive(false);
-        if (inventoryHolder != null)
-        {
-            inventorySystem = inventoryHolder.InventorySystem;
-            inventorySystem.OnInventoryChanged += OnUpdateInventory;
-        }
-        else Debug.LogWarning($"No Inventory System assigner to {this.gameObject}");
+        inventory.OnInventoryChanged += OnUpdateInventory;
     }
 
-    private void OnUpdateInventory()
+    private void OnUpdateInventory(bool show)
     {
-        gameObject.SetActive(true);
         foreach (Transform t in transform)
         {
             Destroy(t.gameObject);
         }
-        DrawInventory();
-        Invoke("HideInventory", 2f);
+            DrawInventory();
+        if (show)
+        {
+            gameObject.SetActive(true);
+            Invoke("HideInventory", 1f);
+        }
+        
     }
 
     void HideInventory()
@@ -41,7 +39,7 @@ public class InventoryBarScript : MonoBehaviour
 
     private void DrawInventory()
     {
-        foreach(InventoryItem item in inventorySystem.Inventory)
+        foreach(InventoryItem item in inventory.Container.Items)
          {
              AddInventorySlot(item);
          }
@@ -54,7 +52,7 @@ public class InventoryBarScript : MonoBehaviour
         obj.transform.SetParent(transform, false);
 
         SlotItemScript slot = obj.GetComponent<SlotItemScript>();
-        slot.Set(item);
+        slot.Set(item, inventory);
     }
 
 }

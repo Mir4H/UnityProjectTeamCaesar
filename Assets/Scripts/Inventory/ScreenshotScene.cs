@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
-
+#if UNITY_EDITOR
 public class ScreenshotScene : MonoBehaviour
 {
     private Camera _camera;
@@ -68,11 +68,11 @@ public class ScreenshotScene : MonoBehaviour
 
             yield return null;
 
-            TakeScreenshot($"{Application.dataPath}/Icons/{data.id}_Icon.png");
+            TakeScreenshot($"{Application.dataPath}/Icons/{data.name_id}_Icon.png");
             
             yield return null;
             obj.gameObject.SetActive(false);
-            Sprite s = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Icons/{data.id}_Icon.png");
+            Sprite s = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Icons/{data.name_id}_Icon.png");
             if (s != null )
             {
                 data.icon = s;
@@ -83,3 +83,4 @@ public class ScreenshotScene : MonoBehaviour
         }
     }
 }
+#endif

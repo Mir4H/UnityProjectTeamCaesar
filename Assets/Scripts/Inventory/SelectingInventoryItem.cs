@@ -1,8 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using System.Linq;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectingInventoryItem : MonoBehaviour
 { 
@@ -18,9 +17,9 @@ public class SelectingInventoryItem : MonoBehaviour
     {
         Debug.Log("You have clicked the button!");
         var allKids = GetComponentsInChildren<Transform>();
-        var kid = allKids.Where(k => k.gameObject.name == "Label").FirstOrDefault();
-        Debug.Log(kid.GetComponent<TextMeshProUGUI>().text);
-        EventManager.OnGetInventoryItem(kid.GetComponent<TextMeshProUGUI>().text);
+        var label = allKids.Where(k => k.gameObject.name == "Label").FirstOrDefault();
+        Debug.Log(label.GetComponent<TextMeshProUGUI>().text);
+        EventManager.OnGetInventoryItem(label.GetComponent<TextMeshProUGUI>().text);
         EventManager.OnCloseInventory();
 
     }

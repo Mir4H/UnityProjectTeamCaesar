@@ -11,17 +11,16 @@ public class SlotItemScript : MonoBehaviour
     [SerializeField] private GameObject m_stackObj;
     [SerializeField] private TextMeshProUGUI m_stackLabel;
 
-    public void Set(InventoryItem item)
+    public void Set(InventoryItem item, InventorySystem inventory)
     {
-
-        m_icon.sprite = item.data.icon;
-        m_label.text = item.data.displayName;
-        if(item.stackSize <= 1)
+        m_icon.sprite = inventory.database.GetItem[item.ID].icon;
+        m_label.text = inventory.database.GetItem[item.ID].displayName;
+        if(item.StackSize <= 1)
         {
             m_stackObj.SetActive(false);
             return;
         }
-        m_stackLabel.text = item.stackSize.ToString();
+        m_stackLabel.text = item.StackSize.ToString();
     }
-
+    
 }

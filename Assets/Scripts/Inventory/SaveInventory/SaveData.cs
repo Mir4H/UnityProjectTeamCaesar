@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SaveData
 {
-    public Serializable<string, InventorySaveData> inventoryDictionary;
+    public List<string> collectedItems;
+    public Serializable<string, ItemPickUpSaveData> activeItems;
 
     public SaveData()
     {
-        inventoryDictionary = new Serializable<string, InventorySaveData> ();
+        collectedItems = new List<string>();
+        activeItems = new Serializable<string, ItemPickUpSaveData>();
     }
 }
