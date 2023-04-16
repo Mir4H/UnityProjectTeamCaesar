@@ -1,6 +1,7 @@
 ﻿ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -135,9 +136,11 @@ namespace StarterAssets
             }
         }
 
+        
         // Loading player position
         public void LoadData(GameData data)
         {
+            Debug.Log("Getting new position " + data.playerPosition);
             this.transform.position = data.playerPosition;
         }
 
@@ -178,6 +181,12 @@ namespace StarterAssets
             GroundedCheck();
             JumpAndGravity();
             Move();
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                DataPersistenceManager.instance.SaveGame();
+                SceneManager.LoadSceneAsync("MainMenu");
+            }
         }
 
         private void LateUpdate()
