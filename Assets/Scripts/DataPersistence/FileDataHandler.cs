@@ -101,6 +101,8 @@ public class FileDataHandler
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
+
+        GUIUtility.systemCopyBuffer = fullPath;
     }
 
     public Dictionary<string, GameData> LoadAllProfiles()
