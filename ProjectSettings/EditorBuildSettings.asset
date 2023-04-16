@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SceneTwo.unity
     guid: ed0a2a9770eb8454b8fe8e5d3f274b46
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 7a2f9dc24f1cb6f44b8cf82aba084c17
   - enabled: 0
     path: Assets/Scenes/InteractScene.unity
     guid: 0471735f651173947b57f8cee43b7100
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InventoryScenne.unity
     guid: ec432034f7178a34595ee6f3addb0ed5
   m_configObjects:
