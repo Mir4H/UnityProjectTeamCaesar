@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
         // Save the game anytime before a new scene
         DataPersistenceManager.instance.SaveGame();
         // Load the next scene - which will in turn loat the game because of OnSceneLoaded() in the DataPersistenceManager
-        SceneManager.LoadSceneAsync("InteractScene");
+        SceneManager.LoadSceneAsync("SaveTestScene");
         Debug.Log("Continue from the last save");
     }
 

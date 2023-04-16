@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameData
 {
     public Vector3 playerPosition;
+    public Quaternion playerRotation;
     public long lastUpdated;
     public string lastScene;
     public SerializableDictionary<string, bool> itemsCollected;
@@ -18,6 +19,7 @@ public class GameData
     {
         // Here should be the player starting point value: -5.7, 0.2500001, -9.93
         playerPosition = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
+        playerRotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
         itemsCollected = new SerializableDictionary<string, bool>();
         scenesCompleted = new SerializableDictionary<string, bool>();
     }

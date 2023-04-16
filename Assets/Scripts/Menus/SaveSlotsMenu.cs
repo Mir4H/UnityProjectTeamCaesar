@@ -37,7 +37,7 @@ public class SaveSlotsMenu : MonoBehaviour
 
         DataPersistenceManager.instance.SaveGame();
         // Load the next scene - which will in turn loat the game because of OnSceneLoaded() in the DataPersistenceManager
-        SceneManager.LoadSceneAsync("InteractScene");
+        SceneManager.LoadSceneAsync("SaveTestScene");
     }
 
     public void OnBackClicked()

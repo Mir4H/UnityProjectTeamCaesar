@@ -140,14 +140,16 @@ namespace StarterAssets
         // Loading player position
         public void LoadData(GameData data)
         {
-            Debug.Log("Getting new position " + data.playerPosition);
+            Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
             this.transform.position = data.playerPosition;
+            this.transform.rotation = data.playerRotation;
         }
 
         // Saving player position
         public void SaveData(GameData data)
         {
             data.playerPosition = this.transform.position;
+            data.playerRotation = this.transform.rotation;
         }
 
         private void Start()
