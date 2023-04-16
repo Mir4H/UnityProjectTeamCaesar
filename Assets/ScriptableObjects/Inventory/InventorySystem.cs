@@ -3,10 +3,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Profiling;
 
 [CreateAssetMenu(menuName = "InventorySystem/Inventory")]
-public class InventorySystem :  ScriptableObject
+public class InventorySystem : ScriptableObject
 {
     public string savePath;
     public ItemDatabaseObject database;
@@ -15,14 +14,14 @@ public class InventorySystem :  ScriptableObject
 
     private void OnEnable()
     {
-        EventManager.LoadInventoryItems += Load;
-        EventManager.SaveInventoryItems += Save;
+        SaveInventoryManager.OnLoadInventoryItems += Load;
+        SaveInventoryManager.OnSaveInventoryItems += Save;
         SaveInventoryManager.OnClearInventoryItems += Clear;
     }
     private void OnDisable()
     {
-        EventManager.LoadInventoryItems -= Load;
-        EventManager.SaveInventoryItems -= Save;
+        SaveInventoryManager.OnLoadInventoryItems -= Load;
+        SaveInventoryManager.OnSaveInventoryItems -= Save;
         SaveInventoryManager.OnClearInventoryItems -= Clear;
     }
 
@@ -45,7 +44,7 @@ public class InventorySystem :  ScriptableObject
     {
         var itemToRemove = Container.Items.Find(item => item.ID == _item.item.Id);
 
-        if(itemToRemove.StackSize > 1)
+        if (itemToRemove.StackSize > 1)
         {
             itemToRemove.RemoveFromStack();
         }
@@ -57,13 +56,13 @@ public class InventorySystem :  ScriptableObject
     }
 
     [ContextMenu("Save")]
-    public void Save(string selectedProfileId)
+    public void Save()
     {
+
         string saveData = JsonUtility.ToJson(this, true);
         BinaryFormatter bf = new BinaryFormatter();
-        string fullPath = Path.Combine(Application.persistentDataPath, selectedProfileId, savePath);
-        FileStream file = File.Create(fullPath);
-        //GUIUtility.systemCopyBuffer = string.Concat(fullPath);
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        GUIUtility.systemCopyBuffer = string.Concat(Application.persistentDataPath, savePath);
         bf.Serialize(file, saveData);
         file.Close();
 
@@ -74,21 +73,20 @@ public class InventorySystem :  ScriptableObject
         stream.Close();*/
     }
     [ContextMenu("Load")]
-    public void Load(string selectedProfileId)
+    public void Load()
     {
-        if(File.Exists(string.Concat(Application.persistentDataPath, savePath))) 
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            string fullPath = Path.Combine(Application.persistentDataPath, selectedProfileId, savePath);
-            FileStream file = File.Open(fullPath, FileMode.Open);
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();
             OnInventoryChanged?.Invoke(false);
 
-           /* IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
-            Container = (InventoryUsed)formatter.Deserialize(stream);
-            stream.Close();*/
+            /* IFormatter formatter = new BinaryFormatter();
+             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
+             Container = (InventoryUsed)formatter.Deserialize(stream);
+             stream.Close();*/
         }
     }
     [ContextMenu("Clear")]

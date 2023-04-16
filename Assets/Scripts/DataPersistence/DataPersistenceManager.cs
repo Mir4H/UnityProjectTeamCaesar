@@ -115,7 +115,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-        EventManager.OnSaveInventoryItems(selectedProfileId);
     }
 
     public void SaveGame()
@@ -143,7 +142,6 @@ public class DataPersistenceManager : MonoBehaviour
         
         // Save that data to a file using the data handler
         dataHandler.Save(gameData, selectedProfileId);
-        EventManager.OnLoadInventoryItems(selectedProfileId);
     }
 
 
