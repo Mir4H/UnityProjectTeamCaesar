@@ -87,14 +87,6 @@ public class InventoryHolderPlayer : MonoBehaviour
         {
             EventManager.OnOpenInventory();
         }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            inventory.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            inventory.Load();
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -105,7 +97,5 @@ public class InventoryHolderPlayer : MonoBehaviour
     {
             inventory.Container.Items.Clear();
     }
-
-
-         
+       
 }

@@ -4,8 +4,8 @@ using UnityEngine.Events;
 public class SaveInventoryManager : MonoBehaviour
 {
     public static SaveData data;
-    public static UnityAction OnSaveInventoryItems;
-    public static UnityAction OnLoadInventoryItems;
+   // public static UnityAction OnSaveInventoryItems;
+   // public static UnityAction OnLoadInventoryItems;
     public static UnityAction OnClearInventoryItems;
 
     private void Awake()
@@ -34,13 +34,13 @@ public class SaveInventoryManager : MonoBehaviour
     {
         var saveData = data;
         SaveLoad.Save(saveData);
-        OnSaveInventoryItems?.Invoke();
+      //  OnSaveInventoryItems?.Invoke();
     }
 
     private static void LoadData(SaveData _data)
     {
         data = _data;
-        OnLoadInventoryItems?.Invoke();
+       // OnLoadInventoryItems?.Invoke();
     }
 
     public static void TryLoadData()

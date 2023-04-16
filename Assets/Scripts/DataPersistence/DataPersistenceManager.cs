@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("Found more than one Data Persistence Manager in the scene. Destroying the newest one.");
+            Debug.LogWarning("Found more than one Data Persistence Manager in the scene. Destroying the newest one.");
             Destroy(this.gameObject);
             return;
         }
@@ -114,6 +115,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
+        EventManager.OnSaveInventoryItems(selectedProfileId);
     }
 
     public void SaveGame()
@@ -138,9 +140,10 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         gameData.lastUpdated = System.DateTime.Now.ToBinary();
-
+        
         // Save that data to a file using the data handler
         dataHandler.Save(gameData, selectedProfileId);
+        EventManager.OnLoadInventoryItems(selectedProfileId);
     }
 
 

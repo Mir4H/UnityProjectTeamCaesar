@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Profiling;
 
 [CreateAssetMenu(menuName = "InventorySystem/Inventory")]
 public class InventorySystem :  ScriptableObject
@@ -14,14 +15,14 @@ public class InventorySystem :  ScriptableObject
 
     private void OnEnable()
     {
-        SaveInventoryManager.OnLoadInventoryItems += Load;
-        SaveInventoryManager.OnSaveInventoryItems += Save;
+        EventManager.LoadInventoryItems += Load;
+        EventManager.SaveInventoryItems += Save;
         SaveInventoryManager.OnClearInventoryItems += Clear;
     }
     private void OnDisable()
     {
-        SaveInventoryManager.OnLoadInventoryItems -= Load;
-        SaveInventoryManager.OnSaveInventoryItems -= Save;
+        EventManager.LoadInventoryItems -= Load;
+        EventManager.SaveInventoryItems -= Save;
         SaveInventoryManager.OnClearInventoryItems -= Clear;
     }
 
@@ -56,13 +57,13 @@ public class InventorySystem :  ScriptableObject
     }
 
     [ContextMenu("Save")]
-    public void Save()
+    public void Save(string selectedProfileId)
     {
-
         string saveData = JsonUtility.ToJson(this, true);
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        GUIUtility.systemCopyBuffer = string.Concat(Application.persistentDataPath, savePath);
+        string fullPath = Path.Combine(Application.persistentDataPath, selectedProfileId, savePath);
+        FileStream file = File.Create(fullPath);
+        //GUIUtility.systemCopyBuffer = string.Concat(fullPath);
         bf.Serialize(file, saveData);
         file.Close();
 
@@ -73,12 +74,13 @@ public class InventorySystem :  ScriptableObject
         stream.Close();*/
     }
     [ContextMenu("Load")]
-    public void Load()
+    public void Load(string selectedProfileId)
     {
         if(File.Exists(string.Concat(Application.persistentDataPath, savePath))) 
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            string fullPath = Path.Combine(Application.persistentDataPath, selectedProfileId, savePath);
+            FileStream file = File.Open(fullPath, FileMode.Open);
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();
             OnInventoryChanged?.Invoke(false);
