@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -352,6 +352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &284658113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +638,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &363656081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,6 +1216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &605235668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3307,6 +3319,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d780173c250d334f80c9061373c8e4f, type: 3}
+--- !u!1 &1675539360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675539361}
+  - component: {fileID: 1675539363}
+  - component: {fileID: 1675539362}
+  m_Layer: 0
+  m_Name: CustomizableCharacter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675539361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675539360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1372240503680373450}
+  m_Father: {fileID: 6070909398562338783}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675539362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675539360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7713b781e7ac14e86ea499a49e25a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Customizations:
+  - DisplayName: ClothesColor
+    Renderers:
+    - {fileID: 6652963949382243755}
+    - {fileID: 7192337480795216854}
+    Materials:
+    - {fileID: 2100000, guid: bf37835e30684f34c907d5def8742de2, type: 2}
+    - {fileID: 2100000, guid: bbb254b5eb7877244b85c6b47922a37e, type: 2}
+    - {fileID: 2100000, guid: 08a4341cc3f29d34198aab8c6b0af4d0, type: 2}
+    - {fileID: 2100000, guid: 101a21d75e38e3f45b2acb43c571b045, type: 2}
+    SubObjects: []
+  - DisplayName: Beard
+    Renderers:
+    - {fileID: 0}
+    Materials:
+    - {fileID: 0}
+    - {fileID: 0}
+    SubObjects: []
+  - DisplayName: SkinTone
+    Renderers:
+    - {fileID: 790152363473087287}
+    - {fileID: 9167352545135828024}
+    - {fileID: 8806433639255690046}
+    Materials:
+    - {fileID: 2100000, guid: 95fcf9331ca635c459a201f2c56f44dc, type: 2}
+    - {fileID: 2100000, guid: 4e725870ad6ca4049ae2d37c25fa5906, type: 2}
+    SubObjects: []
+--- !u!114 &1675539363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675539360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7713b781e7ac14e86ea499a49e25a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Customizations: []
 --- !u!1 &1682832945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,6 +3603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7203476d0c81524085d28fe22286507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &1753871770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6112,7 +6214,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747675773045950576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6121,7 +6223,7 @@ Transform:
   - {fileID: 2343364378860778997}
   - {fileID: 71375491423604348}
   - {fileID: 926523442}
-  m_Father: {fileID: 6070909398562338783}
+  m_Father: {fileID: 1675539361}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391566590402434529
@@ -10362,7 +10464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1372240503680373450}
+  - {fileID: 1675539361}
   m_Father: {fileID: 957631510236623629}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
