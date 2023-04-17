@@ -183,12 +183,12 @@ namespace StarterAssets
             GroundedCheck();
             JumpAndGravity();
             Move();
-
+            /*
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 DataPersistenceManager.instance.SaveGame();
                 SceneManager.LoadSceneAsync("MainMenu");
-            }
+            }*/
         }
 
         private void LateUpdate()

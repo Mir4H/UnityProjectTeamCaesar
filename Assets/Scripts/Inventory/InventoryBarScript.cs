@@ -13,8 +13,12 @@ public class InventoryBarScript : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
-        inventory.OnInventoryChanged += OnUpdateInventory;
+        gameObject.SetActive(false);      
+    }
+
+    private void OnEnable()
+    {
+        InventorySystem.OnInventoryChanged += OnUpdateInventory;
     }
 
     private void OnUpdateInventory(bool show)
@@ -23,7 +27,7 @@ public class InventoryBarScript : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
-            DrawInventory();
+        DrawInventory();
         if (show)
         {
             gameObject.SetActive(true);
@@ -54,5 +58,10 @@ public class InventoryBarScript : MonoBehaviour
         SlotItemScript slot = obj.GetComponent<SlotItemScript>();
         slot.Set(item, inventory);
     }
+    /*
+    private void OnDisable()
+    {
+        InventorySystem.OnInventoryChanged -= OnUpdateInventory;
+    }*/
 
 }

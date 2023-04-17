@@ -1,29 +1,13 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "InventorySystem/Inventory")]
 public class InventorySystem : ScriptableObject
 {
-    public string savePath;
     public ItemDatabaseObject database;
     public InventoryUsed Container;
-    public UnityAction<bool> OnInventoryChanged;
-
-    private void OnEnable()
-    {
-        SaveInventoryManager.OnLoadInventoryItems += Load;
-        SaveInventoryManager.OnSaveInventoryItems += Save;
-        SaveInventoryManager.OnClearInventoryItems += Clear;
-    }
-    private void OnDisable()
-    {
-        SaveInventoryManager.OnLoadInventoryItems -= Load;
-        SaveInventoryManager.OnSaveInventoryItems -= Save;
-        SaveInventoryManager.OnClearInventoryItems -= Clear;
-    }
+    public static UnityAction<bool> OnInventoryChanged;
 
     public void AddItem(Item _item)
     {
@@ -54,45 +38,10 @@ public class InventorySystem : ScriptableObject
         }
         OnInventoryChanged?.Invoke(false);
     }
-
-    [ContextMenu("Save")]
-    public void Save()
+    
+    public List<InventoryItem> getItems()
     {
-
-        string saveData = JsonUtility.ToJson(this, true);
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        GUIUtility.systemCopyBuffer = string.Concat(Application.persistentDataPath, savePath);
-        bf.Serialize(file, saveData);
-        file.Close();
-
-        /*
-        IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
-        formatter.Serialize(stream, Container);
-        stream.Close();*/
-    }
-    [ContextMenu("Load")]
-    public void Load()
-    {
-        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
-            file.Close();
-            OnInventoryChanged?.Invoke(false);
-
-            /* IFormatter formatter = new BinaryFormatter();
-             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
-             Container = (InventoryUsed)formatter.Deserialize(stream);
-             stream.Close();*/
-        }
-    }
-    [ContextMenu("Clear")]
-    public void Clear()
-    {
-        Container = new InventoryUsed();
+        return Container.Items;
     }
 }
 

@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InventoryHolderPlayer : MonoBehaviour
+public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
 {
     public InventorySystem inventory;
 
@@ -16,27 +19,116 @@ public class InventoryHolderPlayer : MonoBehaviour
     private bool useLookAt;
     private Vector3 _targetPosition;
 
+    [SerializeField]
+    private LayerMask pickableLayerMask;
+
+    [SerializeField]
+    private Transform playerCameraTransform;
+
+    [SerializeField]
+    [Min(1)]
+    private float hitRange = 2f;
+
+    [SerializeField]
+    private Transform pickUpParent;
+
+    [SerializeField]
+    private GameObject inHandItem;
+    private Rigidbody heldObjRB;
+
+    private RaycastHit hit;
+
+    [SerializeField] private float pickupForce = 150.0f;
+
+    [SerializeField] private GameObject rustyKey;
+    [SerializeField] private GameObject goldKey;
+    [SerializeField] private GameObject scroll;
+    private GameObject selectedObject;
+
+    public static SerializableDictionary<string, ItemPickUpSaveData> activeItems;
+
     private void Awake()
     {
-        SaveLoad.OnLoadInventory += LoadInventory;
+        activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
     }
 
-
-    private void LoadInventory(SaveData data)
+    public void SaveData(GameData data)
     {
-        var keysToDelete = new List<string>();
+        Debug.Log("Saving Inventory Items");
+        Debug.Log(inventory.Container.Items.Count.ToString());
+        data.inventoryItems = inventory.Container.Items;
+        data.activeItems = activeItems;
+        foreach (var item in activeItems)
+        {
+            Debug.Log(item.ToString());
+        }
+    }
+    
+    public void LoadData(GameData data)
+    {
+        inventory.Container.Items.Clear();
+        Debug.Log("Loading Inventory Items");
+        inventory.Container.Items = data.inventoryItems;
+        InventorySystem.OnInventoryChanged?.Invoke(false);
+        if (data.activeItems.Count > 0)
+        {
+            placeItems(data);
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventManager.GetInventoryItem += EventManagerOnGetInventoryItem;
+    }
+
+    private void EventManagerOnGetInventoryItem(string name)
+    {
+        GameObject inventoryItem;
+
+        if (name == "Rusty Key")
+        {
+            selectedObject = rustyKey;
+        }
+        if (name == "Gold Key")
+        {
+            selectedObject = goldKey;
+        }
+        if (name == "Scroll")
+        {
+            selectedObject = scroll;
+        }
+        if (selectedObject != null)
+        {
+            if (inHandItem != null)
+            {
+                DropObject();
+            }
+            inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
+            
+            PickupObject(inventoryItem);
+            inventoryItem.TryGetComponent<ItemCollectable>(out ItemCollectable item);
+            inventory.RemoveItem(item);
+            inventoryItem.GetComponent<ItemObject>().OnHandleTakeItemFromInv();
+        }
+        return;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.GetInventoryItem -= EventManagerOnGetInventoryItem;
+    }
+
+    private void placeItems(GameData data)
+    {
+        UniqueID[] itemsWithIds = FindObjectsOfType<UniqueID>();
+
         foreach (KeyValuePair<string, ItemPickUpSaveData> entry in data.activeItems)
         {
-            var exists = FindObjectOfType<UniqueID>().ID == entry.Key;
-            if (!exists)
+            if (!(itemsWithIds.Any(x => x.ID == entry.Key)))
             {
+                Debug.Log("creating" + entry.Key);
                 Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);
-                keysToDelete.Add(entry.Key);
             }
-        }
-        foreach (string id in keysToDelete)
-        {
-            if (SaveInventoryManager.data.activeItems.ContainsKey(id)) SaveInventoryManager.data.activeItems.Remove(id);
         }
     }
 
@@ -58,17 +150,74 @@ public class InventoryHolderPlayer : MonoBehaviour
         collectableItem = null;
     }
 
+    void PickupObject(GameObject pickObj)
+    {
+        if (pickObj.GetComponent<Rigidbody>())
+        {
+            heldObjRB = pickObj.GetComponent<Rigidbody>();
+            heldObjRB.useGravity = false;
+            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+            heldObjRB.transform.parent = pickUpParent;
+            heldObjRB.drag = 5;
+            inHandItem = pickObj;
+            inHandItem.tag = "Pickable";
+        }
+    }
+
+    void MoveObject()
+    {
+        heldObjRB.velocity += (pickUpParent.transform.position + heldObjRB.position) * Time.deltaTime;
+        if (Vector3.Distance(inHandItem.transform.position, pickUpParent.position) > 0.1f)
+        {
+            Vector3 moveDirection = (pickUpParent.position - inHandItem.transform.position);
+            heldObjRB.AddForce(moveDirection * pickupForce);
+        }
+    }
+
+    void DropObject()
+    {
+        Debug.Log(inHandItem.tag);
+        inHandItem.tag = "PointOfInterest";
+        Debug.Log(inHandItem.tag);
+        heldObjRB.useGravity = true;
+        heldObjRB.drag = 1;
+        heldObjRB.constraints = RigidbodyConstraints.None;
+        heldObjRB.transform.parent = null;
+        inHandItem = null;
+    }
+
     private void Collect(InputAction.CallbackContext obj)
     {
         if (useLookAt && collectableItem != null)
         {
             var item = collectableItem.GetComponent<ItemCollectable>();
+            var uniqueId = collectableItem.GetComponent<UniqueID>().ID;
             if (item)
             {
                 inventory.AddItem(new Item(item.item));
                 collectableItem.GetComponent<ItemObject>().OnHandlePickupItem();
             }
             return;
+        }
+        if (hit.collider != null && inHandItem == null)
+        {
+            Debug.Log(hit.collider.name);
+            PickupObject(hit.collider.gameObject);
+        }
+        else
+        {
+            if (inHandItem != null)
+            {
+                DropObject();
+            }
+            else
+            {
+                return;
+            }
+        }
+        if (inHandItem != null)
+        {
+            MoveObject();
         }
         return;
     }
@@ -91,11 +240,33 @@ public class InventoryHolderPlayer : MonoBehaviour
         {
             Application.Quit();
         }
-    }
 
+        Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
+        if (hit.collider != null)
+        {
+            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
+            pickUpUI.SetActive(false);
+        }
+
+        if (inHandItem != null)
+        {
+            return;
+        }
+
+        if (Physics.Raycast(
+            playerCameraTransform.position,
+            playerCameraTransform.forward,
+            out hit,
+            hitRange,
+            pickableLayerMask))
+        {
+            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+            pickUpUI.SetActive(true);
+        }
+    }
+    /*
     private void OnApplicationQuit()
     {
-            inventory.Container.Items.Clear();
-    }
-       
+        inventory.Container.Items.Clear();
+    }*/
 }

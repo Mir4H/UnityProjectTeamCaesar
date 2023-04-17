@@ -1,52 +1,79 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [RequireComponent(typeof(UniqueID))]
-public class ItemObject : MonoBehaviour
+public class ItemObject : MonoBehaviour, IDataPersistence
 {
     private InventoryItemData referenceItem;
     private string uniqueId;
     private ItemPickUpSaveData itemSaveData;
-
+    
     public void Awake()
     {
         uniqueId = GetComponent<UniqueID>().ID;
         referenceItem = GetComponent<ItemCollectable>().item;
-        SaveLoad.OnLoadInventory += LoadInventory;
         itemSaveData = new ItemPickUpSaveData(referenceItem.Id, transform.position, transform.rotation);
     }
 
-    private void Start()
+    public void Start()
     {
+        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId))
+        {
+            InventoryHolderPlayer.activeItems[uniqueId] = itemSaveData;
+        }
+        else
+        {
+            InventoryHolderPlayer.activeItems.Add(uniqueId, itemSaveData);
+        }
         Debug.Log(uniqueId);
-        SaveInventoryManager.data.activeItems.Add(uniqueId, itemSaveData);
     }
 
-    private void LoadInventory(SaveData data)
+    public void SaveData(GameData data)
+    {
+        if (this == null)
+        {
+            if (!data.collectedItems.Contains(uniqueId))
+            {
+                data.collectedItems.Add(uniqueId);
+            }
+        }
+        else
+        {
+            data.collectedItems.Remove(uniqueId);
+        }
+    }
+
+    public void LoadData(GameData data)
     {
         if (data.collectedItems.Contains(uniqueId)) Destroy(this.gameObject);
-        if (data.activeItems.ContainsKey(uniqueId)) {
-            gameObject.transform.SetPositionAndRotation(data.activeItems[uniqueId].position, data.activeItems[uniqueId].rotation);
-        }
+    }
+    
+    public void OnHandlePickupItem()
+    {
+        Debug.Log("I collected it");
+        InventoryHolderPlayer.activeItems.Remove(uniqueId);
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
-        if (SaveInventoryManager.data.activeItems.ContainsKey(uniqueId)) SaveInventoryManager.data.activeItems.Remove(uniqueId);
-        SaveLoad.OnLoadInventory -= LoadInventory;
+        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId)) InventoryHolderPlayer.activeItems.Remove(uniqueId);
     }
 
-    public void OnHandlePickupItem()
-    {
-        Debug.Log("I collected it");
-        SaveInventoryManager.data.collectedItems.Add(uniqueId);
-        Destroy(gameObject);
-    }
-    public void OnHandleDeleteItem()
+    public void OnHandleTakeItemFromInv()
     {
         Debug.Log("Deleted it from inventory");
-        SaveInventoryManager.data.collectedItems.Remove(uniqueId);
+        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId))
+        {
+            InventoryHolderPlayer.activeItems[uniqueId] = itemSaveData;
+        }
+        else
+        {
+            InventoryHolderPlayer.activeItems.Add(uniqueId, itemSaveData);
+        }
     }
+
 }
 
 [System.Serializable]
