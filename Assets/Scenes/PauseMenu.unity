@@ -954,12 +954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed4e6c0df135bd4fb0524ecc0406bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveSlotsMenu: {fileID: 0}
-  continueButton: {fileID: 0}
-  saveGameButton: {fileID: 0}
-  restartLevelButton: {fileID: 0}
-  optionsButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  saveSlotsMenu: {fileID: 1344853566}
+  continueButton: {fileID: 1110117696}
+  saveGameButton: {fileID: 290045180}
+  restartLevelButton: {fileID: 2079295297}
+  optionsButton: {fileID: 1624503878}
+  quitButton: {fileID: 835678831}
 --- !u!1 &822877944
 GameObject:
   m_ObjectHideFlags: 0

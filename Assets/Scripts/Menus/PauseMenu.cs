@@ -38,8 +38,11 @@ public class PauseMenu : MonoBehaviour, IDataPersistence
 
     public void SaveGame()
     {
+        DataPersistenceManager.instance.SaveGame();
+        /*
         saveSlotsMenu.ActivateMenu(false);
         this.DeactivateMenu();
+        */
     }
 
     public void Continue()

@@ -60,7 +60,9 @@ public class MainMenu : MonoBehaviour, IDataPersistence
         // Save the game anytime before a new scene
         DataPersistenceManager.instance.SaveGame();
         // Load the scene where player was when pressing esc - which will in turn load the game because of OnSceneLoaded() in the DataPersistenceManager
-        SceneManager.LoadSceneAsync(currentSceneName);
+        //SceneManager.LoadSceneAsync(currentSceneName);
+
+        SceneManager.LoadSceneAsync("SaveTestScene");
         Debug.Log("Continue from the last save");
     }
 
