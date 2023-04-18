@@ -26,9 +26,13 @@ public class Triggers : MonoBehaviour, IDataPersistence
 
         if (collision.gameObject.tag == "goal")
         {
-            playedScene = SceneManager.GetActiveScene().name.ToString();
+            playedScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadSceneAsync("MovingBtwnScene");
+            
+            /*
             OnTimerStop();
             OnFinishSuccess();
+            */
 
         }
 

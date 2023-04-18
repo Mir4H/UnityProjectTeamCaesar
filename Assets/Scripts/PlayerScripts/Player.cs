@@ -232,7 +232,7 @@ public class Player : MonoBehaviour, IDataPersistence
             }
         }
 
-        interactable?.Interact(this);
+        //interactable?.Interact(this);
 
         if (inHandItem != null)
         {
@@ -288,7 +288,7 @@ public class Player : MonoBehaviour, IDataPersistence
             if (interactable != null)
             {
                 if (!interactionPromptUI.IsDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
-                //if (Input.GetKeyDown(KeyCode.E)) interactable.Interact(this);
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter)) interactable.Interact(this);
             }
         }
         if (numFound <= 0)

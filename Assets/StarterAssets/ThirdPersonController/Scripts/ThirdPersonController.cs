@@ -190,7 +190,7 @@ namespace StarterAssets
             
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
-                _currentScene = SceneManager.GetActiveScene().name.ToString();
+                _currentScene = SceneManager.GetActiveScene().name;
                 DataPersistenceManager.instance.SaveGame();
                 SceneManager.LoadSceneAsync("PauseMenu");
             }

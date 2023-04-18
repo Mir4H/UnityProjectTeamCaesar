@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
+    [SerializeField] private string doorSceneName;
+    [SerializeField] private int doorLevel;
 
-    [SerializeField] private bool hasKey;
+    [SerializeField] private bool canOpen = false;
+
+    public int numberOfKeys = 0;
 
     public string InteractionPrompt => _prompt;
+    
 
     public bool Interact(Player interactor)
     {
@@ -16,9 +22,14 @@ public class Door : MonoBehaviour, IInteractable
         //var inventory = interactor.GetComponent<Inventory>();
 
         //if (inventory == null) return false;
-
-        if (hasKey)
+        if (numberOfKeys >= doorLevel)
         {
+            canOpen = true;
+        }
+
+        if (canOpen)
+        {
+            SceneManager.LoadSceneAsync(doorSceneName);
             Debug.Log("Opening Door!");
             return true;
         }
