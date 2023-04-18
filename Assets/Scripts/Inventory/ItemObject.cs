@@ -52,13 +52,9 @@ public class ItemObject : MonoBehaviour, IDataPersistence
     public void OnHandlePickupItem()
     {
         Debug.Log("I collected it");
-        Player.activeItems.Remove(uniqueId);
-        Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
         if (Player.activeItems.ContainsKey(uniqueId)) Player.activeItems.Remove(uniqueId);
+        if (referenceItem.displayName == "Scroll") EventManager.OnShowStory();
+        Destroy(gameObject);
     }
 
     public void OnHandleTakeItemFromInv()

@@ -23,7 +23,7 @@ public class CanvasInventory : MonoBehaviour
         if (inventoryBar.activeSelf)
         {
             inventoryBar.SetActive(false);
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
         return;
     }

@@ -110,10 +110,11 @@ public class Player : MonoBehaviour, IDataPersistence
         }
         if (name == "Scroll")
         {
-            selectedObject = scroll;
+            EventManager.OnShowStory();
         }
         if (selectedObject != null)
         {
+            Time.timeScale = 1;
             if (inHandItem != null)
             {
                 DropObject();
