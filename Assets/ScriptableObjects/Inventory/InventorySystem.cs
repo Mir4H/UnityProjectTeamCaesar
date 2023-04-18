@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,12 +17,22 @@ public class InventorySystem : ScriptableObject
             if (Container.Items[i].Item.Id == _item.Id)
             {
                 Container.Items[i].AddToStack();
-                OnInventoryChanged?.Invoke(true);
+                if (_item.Name == "Scroll")
+                {
+                    EventManager.OnShowOneStory();
+                    OnInventoryChanged?.Invoke(false);
+                }
+                else OnInventoryChanged?.Invoke(true);
                 return;
             }
         }
         Container.Items.Add(new InventoryItem(_item.Id, _item));
-        OnInventoryChanged?.Invoke(true);
+        if (_item.Name == "Scroll")
+        {
+            EventManager.OnShowOneStory();
+            OnInventoryChanged?.Invoke(false);
+        }
+        else OnInventoryChanged?.Invoke(true);
     }
 
     public void RemoveItem(ItemCollectable _item)

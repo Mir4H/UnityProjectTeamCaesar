@@ -53,7 +53,7 @@ public class ItemObject : MonoBehaviour, IDataPersistence
     {
         Debug.Log("I collected it");
         if (Player.activeItems.ContainsKey(uniqueId)) Player.activeItems.Remove(uniqueId);
-        if (referenceItem.displayName == "Scroll") EventManager.OnShowStory();
+        //if (referenceItem.displayName == "Scroll") EventManager.OnShowOneStory();
         Destroy(gameObject);
     }
 

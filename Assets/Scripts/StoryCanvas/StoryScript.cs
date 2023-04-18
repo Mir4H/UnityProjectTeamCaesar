@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ public class StoryScript : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.ShowOneStory += ShowOneStory;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -38,8 +40,8 @@ public class StoryScript : MonoBehaviour
         {
             next.gameObject.SetActive(true);
             prev.gameObject.SetActive(true);
-
         }
+
         selectedItem = gameObject.transform.Find("Exit").gameObject.GetComponentInChildren<Button>();
         selectedItem.Select();
         selectedItem.OnSelect(null);
@@ -50,14 +52,26 @@ public class StoryScript : MonoBehaviour
         //Debug.Log(currentlyShown);
         if (currentlyShown > nroOfScrolls) currentlyShown = 1;
         if (currentlyShown < 1) currentlyShown = nroOfScrolls;
-        if (currentlyShown == 1) partOne.gameObject.SetActive(true); else partOne.gameObject.SetActive(false);
-        if (currentlyShown == 2) partTwo.gameObject.SetActive(true); else partTwo.gameObject.SetActive(false);
-        if (currentlyShown == 3) partThree.gameObject.SetActive(true); else partThree.gameObject.SetActive(false);
-        if (currentlyShown == 4) partFour.gameObject.SetActive(true); else partFour.gameObject.SetActive(false);
+        ShowStories(currentlyShown);
+    }
+
+    private void ShowOneStory()
+    {
+        ShowStories(nroOfScrolls);
+    }
+
+    private void ShowStories(int storynro)
+    {
+        if (storynro == 1) partOne.gameObject.SetActive(true); else partOne.gameObject.SetActive(false);
+        if (storynro == 2) partTwo.gameObject.SetActive(true); else partTwo.gameObject.SetActive(false);
+        if (storynro == 3) partThree.gameObject.SetActive(true); else partThree.gameObject.SetActive(false);
+        if (storynro == 4) partFour.gameObject.SetActive(true); else partFour.gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
+        Time.timeScale = 1;
+        EventManager.ShowOneStory -= ShowOneStory;
         next.gameObject.SetActive(false);
         prev.gameObject.SetActive(false);
         partOne.gameObject.SetActive(false);
@@ -65,5 +79,4 @@ public class StoryScript : MonoBehaviour
         partThree.gameObject.SetActive(false);
         partFour.gameObject.SetActive(false);
     }
-
 }
