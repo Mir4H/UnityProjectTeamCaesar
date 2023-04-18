@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour, IInteractable
 
     public string InteractionPrompt => _prompt;
 
-    public bool Interact(Interactor interactor)
+    public bool Interact(Player interactor)
     {
         //Tähän  mitä se interaktio tekee!!
 

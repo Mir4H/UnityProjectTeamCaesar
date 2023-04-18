@@ -6,16 +6,18 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
 
+    [SerializeField] private bool hasKey;
+
     public string InteractionPrompt => _prompt;
 
-    public bool Interact(Interactor interactor)
+    public bool Interact(Player interactor)
     {
         //Tähän  mitä se interaktio tekee!!
-        var inventory = interactor.GetComponent<Inventory>();
+        //var inventory = interactor.GetComponent<Inventory>();
 
-        if (inventory == null) return false;
+        //if (inventory == null) return false;
 
-        if (inventory.hasKey)
+        if (hasKey)
         {
             Debug.Log("Opening Door!");
             return true;

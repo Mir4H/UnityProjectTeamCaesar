@@ -5,7 +5,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
+public class Player : MonoBehaviour, IDataPersistence
 {
     public InventorySystem inventory;
 
@@ -13,6 +13,7 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
     [SerializeField] private Transform _lookAtTarget;
     [SerializeField] private float lookSpeed = 1f;
     [SerializeField] private GameObject pickUpUI;
+    [SerializeField] private GameObject collectUI;
     [SerializeField] InputActionReference interactionInput;
     private GameObject collectableItem;
 
@@ -46,6 +47,20 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
     private GameObject selectedObject;
 
     public static SerializableDictionary<string, ItemPickUpSaveData> activeItems;
+
+    //Interaction
+    [SerializeField] private Transform interactionPoint;
+    [SerializeField] private float interactionPointRadius = 0.25f;
+    [SerializeField] private LayerMask interactableMask;
+    [SerializeField] private InteractionPromptUI interactionPromptUI;
+
+    private readonly Collider[] colliders = new Collider[3];
+    [SerializeField] private int numFound;
+
+    private IInteractable interactable;
+
+
+
 
     private void Awake()
     {
@@ -132,12 +147,13 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
         }
     }
 
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "PointOfInterest")
         {
             Debug.Log("Seeing point of interest");
-            pickUpUI.SetActive(true);
+            collectUI.SetActive(true);
             _targetPosition = other.transform.position;
             useLookAt = true;
             collectableItem = other.gameObject;
@@ -160,7 +176,8 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
             heldObjRB.transform.parent = pickUpParent;
             heldObjRB.drag = 5;
             inHandItem = pickObj;
-            inHandItem.tag = "Pickable";
+            if (pickObj.tag == "PointOfInterest") inHandItem.tag = "Pickable";
+            if (pickObj.layer == 8) pickObj.layer = 10;
         }
     }
 
@@ -176,9 +193,8 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
 
     void DropObject()
     {
-        Debug.Log(inHandItem.tag);
-        inHandItem.tag = "PointOfInterest";
-        Debug.Log(inHandItem.tag);
+        if (inHandItem.tag == "Pickable") inHandItem.tag = "PointOfInterest";
+        if (inHandItem.layer == 10) inHandItem.layer = 8;
         heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
         heldObjRB.constraints = RigidbodyConstraints.None;
@@ -191,7 +207,7 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
         if (useLookAt && collectableItem != null)
         {
             var item = collectableItem.GetComponent<ItemCollectable>();
-            var uniqueId = collectableItem.GetComponent<UniqueID>().ID;
+            //var uniqueId = collectableItem.GetComponent<UniqueID>().ID;
             if (item)
             {
                 inventory.AddItem(new Item(item.item));
@@ -204,7 +220,7 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
             Debug.Log(hit.collider.name);
             PickupObject(hit.collider.gameObject);
         }
-        else
+        else if (hit.collider == null && inHandItem != null)
         {
             if (inHandItem != null)
             {
@@ -215,54 +231,96 @@ public class InventoryHolderPlayer : MonoBehaviour, IDataPersistence
                 return;
             }
         }
+
+        interactable?.Interact(this);
+
         if (inHandItem != null)
         {
             MoveObject();
         }
         return;
+
+
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);
+    }
+   /* 
+    private void DoInteraction()
+    {
+        interactable.Interact(this);
+    }*/
 
     private void Update()
     {
+        //collect item
         if (!useLookAt || !collectableItem)
         {
-            pickUpUI.SetActive(false);
+            collectUI.SetActive(false);
             _targetPosition = _parent.position + _parent.forward * 2f + new Vector3(0f, 2f, 0f);
         }
         _lookAtTarget.transform.position = Vector3.Lerp(_lookAtTarget.transform.position, _targetPosition, Time.deltaTime * lookSpeed);
         interactionInput.action.performed += Collect;
 
+        //open inventory
         if (Input.GetKeyDown(KeyCode.I))
         {
             EventManager.OnOpenInventory();
         }
+
+        //close app
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
 
+        //interaction
+        numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);
+        
+        if (numFound > 0)
+        {
+            interactable = colliders[0].GetComponent<IInteractable>();
+            
+            if (interactable != null)
+            {
+                if (!interactionPromptUI.IsDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
+                //if (Input.GetKeyDown(KeyCode.E)) interactable.Interact(this);
+            }
+        }
+        if (numFound <= 0)
+        {
+            if (interactable != null) interactable = null;
+            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+        }
+
+
+        //Lift item
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
         if (hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             pickUpUI.SetActive(false);
         }
-
+        /*
         if (inHandItem != null)
         {
             return;
-        }
+        }*/
 
         if (Physics.Raycast(
             playerCameraTransform.position,
             playerCameraTransform.forward,
             out hit,
             hitRange,
-            pickableLayerMask))
+            pickableLayerMask) && inHandItem == null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
             pickUpUI.SetActive(true);
         }
+
     }
     /*
     private void OnApplicationQuit()

@@ -18,13 +18,13 @@ public class ItemObject : MonoBehaviour, IDataPersistence
 
     public void Start()
     {
-        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId))
+        if (Player.activeItems.ContainsKey(uniqueId))
         {
-            InventoryHolderPlayer.activeItems[uniqueId] = itemSaveData;
+            Player.activeItems[uniqueId] = itemSaveData;
         }
         else
         {
-            InventoryHolderPlayer.activeItems.Add(uniqueId, itemSaveData);
+            Player.activeItems.Add(uniqueId, itemSaveData);
         }
         Debug.Log(uniqueId);
     }
@@ -52,25 +52,25 @@ public class ItemObject : MonoBehaviour, IDataPersistence
     public void OnHandlePickupItem()
     {
         Debug.Log("I collected it");
-        InventoryHolderPlayer.activeItems.Remove(uniqueId);
+        Player.activeItems.Remove(uniqueId);
         Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
-        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId)) InventoryHolderPlayer.activeItems.Remove(uniqueId);
+        if (Player.activeItems.ContainsKey(uniqueId)) Player.activeItems.Remove(uniqueId);
     }
 
     public void OnHandleTakeItemFromInv()
     {
         Debug.Log("Deleted it from inventory");
-        if (InventoryHolderPlayer.activeItems.ContainsKey(uniqueId))
+        if (Player.activeItems.ContainsKey(uniqueId))
         {
-            InventoryHolderPlayer.activeItems[uniqueId] = itemSaveData;
+            Player.activeItems[uniqueId] = itemSaveData;
         }
         else
         {
-            InventoryHolderPlayer.activeItems.Add(uniqueId, itemSaveData);
+            Player.activeItems.Add(uniqueId, itemSaveData);
         }
     }
 

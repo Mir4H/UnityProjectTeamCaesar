@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Interactor : MonoBehaviour
-{
+{/*
     [SerializeField] private Transform interactionPoint;
     [SerializeField] private float interactionPointRadius = 0.25f;
     [SerializeField] private LayerMask interactableMask;
@@ -48,5 +48,5 @@ public class Interactor : MonoBehaviour
     private void DoInteraction(InputAction.CallbackContext obj)
     {
         interactable.Interact(this);
-    }
+    }*/
 }
