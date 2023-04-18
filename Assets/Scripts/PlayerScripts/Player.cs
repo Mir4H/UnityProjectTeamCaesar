@@ -272,10 +272,11 @@ public class Player : MonoBehaviour, IDataPersistence
         }
 
         //close app
+        /*
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-        }
+        }*/
 
         //interaction
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);

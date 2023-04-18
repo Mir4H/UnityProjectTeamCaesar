@@ -23,17 +23,21 @@ public class InventoryBarScript : MonoBehaviour
 
     private void OnUpdateInventory(bool show)
     {
-        foreach (Transform t in transform)
+        if (this != null)
         {
-            Destroy(t.gameObject);
+            foreach (Transform t in transform)
+            {
+                Destroy(t.gameObject);
+            }
+
+
+            DrawInventory();
+            if (show)
+            {
+                gameObject.SetActive(true);
+                Invoke("HideInventory", 1f);
+            }
         }
-        DrawInventory();
-        if (show)
-        {
-            gameObject.SetActive(true);
-            Invoke("HideInventory", 1f);
-        }
-        
     }
 
     void HideInventory()
