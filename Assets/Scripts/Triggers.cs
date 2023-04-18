@@ -17,7 +17,7 @@ public class Triggers : MonoBehaviour, IDataPersistence
         if (playedScene != null)
         {
             data.scenesCompleted.Add(playedScene, true);
-            data.lastScene = playedScene;
+            data.lastFinishedScene = playedScene;
         }
     }
 

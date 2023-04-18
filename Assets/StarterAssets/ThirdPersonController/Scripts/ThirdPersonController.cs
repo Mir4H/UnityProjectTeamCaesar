@@ -99,6 +99,9 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        // datasaving
+        private string _currentScene;
+
         Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
         Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
@@ -150,6 +153,7 @@ namespace StarterAssets
         {
             data.playerPosition = this.transform.position;
             data.playerRotation = this.transform.rotation;
+            data.currentScene = _currentScene;
         }
 
         private void Start()
@@ -183,12 +187,13 @@ namespace StarterAssets
             GroundedCheck();
             JumpAndGravity();
             Move();
-            /*
-            if (Input.GetKeyDown(KeyCode.Escape))
+            
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
+                _currentScene = SceneManager.GetActiveScene().name.ToString();
                 DataPersistenceManager.instance.SaveGame();
-                SceneManager.LoadSceneAsync("MainMenu");
-            }*/
+                SceneManager.LoadSceneAsync("PauseMenu");
+            }
         }
 
         private void LateUpdate()

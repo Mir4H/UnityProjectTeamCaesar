@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SaveSlotsMenu : MonoBehaviour
+public class SaveSlotsMenu : MonoBehaviour, IDataPersistence
 {
     [Header("Menu Navigation")]
     [SerializeField] private MainMenu mainMenu;
@@ -16,10 +16,25 @@ public class SaveSlotsMenu : MonoBehaviour
 
     private bool isLoadingGame = false;
 
+    private string currentSceneName;
+
     private void Awake()
     {
         saveSlots = this.GetComponentsInChildren<SaveSlot>();
     }
+
+    // Getting current scene name
+    public void LoadData(GameData data)
+    {
+        currentSceneName = data.currentScene;
+    }
+
+    // No need to save anything
+    public void SaveData(GameData data)
+    {
+        //nothing
+    }
+
 
     public void OnSaveSlotClicked(SaveSlot saveSlot)
     {
@@ -37,7 +52,7 @@ public class SaveSlotsMenu : MonoBehaviour
 
         DataPersistenceManager.instance.SaveGame();
         // Load the next scene - which will in turn loat the game because of OnSceneLoaded() in the DataPersistenceManager
-        SceneManager.LoadSceneAsync("SaveTestScene");
+        SceneManager.LoadSceneAsync(currentSceneName);
     }
 
     public void OnBackClicked()

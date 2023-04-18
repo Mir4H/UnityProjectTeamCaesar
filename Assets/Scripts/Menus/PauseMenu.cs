@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour, IDataPersistence
+public class PauseMenu : MonoBehaviour, IDataPersistence
 {
     [Header("Menu Navigation")]
     [SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
-    [Header("Main Menu Buttons")]
+    [Header("Pause Menu Buttons")]
     [SerializeField] private Button continueButton;
-    [SerializeField] private Button newGameButton;
-    [SerializeField] private Button loadGameButton;
+    [SerializeField] private Button saveGameButton;
+    [SerializeField] private Button restartLevelButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button quitButton;
 
@@ -22,12 +22,6 @@ public class MainMenu : MonoBehaviour, IDataPersistence
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        if (!DataPersistenceManager.instance.HasGameData())
-        {
-            continueButton.gameObject.SetActive(false);
-            loadGameButton.gameObject.SetActive(false);
-        }
     }
 
     // Getting current scene name
@@ -42,15 +36,9 @@ public class MainMenu : MonoBehaviour, IDataPersistence
         //nothing
     }
 
-    public void NewGame()
+    public void SaveGame()
     {
         saveSlotsMenu.ActivateMenu(false);
-        this.DeactivateMenu();
-    }
-
-    public void LoadGame()
-    {
-        saveSlotsMenu.ActivateMenu(true);
         this.DeactivateMenu();
     }
 
@@ -58,10 +46,15 @@ public class MainMenu : MonoBehaviour, IDataPersistence
     {
         DisableMenuButtons();
         // Save the game anytime before a new scene
-        DataPersistenceManager.instance.SaveGame();
         // Load the scene where player was when pressing esc - which will in turn load the game because of OnSceneLoaded() in the DataPersistenceManager
         SceneManager.LoadSceneAsync(currentSceneName);
         Debug.Log("Continue from the last save");
+    }
+
+    public void RestartLevel()
+    {
+        DisableMenuButtons();
+        Debug.Log("Restarting level");
     }
 
     public void Options()
@@ -80,9 +73,9 @@ public class MainMenu : MonoBehaviour, IDataPersistence
     // Disabled all the buttons, meant to be used first after click to prevent from double clicks
     private void DisableMenuButtons()
     {
-        newGameButton.interactable = false;
+        saveGameButton.interactable = false;
+        restartLevelButton.interactable = false;
         continueButton.interactable = false;
-        loadGameButton.interactable = false;
         quitButton.interactable = false;
         optionsButton.interactable = false;
     }

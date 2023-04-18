@@ -103,6 +103,7 @@ public class FileDataHandler
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
 
+        // FOR DEVELOPING PURPOSES, DISABLE WHEN BUILDING FINAL GAME
         GUIUtility.systemCopyBuffer = fullPath;
     }
 

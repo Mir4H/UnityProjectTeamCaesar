@@ -38,7 +38,7 @@ public class SaveSlot : MonoBehaviour
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
 
-            currentSceneText.text = data.lastScene;
+            currentSceneText.text = data.currentScene;
             savingDateText.text = System.DateTime.Now.ToString();
         }
     }
