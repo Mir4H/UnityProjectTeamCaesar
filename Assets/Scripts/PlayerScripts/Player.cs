@@ -13,8 +13,7 @@ public class Player : MonoBehaviour, IDataPersistence
     [SerializeField] private Transform _parent;
     [SerializeField] private Transform _lookAtTarget;
     [SerializeField] private float lookSpeed = 1f;
-    [SerializeField] private GameObject pickUpUI;
-    [SerializeField] private GameObject collectUI;
+    [SerializeField] private ShowGuidance showGuidance;
     [SerializeField] InputActionReference interactionInput;
     private GameObject collectableItem;
 
@@ -161,7 +160,7 @@ public class Player : MonoBehaviour, IDataPersistence
         if (other.gameObject.tag == "PointOfInterest")
         {
             Debug.Log("Seeing point of interest");
-            collectUI.SetActive(true);
+            showGuidance.SetUpGuidance("Press E to Collect Item");
             _targetPosition = other.transform.position;
             useLookAt = true;
             collectableItem = other.gameObject;
@@ -286,7 +285,7 @@ public class Player : MonoBehaviour, IDataPersistence
         //collect item
         if (!useLookAt || !collectableItem)
         {
-            collectUI.SetActive(false);
+            showGuidance.CloseGuidance();
             _targetPosition = _parent.position + _parent.forward * 2f + new Vector3(0f, 2f, 0f);
         }
         _lookAtTarget.transform.position = Vector3.Lerp(_lookAtTarget.transform.position, _targetPosition, Time.deltaTime * lookSpeed);
@@ -330,7 +329,7 @@ public class Player : MonoBehaviour, IDataPersistence
         if (hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
-            pickUpUI.SetActive(false);
+            showGuidance.CloseGuidance();
         }
         /*
         if (inHandItem != null)
@@ -346,7 +345,7 @@ public class Player : MonoBehaviour, IDataPersistence
             pickableLayerMask) && inHandItem == null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-            pickUpUI.SetActive(true);
+            showGuidance.SetUpGuidance("Press E to Pick Up");
         }
 
     }
