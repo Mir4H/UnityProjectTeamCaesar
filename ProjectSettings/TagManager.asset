@@ -12,6 +12,7 @@ TagManager:
   - Pushable
   - Pickable
   - PointOfInterest
+  - level1a
   layers:
   - Default
   - TransparentFX
