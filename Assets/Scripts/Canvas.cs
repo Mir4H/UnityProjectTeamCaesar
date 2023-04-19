@@ -9,18 +9,17 @@ public class Canvas : MonoBehaviour
 {
     public GameObject gameOverMenu;
     public GameObject gameSuccessMenu;
-     public TextMeshProUGUI hint;
 
     void Start()
     {
         EventManager.OnTimerStart();
-        Invoke("DisableText", 5f);
+        //Invoke("DisableText", 5f);
     }
-
+    /*
     void DisableText()
     {
         hint.enabled = false;
-    }
+    }*/
 
     private void OnEnable()
     {

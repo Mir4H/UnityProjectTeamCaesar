@@ -57,6 +57,10 @@ public class PauseMenu : MonoBehaviour, IDataPersistence
     public void RestartLevel()
     {
         DisableMenuButtons();
+        // Setting save file to restart-file
+        DataPersistenceManager.instance.SetRestartLevel(true);
+        SceneManager.LoadSceneAsync(currentSceneName);
+        DataPersistenceManager.instance.SaveGame();
         Debug.Log("Restarting level");
     }
 

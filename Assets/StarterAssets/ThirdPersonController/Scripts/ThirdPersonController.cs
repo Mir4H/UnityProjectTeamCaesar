@@ -187,10 +187,12 @@ namespace StarterAssets
             GroundedCheck();
             JumpAndGravity();
             Move();
-            
+
+            // Get current scene for save-file
+            _currentScene = SceneManager.GetActiveScene().name;
+
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
-                _currentScene = SceneManager.GetActiveScene().name;
                 DataPersistenceManager.instance.SaveGame();
                 SceneManager.LoadSceneAsync("PauseMenu");
             }

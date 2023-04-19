@@ -12,7 +12,14 @@ public class FileDataHandler
     private string dataFileName = "";
 
     private bool useEncryption = false;
+
+    /*
+    private bool newPuzzleLevelStarted = false;
+    private bool restartInvoked = false;
+    */
+
     private readonly string encryptionCodeWord = "caesar";
+    private readonly string levelReStartExtension = ".restar";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
@@ -21,7 +28,7 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load(string profileId)
+    public GameData Load(string profileId, bool restartInvoked)
     {
         // Base case - if the profileId is null, return right away
         if (profileId == null)
@@ -34,6 +41,11 @@ public class FileDataHandler
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
+            if (restartInvoked)
+            {
+                AttemptRestartLevel(fullPath);
+            }
+
             try
             {
                 // Load the serialized data from the file
@@ -65,7 +77,7 @@ public class FileDataHandler
 
     }
 
-    public void Save(GameData data, string profileId)
+    public void Save(GameData data, string profileId, bool newPuzzleLevelStarted)
     {
         // Base case - if the profileId is null, return right away
         if (profileId == null)
@@ -75,6 +87,7 @@ public class FileDataHandler
         
         // Use Path.Combine to account for different OS'S having different path separators
         string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+        string levelStartFilePath = fullPath + levelReStartExtension;
         try
         {
             // Create the directory the file will be written to if it doesn't already exist
@@ -97,6 +110,13 @@ public class FileDataHandler
                     writer.Write(dataToStore);
                 }
             }
+
+            // See if we need to have a copy for restarting a level
+            if (newPuzzleLevelStarted)
+            {
+                File.Copy(fullPath, levelStartFilePath, true);
+                Debug.Log("Making restart file!");
+            }
         }
         catch (Exception e)
         {
@@ -105,6 +125,7 @@ public class FileDataHandler
 
         // FOR DEVELOPING PURPOSES, DISABLE WHEN BUILDING FINAL GAME
         GUIUtility.systemCopyBuffer = fullPath;
+        DataPersistenceManager.instance.SetNewLevel(false);
     }
 
     public Dictionary<string, GameData> LoadAllProfiles()
@@ -118,7 +139,7 @@ public class FileDataHandler
             string profileId = dirInfo.Name;
 
             // Defensive programming - Check if the data file exists
-            // If it doesn't, then this folder isnät a profile and should be skipped
+            // If it doesn't, then this folder isn't a profile and should be skipped
             string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
             if(!File.Exists(fullPath))
             {
@@ -127,7 +148,8 @@ public class FileDataHandler
             }
 
             // Load the game data for this profile and put it in the dictionary
-            GameData profileData = Load(profileId);
+            // REMOVE FALSE IF RESTART NOT WORKING!!!
+            GameData profileData = Load(profileId, false);
             // Defensive programming - Ensure the profile data isn't null
             //Because if it is the somthing went wrong and we should let ourselves know
             if (profileData != null)
@@ -191,4 +213,34 @@ public class FileDataHandler
         }
         return modifiedData;
     }
+
+    private bool AttemptRestartLevel (string fullPath)
+    {
+        bool success = false;
+
+        string restartFilePath = fullPath + levelReStartExtension;
+        try
+        {
+            // If the file exists, attempt to roll back to it by overwriting the original file
+            if (File.Exists(restartFilePath))
+            {
+                File.Copy(restartFilePath, fullPath, true);
+                success = true;
+                Debug.LogWarning("Restarted level, replaced savefile with level restart file.");
+            }
+            // Otherwise we don't have levelStartFile, so something hasn't worked
+            else
+            {
+                throw new Exception("Tried to load level restart file, but it doesn't exist.");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error occured when trying to load level restart file at: " 
+                + restartFilePath + "\n" + e);
+        }
+
+        return success;
+    }
+
 }
