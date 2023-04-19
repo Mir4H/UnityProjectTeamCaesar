@@ -48,7 +48,7 @@ public class SaveSlotsMenu : MonoBehaviour, IDataPersistence
         {
             // Create a new game - which will intialize our data to a clean slate
             DataPersistenceManager.instance.NewGame();
-            currentSceneName = "SaveTestScene";
+            currentSceneName = "MovingBtwnScene";
         }
 
         DataPersistenceManager.instance.SaveGame();

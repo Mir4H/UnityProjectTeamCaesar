@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
@@ -59,8 +60,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private IInteractable interactable;
 
-
-
+    private string playedScene;
 
     private void Awake()
     {
@@ -76,6 +76,13 @@ public class Player : MonoBehaviour, IDataPersistence
         foreach (var item in activeItems)
         {
             Debug.Log(item.ToString());
+        }
+
+        // Adding played scenes to savefile
+        if (playedScene != null)
+        {
+            data.scenesCompleted.Add(playedScene, true);
+            data.lastFinishedScene = playedScene;
         }
     }
     
@@ -158,6 +165,25 @@ public class Player : MonoBehaviour, IDataPersistence
             _targetPosition = other.transform.position;
             useLookAt = true;
             collectableItem = other.gameObject;
+        }
+
+        //TESTING MOVING GOAL TRIGGER
+        if (other.gameObject.tag == "goal")
+        {
+            playedScene = SceneManager.GetActiveScene().name;
+
+            SceneManager.LoadSceneAsync("MovingBtwnScene");
+
+            transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
+            transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
+
+            DataPersistenceManager.instance.SaveGame();
+
+            /*
+            OnTimerStop();
+            OnFinishSuccess();
+            */
+
         }
     }
 

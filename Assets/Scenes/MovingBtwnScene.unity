@@ -2511,9 +2511,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: Open another door wtih E
   doorSceneName: InventoryScenne
-  doorLevel: 2
+  doorLevel: 1
   canOpen: 0
-  numberOfKeys: 2
+  numberOfKeys: 1
 --- !u!65 &782844368
 BoxCollider:
   m_ObjectHideFlags: 0

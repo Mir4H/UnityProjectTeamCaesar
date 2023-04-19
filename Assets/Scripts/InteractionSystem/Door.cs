@@ -11,16 +11,14 @@ public class Door : MonoBehaviour, IInteractable
 
     [SerializeField] private bool canOpen = false;
 
-    public int numberOfKeys = 0;
+    [SerializeField] private int numberOfKeys;
 
     public string InteractionPrompt => _prompt;
-    
 
     public bool Interact(Player interactor)
     {
         //Tähän  mitä se interaktio tekee!!
         //var inventory = interactor.GetComponent<Inventory>();
-
         //if (inventory == null) return false;
         if (numberOfKeys >= doorLevel)
         {
