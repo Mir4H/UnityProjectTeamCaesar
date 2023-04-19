@@ -20,6 +20,8 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private bool useEncryption;
 
     private GameData gameData;
+    private bool newPuzzleLevelStarted = false;
+    private bool restartInvoked = false;
 
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
@@ -74,7 +76,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void ChangeSelectedProfileId(string newProfileId)
     {
-        // Update the proile to use for sacing and loading
+        // Update the proile to use for saving and loading
         this.selectedProfileId = newProfileId;
 
         // Load the game, which will use that profile, updating our game data accordingly
@@ -95,7 +97,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         // Load any saved data from a file using the data handler
-        this.gameData = dataHandler.Load(selectedProfileId);
+        this.gameData = dataHandler.Load(selectedProfileId, restartInvoked);
 
         // Start a new game if the data is null and we've configured to initialize data for debugging purposes
         if (this.gameData == null && initalizeDataIfNull)
@@ -115,6 +117,9 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
+
+        restartInvoked = false;
+        Debug.Log("State of restart invoked: " + restartInvoked);
     }
 
     public void SaveGame()
@@ -141,7 +146,8 @@ public class DataPersistenceManager : MonoBehaviour
         gameData.lastUpdated = System.DateTime.Now.ToBinary();
         
         // Save that data to a file using the data handler
-        dataHandler.Save(gameData, selectedProfileId);
+        dataHandler.Save(gameData, selectedProfileId, newPuzzleLevelStarted);
+        Debug.Log("State of new puzzlestarted: " + newPuzzleLevelStarted);
     }
 
 
@@ -168,4 +174,17 @@ public class DataPersistenceManager : MonoBehaviour
     {
         return dataHandler.LoadAllProfiles();
     }
+
+
+    // Testing restartfile
+    public void SetNewLevel(bool _newPuzzleLevelStarted)
+    {
+        newPuzzleLevelStarted = _newPuzzleLevelStarted;
+    }
+
+    public void SetRestartLevel(bool _restartInvoked)
+    {
+        restartInvoked = _restartInvoked;
+    }
+
 }

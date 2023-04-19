@@ -21,8 +21,7 @@ public class GameData
     public List<InventoryItem> inventoryItems;
 
 
-    // the values defined in this constructor will be the default values
-    // the game starts with when there's no data to load
+    // The values defined in this constructor will be the default values the game starts with when there's no data to load
     public GameData()
     {
         // Here should be the player starting point value: -5.7, 0.2500001, -9.93

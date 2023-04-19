@@ -30,6 +30,8 @@ public class Door : MonoBehaviour, IInteractable
         if (canOpen)
         {
             SceneManager.LoadSceneAsync(doorSceneName);
+            DataPersistenceManager.instance.SetNewLevel(true);
+            DataPersistenceManager.instance.SaveGame();
             Debug.Log("Opening Door!");
             return true;
         }
