@@ -23,7 +23,7 @@ public class Customizable : MonoBehaviour
     {
         SelectCustomizationWithUpDownArrows();
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) )
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             CurrentCustomization.NextMaterial();
             CurrentCustomization.NextSubObject();
@@ -36,7 +36,7 @@ public class Customizable : MonoBehaviour
             _currentCustomizationIndex++;
         if (Input.GetKeyDown(KeyCode.UpArrow))
             _currentCustomizationIndex--;
-        if(_currentCustomizationIndex < 0 )
+        if (_currentCustomizationIndex < 0)
             _currentCustomizationIndex = Customizations.Count - 1;
         if (_currentCustomizationIndex >= Customizations.Count)
             _currentCustomizationIndex = 0;
@@ -57,32 +57,32 @@ public class Customization
     int _materialIndex;
     int _subObjectIndex;
 
-    public void NextMaterial() 
-    { 
-     _materialIndex++;
-        if (_materialIndex >= Materials.Count )
+    public void NextMaterial()
+    {
+        _materialIndex++;
+        if (_materialIndex >= Materials.Count)
             _materialIndex = 0;
 
         UpdateRenderers();
     }
 
-    public void NextSubObject() 
-    { 
+    public void NextSubObject()
+    {
         _subObjectIndex++;
-        if (_subObjectIndex >= SubObjects.Count )
+        if (_subObjectIndex >= SubObjects.Count)
             _subObjectIndex = 0;
 
         UpdateSubObjects();
     }
 
-    public void UpdateSubObjects() 
+    public void UpdateSubObjects()
     {
         for (var i = 0; i < SubObjects.Count; i++)
             if (SubObjects[i])
                 SubObjects[i].SetActive(i == _subObjectIndex);
     }
 
-    public void UpdateRenderers() 
+    public void UpdateRenderers()
     {
         foreach (var renderer in Renderers)
             if (renderer)
@@ -90,3 +90,4 @@ public class Customization
     }
 
 }
+
