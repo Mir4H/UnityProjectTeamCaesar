@@ -52,20 +52,6 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
     {
         if (this.gameObject.tag == "goal")
         {
-            GetNumOfKeys();
-
-            if (numberOfKeys < doorLevel)
-            {
-                // lisää avain inventoryyn
-                //inventory.AddItem(new Item(prizeKey));
-                Debug.Log("Adding key to inventory!");
-            }
-            else
-            {
-                // lisää aikajuoma inventoryyn
-                //inventory.AddItem(new Item(prizeTimePotion));
-                Debug.Log("Adding timepotion to inventory!");
-            }
 
             playedScene = SceneManager.GetActiveScene().name;
 
@@ -77,6 +63,20 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
             player.transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
 
             // Ilmoitus uudesta esineestä??
+            GetNumOfKeys();
+
+            if (numberOfKeys < doorLevel)
+            {
+                // lisää avain inventoryyn
+                inventory.AddItem(new Item(prizeKey));
+                Debug.Log("Adding key to inventory!");
+            }
+            else
+            {
+                // lisää aikajuoma inventoryyn
+                inventory.AddItem(new Item(prizeTimePotion));
+                Debug.Log("Adding timepotion to inventory!");
+            }
 
             DataPersistenceManager.instance.SaveGame();
 
