@@ -7243,6 +7243,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
   puzzleSolved: 1
 --- !u!1 &1971423997 stripped
 GameObject:
@@ -7492,6 +7493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: Store Items
+  goalDoor: {fileID: 1969381377}
 --- !u!65 &2022035986
 BoxCollider:
   m_ObjectHideFlags: 0

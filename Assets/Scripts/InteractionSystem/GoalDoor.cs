@@ -48,7 +48,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
 
     public bool Interact(Player interactor)
     {
-        if (puzzleSolved)
+        if (this.gameObject.tag == "goal")
         {
             GetNumOfKeys();
 
