@@ -59,7 +59,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private IInteractable interactable;
 
-    private string playedScene;
+    //private string playedScene;
 
     private void Awake()
     {
@@ -77,12 +77,12 @@ public class Player : MonoBehaviour, IDataPersistence
             Debug.Log(item.ToString());
         }
 
+        /*
         // Adding played scenes to savefile
         if (playedScene != null)
         {
             data.scenesCompleted.Add(playedScene, true);
-            data.lastFinishedScene = playedScene;
-        }
+        }*/
     }
     
     public void LoadData(GameData data)
@@ -166,7 +166,8 @@ public class Player : MonoBehaviour, IDataPersistence
             collectableItem = other.gameObject;
         }
 
-        //TESTING MOVING GOAL TRIGGER
+        /*
+        //GOAL TRIGGER
         if (other.gameObject.tag == "goal")
         {
             playedScene = SceneManager.GetActiveScene().name;
@@ -178,12 +179,11 @@ public class Player : MonoBehaviour, IDataPersistence
 
             DataPersistenceManager.instance.SaveGame();
 
-            /*
-            OnTimerStop();
-            OnFinishSuccess();
-            */
+            //OnTimerStop();
+            //OnFinishSuccess();
 
-        }
+
+        }*/
     }
 
     public void OnTriggerExit(Collider other)

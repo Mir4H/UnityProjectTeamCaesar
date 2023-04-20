@@ -10,7 +10,6 @@ public class GameData
     public Vector3 playerPosition;
     public Quaternion playerRotation;
     public long lastUpdated;
-    public string lastFinishedScene;
     public string currentScene;
 
     public SerializableDictionary<string, bool> scenesCompleted;

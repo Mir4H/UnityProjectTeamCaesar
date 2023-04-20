@@ -21,9 +21,6 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool Interact(Player interactor)
     {
-        //Tähän  mitä se interaktio tekee!!
-        //var inventory = interactor.GetComponent<Inventory>();
-        //if (inventory == null) return false;
         foreach (InventoryItem item in inventory.Container.Items)
         {
             if (item.ID == keyID)
