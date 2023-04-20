@@ -12,8 +12,8 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private InventorySystem inventory;
     [SerializeField] private int keyID;
     [SerializeField] private InteractionPromptUI interactionPromptUI;
-
-    private bool puzzleSolved = false;
+    [SerializeField] private Player player;
+    [SerializeField] private bool puzzleSolved;
 
     private int numberOfKeys;
     private string playedScene;
@@ -67,8 +67,8 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
 
             SceneManager.LoadSceneAsync(doorSceneName);
 
-            transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
-            transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
+            player.transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
+            player.transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
 
             // Ilmoitus uudesta esineestä??
 
