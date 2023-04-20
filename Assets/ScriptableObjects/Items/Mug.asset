@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71da1ca2c7ff99b479531554784770ef, type: 3}
-  m_Name: Rusty Key
+  m_Name: Mug
   m_EditorClassIdentifier: 
-  Id: 2
-  name_id: InventoryItem_rustyKet
-  displayName: Rusty Key
-  icon: {fileID: 21300000, guid: fb6e1fe4561cff448aff5c0601705a7f, type: 3}
-  prefab: {fileID: 6640714216250622850, guid: 9a0a1962382196840ae7a25a6669941c, type: 3}
+  Id: 7
+  name_id: InventoryItem_mug
+  displayName: Mug
+  icon: {fileID: 21300000, guid: 4a8f76747ac437b41b95a5aed903b5e5, type: 3}
+  prefab: {fileID: 0}
