@@ -11,6 +11,8 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private int doorLevel;
     [SerializeField] private InventorySystem inventory;
     [SerializeField] private int keyID;
+    [SerializeField] private InventoryItemData prizeKey;
+    [SerializeField] private InventoryItemData prizeTimePotion;
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
     [SerializeField] private bool puzzleSolved;
@@ -55,15 +57,19 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
             if (numberOfKeys < doorLevel)
             {
                 // lisää avain inventoryyn
+                //inventory.AddItem(new Item(prizeKey));
                 Debug.Log("Adding key to inventory!");
             }
             else
             {
                 // lisää aikajuoma inventoryyn
+                //inventory.AddItem(new Item(prizeTimePotion));
                 Debug.Log("Adding timepotion to inventory!");
             }
 
             playedScene = SceneManager.GetActiveScene().name;
+
+            //DataPersistenceManager.instance.SaveGame();
 
             SceneManager.LoadSceneAsync(doorSceneName);
 

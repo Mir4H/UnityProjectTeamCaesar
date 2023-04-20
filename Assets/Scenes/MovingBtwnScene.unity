@@ -7242,6 +7242,8 @@ MonoBehaviour:
   doorLevel: 2
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
+  prizeKey: {fileID: 11400000, guid: ab8ed8d307f05c749ab0c29b629619b6, type: 2}
+  prizeTimePotion: {fileID: 11400000, guid: 07ad88013b2b0fd4bb15ca0edf360f5e, type: 2}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
   puzzleSolved: 1
