@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,13 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     [SerializeField] private string doorSceneName;
     [SerializeField] private int doorLevel;
+    [SerializeField] private InventorySystem inventory;
+    [SerializeField] private int keyID;
+    [SerializeField] private InteractionPromptUI interactionPromptUI;
 
-    [SerializeField] private bool canOpen = false;
+    private bool canOpen = false;
 
-    [SerializeField] private int numberOfKeys;
+    private int numberOfKeys;
 
     public string InteractionPrompt => _prompt;
 
@@ -20,6 +24,14 @@ public class Door : MonoBehaviour, IInteractable
         //Tähän  mitä se interaktio tekee!!
         //var inventory = interactor.GetComponent<Inventory>();
         //if (inventory == null) return false;
+        foreach (InventoryItem item in inventory.Container.Items)
+        {
+            if (item.ID == keyID)
+            {
+                numberOfKeys = item.StackSize;
+            }
+        }
+
         if (numberOfKeys >= doorLevel)
         {
             canOpen = true;
@@ -32,6 +44,11 @@ public class Door : MonoBehaviour, IInteractable
             DataPersistenceManager.instance.SaveGame();
             Debug.Log("Opening Door!");
             return true;
+        }
+        else
+        {
+            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+            interactionPromptUI.SetUp($"You need {doorLevel} keys for this door!");
         }
 
         Debug.Log("No key found!");
