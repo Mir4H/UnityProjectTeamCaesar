@@ -30,7 +30,6 @@ public class InventoryBarScript : MonoBehaviour
                 Destroy(t.gameObject);
             }
 
-
             DrawInventory();
             if (show)
             {

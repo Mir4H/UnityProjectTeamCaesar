@@ -143,9 +143,18 @@ namespace StarterAssets
         // Loading player position
         public void LoadData(GameData data)
         {
-            Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
-            this.transform.position = data.playerPosition;
-            this.transform.rotation = data.playerRotation;
+            // POISTETTAVA, LINNASCENEN TESTAILUUN
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                this.transform.position = new Vector3(31, 0, -14);
+            }
+            else
+            {
+                Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
+                this.transform.position = data.playerPosition;
+                this.transform.rotation = data.playerRotation;
+            }
+
         }
 
         // Saving player position
@@ -190,7 +199,7 @@ namespace StarterAssets
 
             // Get current scene for save-file
             _currentScene = SceneManager.GetActiveScene().name;
-
+            
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
             {
                 DataPersistenceManager.instance.SaveGame();

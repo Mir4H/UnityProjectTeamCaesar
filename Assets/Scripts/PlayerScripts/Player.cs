@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
@@ -27,7 +24,6 @@ public class Player : MonoBehaviour, IDataPersistence
     private Transform playerCameraTransform;
 
     [SerializeField]
-    [Min(1)]
     private float hitRange = 2f;
 
     [SerializeField]
@@ -59,16 +55,22 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private IInteractable interactable;
 
+    CharacterController charCtrl;
+
 
     private void Awake()
     {
         activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
     }
 
+    void Start()
+    {
+        charCtrl = GetComponent<CharacterController>();
+    }
+
     public void SaveData(GameData data)
     {
         Debug.Log("Saving Inventory Items");
-        Debug.Log(inventory.Container.Items.Count.ToString());
         data.inventoryItems = inventory.Container.Items;
         data.activeItems = activeItems;
         foreach (var item in activeItems)
@@ -76,7 +78,7 @@ public class Player : MonoBehaviour, IDataPersistence
             Debug.Log(item.ToString());
         }
     }
-    
+
     public void LoadData(GameData data)
     {
         inventory.Container.Items.Clear();
@@ -118,7 +120,7 @@ public class Player : MonoBehaviour, IDataPersistence
                 DropObject();
             }
             inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
-            
+
             PickupObject(inventoryItem);
             inventoryItem.TryGetComponent<ItemCollectable>(out ItemCollectable item);
             inventory.RemoveItem(item);
@@ -207,7 +209,6 @@ public class Player : MonoBehaviour, IDataPersistence
         if (useLookAt && collectableItem != null)
         {
             var item = collectableItem.GetComponent<ItemCollectable>();
-            //var uniqueId = collectableItem.GetComponent<UniqueID>().ID;
             if (item)
             {
                 inventory.AddItem(new Item(item.item));
@@ -232,8 +233,6 @@ public class Player : MonoBehaviour, IDataPersistence
             }
         }
 
-        //interactable?.Interact(this);
-
         if (inHandItem != null)
         {
             MoveObject();
@@ -248,11 +247,6 @@ public class Player : MonoBehaviour, IDataPersistence
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);
     }
-   /* 
-    private void DoInteraction()
-    {
-        interactable.Interact(this);
-    }*/
 
     private void Update()
     {
@@ -271,20 +265,12 @@ public class Player : MonoBehaviour, IDataPersistence
             EventManager.OnOpenInventory();
         }
 
-        //close app
-        /*
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }*/
-
-        //interaction
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);
-        
+
         if (numFound > 0)
         {
             interactable = colliders[0].GetComponent<IInteractable>();
-            
+
             if (interactable != null)
             {
                 if (!interactionPromptUI.IsDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
@@ -299,17 +285,13 @@ public class Player : MonoBehaviour, IDataPersistence
 
 
         //Lift item
+        
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
         if (hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
             showGuidance.CloseGuidance();
         }
-        /*
-        if (inHandItem != null)
-        {
-            return;
-        }*/
 
         if (Physics.Raycast(
             playerCameraTransform.position,
@@ -322,10 +304,10 @@ public class Player : MonoBehaviour, IDataPersistence
             showGuidance.SetUpGuidance("Press E to Pick Up");
         }
 
+        /*
+        private void OnApplicationQuit()
+        {
+            inventory.Container.Items.Clear();
+        }*/
     }
-    /*
-    private void OnApplicationQuit()
-    {
-        inventory.Container.Items.Clear();
-    }*/
 }

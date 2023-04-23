@@ -7,7 +7,6 @@ public class ShowGuidance : MonoBehaviour
 {
     [SerializeField] private GameObject guidance;
     [SerializeField] private TextMeshProUGUI guidanceText;
-    public bool GuidanceDisplayed = false;
 
     private void Start()
     {
@@ -18,13 +17,11 @@ public class ShowGuidance : MonoBehaviour
     {
         guidanceText.text = guide;
         guidance.SetActive(true);
-        GuidanceDisplayed = true;
     }
 
     public void CloseGuidance()
     {
         guidance.SetActive(false);
-        GuidanceDisplayed = false;
     }
 
 }

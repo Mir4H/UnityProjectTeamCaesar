@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class JailDoor : MonoBehaviour, IInteractable
+public class OpenableDoor : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _prompt;
+    private string _prompt = "Press E to Open";
     [SerializeField] private InventorySystem inventory;
     [SerializeField] private int itemId;
     [SerializeField] private InteractionPromptUI interactionPromptUI;
+    [SerializeField] private ShowGuidance LargerGuidance;
+    [SerializeField] private string secondaryPrompt;
+    [SerializeField] private int requiredAmount;
     public string InteractionPrompt => _prompt;
 
 
@@ -33,7 +36,7 @@ public class JailDoor : MonoBehaviour, IInteractable
     {
         if (!IsOpen)
         {
-            if (AnimationCoroutine != null)
+            if(AnimationCoroutine != null)
             {
                 StopCoroutine(AnimationCoroutine);
             }
@@ -49,13 +52,17 @@ public class JailDoor : MonoBehaviour, IInteractable
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation;
 
-        if (ForwardAmount >= ForwardDirection)
+        Debug.Log("sstart" +startRotation);
+        //Debug.Log(RotationAmount);
+
+        if (ForwardAmount <= ForwardDirection)
         {
-            endRotation = Quaternion.Euler(new Vector3(0, startRotation.y - RotationAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
         }
         else
         {
-            endRotation = Quaternion.Euler(new Vector3(0, startRotation.y + RotationAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
+            
         }
 
         IsOpen = true;
@@ -99,23 +106,50 @@ public class JailDoor : MonoBehaviour, IInteractable
 
     public bool Interact(Player interactor)
     {
-        if (inventory.Container.Items.Any(x => x.ID == itemId))
-        {
-            if (IsOpen)
+        if (itemId != -1) {
+            
+            if (inventory.Container.Items.Any(x => x.ID == itemId && x.StackSize >= requiredAmount))
             {
-                Close();
+                OpenOrClose();
+            }
+            else if (itemId == 1)
+            {
+                var items = inventory.Container.Items.Find(x => x.ID == itemId);
+                var nroOfItems = 0;
+                if (items != null)
+                {
+                    Debug.Log(items.StackSize);
+                    nroOfItems = items.StackSize;
+                }
+
+                secondaryPrompt = $"Find {requiredAmount - nroOfItems} diary pages to open.";
+                if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+                interactionPromptUI.SetUp(secondaryPrompt);
             }
             else
             {
-                Open(player.transform.position);
+                interactionPromptUI.SetUp(secondaryPrompt);
             }
         }
         else
         {
-            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
-            interactionPromptUI.SetUp("You need to find a key");
+            OpenOrClose();
         }
         return true;
+    }
+
+    private void OpenOrClose()
+    {
+        if (IsOpen)
+        {
+            _prompt = "Press E to Close";
+            Close();
+        }
+        else
+        {
+            _prompt = "Press E to Open";
+            Open(player.transform.position);
+        }
     }
 
 }
