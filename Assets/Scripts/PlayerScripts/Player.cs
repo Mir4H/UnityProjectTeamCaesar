@@ -58,6 +58,7 @@ public class Player : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject scroll;
     [SerializeField] private GameObject carrot;
     [SerializeField] private GameObject bread;
+    [SerializeField] private GameObject torch;
 
     private void Awake()
     {
@@ -290,11 +291,12 @@ public class Player : MonoBehaviour, IDataPersistence
         if (name == "Mug of Beer") selectedObject = mug;
         if (name == "Carrot") selectedObject = carrot;
         if (name == "Bread") selectedObject = bread;
-
+        if (name == "Torch") selectedObject = torch;
         if (name == "Scroll")
         {
             EventManager.OnShowStory();
         }
+
         if (selectedObject != null)
         {
             Time.timeScale = 1;
@@ -310,6 +312,7 @@ public class Player : MonoBehaviour, IDataPersistence
             inventory.RemoveItem(item);
             inventoryItem.GetComponent<ItemObject>().OnHandleTakeItemFromInv();
         }
+        Time.timeScale = 1;
         return;
     }
 }
