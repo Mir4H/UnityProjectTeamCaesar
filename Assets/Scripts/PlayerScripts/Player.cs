@@ -36,10 +36,6 @@ public class Player : MonoBehaviour, IDataPersistence
     private RaycastHit hit;
 
     [SerializeField] private float pickupForce = 150.0f;
-
-    [SerializeField] private GameObject rustyKey;
-    [SerializeField] private GameObject goldKey;
-    [SerializeField] private GameObject scroll;
     private GameObject selectedObject;
 
     public static SerializableDictionary<string, ItemPickUpSaveData> activeItems;
@@ -57,6 +53,11 @@ public class Player : MonoBehaviour, IDataPersistence
 
     CharacterController charCtrl;
 
+    [SerializeField] private GameObject meat;
+    [SerializeField] private GameObject mug;
+    [SerializeField] private GameObject scroll;
+    [SerializeField] private GameObject carrot;
+    [SerializeField] private GameObject bread;
 
     private void Awake()
     {
@@ -96,38 +97,7 @@ public class Player : MonoBehaviour, IDataPersistence
         EventManager.GetInventoryItem += EventManagerOnGetInventoryItem;
     }
 
-    private void EventManagerOnGetInventoryItem(string name)
-    {
-        GameObject inventoryItem;
-
-        if (name == "Rusty Key")
-        {
-            selectedObject = rustyKey;
-        }
-        if (name == "Gold Key")
-        {
-            selectedObject = goldKey;
-        }
-        if (name == "Scroll")
-        {
-            EventManager.OnShowStory();
-        }
-        if (selectedObject != null)
-        {
-            Time.timeScale = 1;
-            if (inHandItem != null)
-            {
-                DropObject();
-            }
-            inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
-
-            PickupObject(inventoryItem);
-            inventoryItem.TryGetComponent<ItemCollectable>(out ItemCollectable item);
-            inventory.RemoveItem(item);
-            inventoryItem.GetComponent<ItemObject>().OnHandleTakeItemFromInv();
-        }
-        return;
-    }
+    
 
     private void OnDisable()
     {
@@ -143,7 +113,8 @@ public class Player : MonoBehaviour, IDataPersistence
             if (!(itemsWithIds.Any(x => x.ID == entry.Key)))
             {
                 Debug.Log("creating" + entry.Key);
-                Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);
+                var item = Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);
+                if (!(item.AddComponent<ItemObject>())) item.AddComponent<ItemObject>();
             }
         }
     }
@@ -195,9 +166,9 @@ public class Player : MonoBehaviour, IDataPersistence
 
     void DropObject()
     {
+        heldObjRB.useGravity = true;
         if (inHandItem.tag == "Pickable") inHandItem.tag = "PointOfInterest";
         if (inHandItem.layer == 10) inHandItem.layer = 8;
-        heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
         heldObjRB.constraints = RigidbodyConstraints.None;
         heldObjRB.transform.parent = null;
@@ -309,5 +280,36 @@ public class Player : MonoBehaviour, IDataPersistence
         {
             inventory.Container.Items.Clear();
         }*/
+    }
+
+    private void EventManagerOnGetInventoryItem(string name)
+    {
+        GameObject inventoryItem;
+        
+        if (name == "Meat") selectedObject = meat;
+        if (name == "Mug of Beer") selectedObject = mug;
+        if (name == "Carrot") selectedObject = carrot;
+        if (name == "Bread") selectedObject = bread;
+
+        if (name == "Scroll")
+        {
+            EventManager.OnShowStory();
+        }
+        if (selectedObject != null)
+        {
+            Time.timeScale = 1;
+            if (inHandItem != null)
+            {
+                DropObject();
+            }
+            inventoryItem = Instantiate(selectedObject, pickUpParent.position, Quaternion.identity);
+            inventoryItem.AddComponent<ItemObject>();
+            
+            PickupObject(inventoryItem);
+            inventoryItem.TryGetComponent<ItemCollectable>(out ItemCollectable item);
+            inventory.RemoveItem(item);
+            inventoryItem.GetComponent<ItemObject>().OnHandleTakeItemFromInv();
+        }
+        return;
     }
 }

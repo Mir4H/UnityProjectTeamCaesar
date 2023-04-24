@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PointOfInterest
       objectReference: {fileID: 0}
+    - target: {fileID: 7447022692855013307, guid: 6b07ab31d47036645833e234477aa56f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7447022692855013306, guid: 6b07ab31d47036645833e234477aa56f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b07ab31d47036645833e234477aa56f, type: 3}
@@ -182,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652e5a04753bf6349bbb7fe808a4cfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: a26c2a9e-c710-4dcb-bd63-167738b5626b
+  _id: 73f4b14d-dcc4-4ef4-a926-473ab7f36a32
 --- !u!4 &9076291542469451933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447022692854842267, guid: 6b07ab31d47036645833e234477aa56f, type: 3}

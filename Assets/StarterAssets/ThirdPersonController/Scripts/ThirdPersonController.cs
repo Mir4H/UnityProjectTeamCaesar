@@ -148,6 +148,10 @@ namespace StarterAssets
             {
                 this.transform.position = new Vector3(31, 0, -14);
             }
+            if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                this.transform.position = new Vector3(62, 0, -14);
+            }
             else
             {
                 Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);

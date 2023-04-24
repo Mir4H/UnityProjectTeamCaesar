@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PointOfInterest
       objectReference: {fileID: 0}
+    - target: {fileID: 1050632825632081212, guid: 113a04b44464ee141bd913e9283f2f5e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1050632825632315676, guid: 113a04b44464ee141bd913e9283f2f5e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -169,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652e5a04753bf6349bbb7fe808a4cfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 3a1294c4-2378-4dfa-b049-fb20a347364f
+  _id: c2ff9ed8-dc6c-4fe6-b965-6dc7a846a821
 --- !u!114 &7084219687214608636
 MonoBehaviour:
   m_ObjectHideFlags: 0
