@@ -21,7 +21,7 @@ GameObject:
   m_TagString: PointOfInterest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6098996794724728681
 Transform:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652e5a04753bf6349bbb7fe808a4cfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 8b449b97-f73b-4b7a-87a9-4f06d9c87fc1
+  _id: d8f43b76-f12b-47c1-a4bd-e08c43765ba8
 --- !u!114 &187301369708823907
 MonoBehaviour:
   m_ObjectHideFlags: 0

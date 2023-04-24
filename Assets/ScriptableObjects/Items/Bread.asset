@@ -16,4 +16,4 @@ MonoBehaviour:
   name_id: InventoryItem_bread
   displayName: Bread
   icon: {fileID: 21300000, guid: 6613ab570ba317f4997e0543ee54b132, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}

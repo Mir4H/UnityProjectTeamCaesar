@@ -16,4 +16,4 @@ MonoBehaviour:
   name_id: InventoryItem_shield
   displayName: Shield
   icon: {fileID: 21300000, guid: 9d1da716f58fb214588170998c767e41, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6816924712164370318, guid: 4c9c34616fcaa3d418f218639bf5b4fc, type: 3}
