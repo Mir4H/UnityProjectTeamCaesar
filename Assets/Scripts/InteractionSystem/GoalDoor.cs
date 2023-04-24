@@ -11,13 +11,11 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private int doorLevel;
     [SerializeField] private InventorySystem inventory;
     [SerializeField] private int keyID;
-    [SerializeField] private InventoryItemData prizeKey;
-    [SerializeField] private InventoryItemData prizeTimePotion;
+    [SerializeField] private GameObject keyToFind;
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
     [SerializeField] private bool puzzleSolved;
 
-    private int numberOfKeys;
     private string playedScene;
 
     public string InteractionPrompt => _prompt;
@@ -35,54 +33,32 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
         //
     }
 
-    public int GetNumOfKeys ()
-    {
-        numberOfKeys = 0;
-        foreach (InventoryItem item in inventory.Container.Items)
-        {
-            if (item.ID == keyID)
-            {
-                numberOfKeys = item.StackSize;
-            }
-        }
-        return numberOfKeys;
-    }
-
     public bool Interact(Player interactor)
     {
         if (this.gameObject.tag == "goal")
         {
-
-            playedScene = SceneManager.GetActiveScene().name;
-
-            //DataPersistenceManager.instance.SaveGame();
-
-            SceneManager.LoadSceneAsync(doorSceneName);
-
-            player.transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
-            player.transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
-
-            // Ilmoitus uudesta esineestä??
-            GetNumOfKeys();
-
-            if (numberOfKeys < doorLevel)
+            //Tää tarkastaa
+            if (keyToFind == null)
             {
-                // lisää avain inventoryyn
-                inventory.AddItem(new Item(prizeKey));
-                Debug.Log("Adding key to inventory!");
+                Debug.Log("Pass");
+
+                playedScene = SceneManager.GetActiveScene().name;
+
+                SceneManager.LoadSceneAsync(doorSceneName);
+
+                player.transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
+                player.transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
+
+                DataPersistenceManager.instance.SaveGame();
+
+                //OnTimerStop();
+
+                return true;
             }
             else
             {
-                // lisää aikajuoma inventoryyn
-                inventory.AddItem(new Item(prizeTimePotion));
-                Debug.Log("Adding timepotion to inventory!");
+                Debug.Log("Need a key");
             }
-
-            DataPersistenceManager.instance.SaveGame();
-
-            //OnTimerStop();
-            
-            return true;
         }
         else
         {
