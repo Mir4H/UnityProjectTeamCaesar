@@ -38,7 +38,6 @@ public class GoalDoorModified : MonoBehaviour, IInteractable, IDataPersistence
             if (keyToFind == null)
             {
                 Debug.Log("Pass");
-                OnTimerStop();
 
                 playedScene = SceneManager.GetActiveScene().name;
 
