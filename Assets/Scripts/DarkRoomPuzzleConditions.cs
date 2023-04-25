@@ -23,11 +23,8 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (middleDoor.tag != "goal")
-        {
-            ThroneCheck();
-        }
-        MathPuzzleCheck();
+        if (middleDoor.tag != "goal") ThroneCheck();
+        if (middleDoor.tag == "goal") MathPuzzleCheck();
     }
 
     private void ThroneCheck ()
@@ -46,14 +43,6 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
             GameObject.Destroy(throne3);
             GameObject.Destroy(throne4);
             GameObject.Destroy(throne5);
-        }
-        else
-        {
-            Debug.Log("thrones not solved" + "\n" + throne1.transform.rotation
-                 + "\n" + throne2.transform.eulerAngles.y
-                 + "\n" + throne3.transform.eulerAngles.y
-                 + "\n" + throne4.transform.eulerAngles.y
-                 + "\n" + throne5.transform.eulerAngles.y);
         }
     }
 

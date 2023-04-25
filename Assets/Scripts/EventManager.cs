@@ -14,6 +14,7 @@ public static class EventManager
     public static event UnityAction ShowOneStory;
     public static event UnityAction ShowDiary;
     public static event UnityAction DiaryDecrypted;
+    public static event UnityAction TorchInHand;
 
 
     public static void OnTimerStart() => TimerStart?.Invoke();
@@ -31,5 +32,7 @@ public static class EventManager
 
     public static void OnShowDiary() => ShowDiary?.Invoke();
     public static void OnDiaryDecrypted() => DiaryDecrypted?.Invoke();
+
+    public static void OnTorchInHand() => TorchInHand?.Invoke();
 
 }
