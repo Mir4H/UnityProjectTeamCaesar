@@ -153,6 +153,10 @@ namespace StarterAssets
             {
                 this.transform.position = new Vector3(62, 0, -14);
             }
+            if (SceneManager.GetActiveScene().buildIndex == 8)
+            {
+                this.transform.position = new Vector3(62, 0, -13);
+            }
             else
             {
                 Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
@@ -183,6 +187,10 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 8)
+            {
+                this.transform.position = new Vector3(62, 0, -13);
             }
 
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
