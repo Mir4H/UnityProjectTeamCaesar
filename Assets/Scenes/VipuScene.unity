@@ -1559,6 +1559,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1001 &142878885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5524,6 +5530,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 1944664354}
   prev: {fileID: 1562525912}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1 &666725500
 GameObject:
   m_ObjectHideFlags: 0
@@ -12379,7 +12391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112186947}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 59, y: 1.375, z: -13.8}
+  m_LocalPosition: {x: 64, y: 1.375, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16645,7 +16657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16653,7 +16665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.8
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18235,6 +18247,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1001 &1562552808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23778,6 +23796,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1 &1957175281
 GameObject:
   m_ObjectHideFlags: 0
@@ -27367,7 +27391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432873761250716087}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 56, y: 0, z: -14}
+  m_LocalPosition: {x: 61, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
