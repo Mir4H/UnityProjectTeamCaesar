@@ -12,6 +12,7 @@ public class InventorySystem : ScriptableObject
 
     public void AddItem(Item _item)
     {
+        
         for (int i = 0; i < Container.Items.Count; i++)
         {
             if (Container.Items[i].Item.Id == _item.Id)
@@ -30,6 +31,11 @@ public class InventorySystem : ScriptableObject
         if (_item.Name == "Scroll")
         {
             EventManager.OnShowOneStory();
+            OnInventoryChanged?.Invoke(false);
+        }
+        else if (_item.Name == "Diary")
+        {
+            EventManager.OnShowDiary();
             OnInventoryChanged?.Invoke(false);
         }
         else OnInventoryChanged?.Invoke(true);

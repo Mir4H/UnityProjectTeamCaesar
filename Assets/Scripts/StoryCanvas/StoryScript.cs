@@ -78,5 +78,8 @@ public class StoryScript : MonoBehaviour
         partTwo.gameObject.SetActive(false);
         partThree.gameObject.SetActive(false);
         partFour.gameObject.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

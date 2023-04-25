@@ -137,6 +137,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
         }
 
         
@@ -172,9 +173,17 @@ namespace StarterAssets
         private void Start()
         {
             //lockmouse
-           // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
-
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                transform.position = new Vector3(31, 0, -14);
+                transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                this.transform.position = new Vector3(62, 0, -14);
+            }
 
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
