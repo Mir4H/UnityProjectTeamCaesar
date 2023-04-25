@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
@@ -279,12 +280,17 @@ public class Player : MonoBehaviour, IDataPersistence
     private void EventManagerOnGetInventoryItem(string name)
     {
         GameObject inventoryItem;
+        string currentScene = SceneManager.GetActiveScene().name;
         
         if (name == "Meat") selectedObject = meat;
         if (name == "Mug of Beer") selectedObject = mug;
         if (name == "Carrot") selectedObject = carrot;
         if (name == "Bread") selectedObject = bread;
-        if (name == "Torch") selectedObject = torch;
+        if (name == "Torch" && currentScene != "DarkRoom") selectedObject = torch;
+        if (name == "Torch" && currentScene == "DarkRoom") 
+        {
+            EventManager.OnTorchInHand();
+        }
         if (name == "Scroll")
         {
             EventManager.OnShowStory();

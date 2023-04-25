@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,13 +23,11 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
     [SerializeField] private GameObject middleDoor;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (middleDoor.tag != "goal")
-        {
-            ThroneCheck();
-        }
-        MathPuzzleCheck();
+        if (middleDoor.tag != "goal") ThroneCheck();
+        
+        if (middleDoor.tag == "goal") MathPuzzleCheck();
     }
 
     private void ThroneCheck ()
