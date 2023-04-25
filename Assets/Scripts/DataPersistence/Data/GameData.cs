@@ -11,6 +11,8 @@ public class GameData
     public Quaternion playerRotation;
     public long lastUpdated;
     public string currentScene;
+    public bool firstStory;
+    public bool diaryDecryped;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 

@@ -51,8 +51,6 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private IInteractable interactable;
 
-    CharacterController charCtrl;
-
     [SerializeField] private GameObject meat;
     [SerializeField] private GameObject mug;
     [SerializeField] private GameObject scroll;
@@ -63,11 +61,6 @@ public class Player : MonoBehaviour, IDataPersistence
     private void Awake()
     {
         activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
-    }
-
-    void Start()
-    {
-        charCtrl = GetComponent<CharacterController>();
     }
 
     public void SaveData(GameData data)
@@ -295,6 +288,10 @@ public class Player : MonoBehaviour, IDataPersistence
         if (name == "Scroll")
         {
             EventManager.OnShowStory();
+        }
+        if (name == "Diary")
+        {
+            EventManager.OnShowDiary();
         }
 
         if (selectedObject != null)

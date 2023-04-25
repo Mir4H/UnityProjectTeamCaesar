@@ -12,6 +12,9 @@ public static class EventManager
     public static event UnityAction CloseInventory;
     public static event UnityAction ShowStory;
     public static event UnityAction ShowOneStory;
+    public static event UnityAction ShowDiary;
+    public static event UnityAction DiaryDecrypted;
+
 
     public static void OnTimerStart() => TimerStart?.Invoke();
     public static void OnTimerStop() => TimerStop?.Invoke();
@@ -25,5 +28,8 @@ public static class EventManager
     public static void OnGetInventoryItem(string name) => GetInventoryItem?.Invoke(name);
     public static void OnShowStory() => ShowStory?.Invoke();
     public static void OnShowOneStory() => ShowOneStory?.Invoke();
+
+    public static void OnShowDiary() => ShowDiary?.Invoke();
+    public static void OnDiaryDecrypted() => DiaryDecrypted?.Invoke();
 
 }
