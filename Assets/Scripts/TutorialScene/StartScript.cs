@@ -11,7 +11,6 @@ public class StartScript : MonoBehaviour, IDataPersistence
     private void Start()
     {
          Invoke("Story", 2f);
-
     }
     
     private void Story()

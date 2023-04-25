@@ -27,6 +27,7 @@ public class StartSceneCanvas : MonoBehaviour
     public void Close()
     {
         startStory.SetActive(false);
+        ShowingInstructions.OnShowInstructions();
         CancelInvoke();
     }
 }

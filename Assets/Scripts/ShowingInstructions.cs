@@ -26,20 +26,24 @@ public class ShowingInstructions : MonoBehaviour
 
     private void TaskComplete()
     {
-        instructions.SetActive(true);
-        instructionText.SetActive(false);
-        instructionText2.SetActive(false);
-        isCompleteText.SetActive(true);
-        Invoke("Close", 13f);
+        if (isCompleteText != null)
+        {
+            instructions.SetActive(true);
+            instructionText.SetActive(false);
+            if (instructionText2 != null) instructionText2.SetActive(false);
+            isCompleteText.SetActive(true);
+            Invoke("Close", 13f);
+        }
     }
 
     private void InstructionsRequested()
     {
         instructions.SetActive(true);
         instructionText.SetActive(true);
-        instructionText2.SetActive(false);
-        isCompleteText.SetActive(false);
-        Invoke("OpenSecond", 14f);
+        if (instructionText2 != null) instructionText2.SetActive(false);
+        if (isCompleteText != null) isCompleteText.SetActive(false);
+        if (instructionText2 != null) Invoke("OpenSecond", 14f);
+        else Invoke("Close", 20f);
     }
 
     private void OpenSecond()
@@ -47,16 +51,13 @@ public class ShowingInstructions : MonoBehaviour
         instructions.SetActive(true);
         instructionText.SetActive(false);
         instructionText2.SetActive(true);
-        isCompleteText.SetActive(false);
+        if (isCompleteText != null) isCompleteText.SetActive(false);
         Invoke("Close", 15f);
     }
 
     private void Close()
     {
         instructions.SetActive(false);
-        instructionText.SetActive(false);
-        instructionText2.SetActive(false);
-        isCompleteText.SetActive(false);
     }
 
     private void OnDisable()
