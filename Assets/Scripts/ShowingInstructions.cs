@@ -27,7 +27,6 @@ public class ShowingInstructions : MonoBehaviour
     }
     private void TaskComplete()
     {
-        DisablePrivateReflectionAttribute Au
         if (isCompleteText != null)
         {
             instructions.SetActive(true);
