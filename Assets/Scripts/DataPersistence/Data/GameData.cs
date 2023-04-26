@@ -13,6 +13,7 @@ public class GameData
     public string currentScene;
     public bool firstStory;
     public bool diaryDecryped;
+    public bool TorchFirst;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -34,6 +35,7 @@ public class GameData
         collectedItems = new List<string>();
         activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
         inventoryItems = new List<InventoryItem>();
+        TorchFirst = true;
 
     }
 }

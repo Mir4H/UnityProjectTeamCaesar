@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour, IDataPersistence
     private Rigidbody heldObjRB;
 
     private RaycastHit hit;
+    private bool firstTime;
 
     [SerializeField] private float pickupForce = 150.0f;
     private GameObject selectedObject;
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject carrot;
     [SerializeField] private GameObject bread;
     [SerializeField] private GameObject torch;
+    [SerializeField] private GameObject decryptCanvas;
 
     private void Awake()
     {
@@ -69,6 +72,7 @@ public class Player : MonoBehaviour, IDataPersistence
         Debug.Log("Saving Inventory Items");
         data.inventoryItems = inventory.Container.Items;
         data.activeItems = activeItems;
+        data.TorchFirst = firstTime;
         foreach (var item in activeItems)
         {
             Debug.Log(item.ToString());
@@ -81,6 +85,7 @@ public class Player : MonoBehaviour, IDataPersistence
         Debug.Log("Loading Inventory Items");
         inventory.Container.Items = data.inventoryItems;
         InventorySystem.OnInventoryChanged?.Invoke(false);
+        firstTime = data.TorchFirst;
         if (data.activeItems.Count > 0)
         {
             placeItems(data);
@@ -120,7 +125,8 @@ public class Player : MonoBehaviour, IDataPersistence
         if (other.gameObject.tag == "PointOfInterest")
         {
             Debug.Log("Seeing point of interest");
-            showGuidance.SetUpGuidance("Press E to Collect Item");
+            interactionPromptUI.SetUp("Press E to Collect Item");
+            //showGuidance.SetUpGuidance("Press E to Collect Item");
             _targetPosition = other.transform.position;
             useLookAt = true;
             collectableItem = other.gameObject;
@@ -174,9 +180,16 @@ public class Player : MonoBehaviour, IDataPersistence
     {
         if (useLookAt && collectableItem != null)
         {
+            
             var item = collectableItem.GetComponent<ItemCollectable>();
+
             if (item)
             {
+                if (item.item.name == "Torch" && firstTime)
+                {
+                    EventManager.OnTakeTorch();
+                    firstTime = false;
+                }
                 inventory.AddItem(new Item(item.item));
                 collectableItem.GetComponent<ItemObject>().OnHandlePickupItem();
             }
@@ -216,17 +229,30 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-        //collect item
-        if (!useLookAt || !collectableItem)
+        /*if (!useLookAt && !collectableItem && hit.collider != null)
         {
             showGuidance.CloseGuidance();
+        }*/
+        if (!useLookAt || !collectableItem)
+        {
+            if (numFound <= 0 || hit.collider != null)
+            {
+                interactionPromptUI.Close();
+                //showGuidance.CloseGuidance();
+            }
+        }
+
+            //collect item
+        if (!useLookAt || !collectableItem)
+        {
+            //showGuidance.CloseGuidance();
             _targetPosition = _parent.position + _parent.forward * 2f + new Vector3(0f, 2f, 0f);
         }
         _lookAtTarget.transform.position = Vector3.Lerp(_lookAtTarget.transform.position, _targetPosition, Time.deltaTime * lookSpeed);
         interactionInput.action.performed += Collect;
 
         //open inventory
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && decryptCanvas.activeSelf == false)
         {
             EventManager.OnOpenInventory();
         }
@@ -240,13 +266,13 @@ public class Player : MonoBehaviour, IDataPersistence
             if (interactable != null)
             {
                 if (!interactionPromptUI.IsDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
-                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter)) interactable.Interact(this);
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter) && decryptCanvas.activeSelf == false) interactable.Interact(this);
             }
         }
         if (numFound <= 0)
         {
             if (interactable != null) interactable = null;
-            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+           // if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
         }
 
 
@@ -256,7 +282,7 @@ public class Player : MonoBehaviour, IDataPersistence
         if (hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
-            showGuidance.CloseGuidance();
+           // showGuidance.CloseGuidance();
         }
 
         if (Physics.Raycast(
@@ -267,7 +293,8 @@ public class Player : MonoBehaviour, IDataPersistence
             pickableLayerMask) && inHandItem == null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-            showGuidance.SetUpGuidance("Press E to Pick Up");
+            //showGuidance.SetUpGuidance("Press E to Pick Up");
+            interactionPromptUI.SetUp("Press E to Pick Up");
         }
 
         /*
