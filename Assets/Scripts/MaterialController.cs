@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MaterialController : MonoBehaviour
+public class MaterialController : MonoBehaviour, IDataPersistence
 {
     public GameObject shirt;
     public Material[] shirtMaterials;
@@ -20,6 +20,27 @@ public class MaterialController : MonoBehaviour
     public GameObject[] beard;
     private int currentBeard;
 
+    private bool isBeard = false;
+    private bool isMoustache = false;
+    private Material shirtChoise;
+    private Material pantsChoise;
+    private Material skinChoise;
+
+    public void LoadData(GameData data)
+    {
+        //
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.beard = isBeard;
+        data.moustache = isMoustache;
+        data.shirt = shirtChoise;
+        data.pants = pantsChoise;
+        data.skin = skinChoise;
+    }
+
+
     private void Update()
     {
         for (int j = 0; j < beard.Length; j++)
@@ -27,10 +48,12 @@ public class MaterialController : MonoBehaviour
             if (j == currentBeard)
             {
                 beard[j].SetActive(true);
+                isBeard = false;
             }
             else
             {
                 beard[j].SetActive(false);
+                isBeard = true;
             }
         }
 
@@ -39,10 +62,12 @@ public class MaterialController : MonoBehaviour
             if (i == currentMoustache)
             {
                 moustaches[i].SetActive(true);
+                isMoustache = false;
             }
             else
             {
                 moustaches[i].SetActive(false);
+                isMoustache = true;
             }
         }
     }
@@ -51,12 +76,14 @@ public class MaterialController : MonoBehaviour
     {
         if (index >= shirtMaterials.Length) return;
         shirt.GetComponent<Renderer>().material = shirtMaterials[index];
+        shirtChoise = shirtMaterials[index];
     }
 
     public void changePants(int index)
     {
         if (index >= pantsMaterials.Length) return;
         pants.GetComponent<Renderer>().material = pantsMaterials[index];
+        pantsChoise = pantsMaterials[index];
     }
 
     public void changeSkin(int index)
@@ -67,6 +94,7 @@ public class MaterialController : MonoBehaviour
         foreach (var bodyPart in bodyParts)
         {
             bodyPart.GetComponent<Renderer>().material = skinMaterials[index];
+            skinChoise = skinMaterials[index];
         }
     }
 

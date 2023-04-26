@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -102,6 +103,15 @@ namespace StarterAssets
         // datasaving
         private string _currentScene;
 
+        // assign materials
+        [SerializeField] private GameObject head;
+        [SerializeField] private GameObject neck;
+        [SerializeField] private GameObject hands;
+        [SerializeField] private GameObject shirt;
+        [SerializeField] private GameObject pants;
+        [SerializeField] private GameObject beard;
+        [SerializeField] private GameObject moustache;
+
         Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
         Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
@@ -149,6 +159,10 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 this.transform.position = new Vector3(31, 0, -14);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
             }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
@@ -169,6 +183,15 @@ namespace StarterAssets
                 this.transform.rotation = data.playerRotation;
             }
 
+            // Material loading
+            moustache.SetActive(data.moustache);
+            beard.SetActive(data.beard);
+            shirt.GetComponent<Renderer>().material = data.shirt;
+            pants.GetComponent<Renderer>().material = data.pants;
+            head.GetComponent<Renderer>().material = data.skin;
+            neck.GetComponent<Renderer>().material = data.skin;
+            hands.GetComponent<Renderer>().material = data.skin;
+
         }
 
         // Saving player position
@@ -188,6 +211,10 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(31, 0, -14);
                 transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
             }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {

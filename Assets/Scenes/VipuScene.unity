@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21491,6 +21491,8 @@ MonoBehaviour:
   partTwo: {fileID: 807752053}
   partThree: {fileID: 1203192695}
   partFour: {fileID: 1936068267}
+  partFive: {fileID: 0}
+  partSix: {fileID: 0}
 --- !u!1001 &1787833577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23877,14 +23879,14 @@ Transform:
   - {fileID: 502189968}
   - {fileID: 1105424010}
   - {fileID: 1348833627}
-  - {fileID: 444066013}
   - {fileID: 1636646263}
+  - {fileID: 524989887}
   - {fileID: 118796714}
   - {fileID: 2117807841}
-  - {fileID: 524989887}
+  - {fileID: 1391206153}
   - {fileID: 209011240}
   - {fileID: 302891975}
-  - {fileID: 1391206153}
+  - {fileID: 444066013}
   - {fileID: 290567254}
   - {fileID: 2014104902}
   - {fileID: 1244570923}
@@ -26843,6 +26845,13 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  head: {fileID: 8021075065850589651}
+  neck: {fileID: 6022708929893960072}
+  hands: {fileID: 6625647970251252719}
+  shirt: {fileID: 7379328495530014085}
+  pants: {fileID: 8862013751534501104}
+  beard: {fileID: 2232492666152504944}
+  moustache: {fileID: 6392668409552884950}
 --- !u!143 &432873761250716093
 CharacterController:
   m_ObjectHideFlags: 0
@@ -31962,6 +31971,7 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
+  decryptCanvas: {fileID: 0}
 --- !u!1 &7710598513287210262
 GameObject:
   m_ObjectHideFlags: 0

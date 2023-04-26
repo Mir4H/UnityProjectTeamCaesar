@@ -19042,6 +19042,8 @@ MonoBehaviour:
   partTwo: {fileID: 807752053}
   partThree: {fileID: 1203192695}
   partFour: {fileID: 1936068267}
+  partFive: {fileID: 0}
+  partSix: {fileID: 0}
 --- !u!4 &1781962320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1287245724461440769, guid: 4b0d2ea51ebd97f4d91249e4c9bbefc4, type: 3}
@@ -23190,6 +23192,13 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  head: {fileID: 8021075065850589651}
+  neck: {fileID: 6022708929893960072}
+  hands: {fileID: 6625647970251252719}
+  shirt: {fileID: 7379328495530014085}
+  pants: {fileID: 8862013751534501104}
+  beard: {fileID: 2232492666152504944}
+  moustache: {fileID: 6392668409552884950}
 --- !u!143 &432873761250716093
 CharacterController:
   m_ObjectHideFlags: 0

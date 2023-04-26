@@ -22,6 +22,13 @@ public class GameData
     public SerializableDictionary<string, ItemPickUpSaveData> activeItems;
     public List<InventoryItem> inventoryItems;
 
+    // Material saving from customization
+    public bool beard;
+    public bool moustache;
+    public Material shirt;
+    public Material pants;
+    public Material skin;
+
 
     // The values defined in this constructor will be the default values the game starts with when there's no data to load
     public GameData()

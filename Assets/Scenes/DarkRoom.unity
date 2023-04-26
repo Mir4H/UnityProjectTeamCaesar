@@ -15930,6 +15930,13 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  head: {fileID: 363709077}
+  neck: {fileID: 1540747884}
+  hands: {fileID: 500858254}
+  shirt: {fileID: 765645780}
+  pants: {fileID: 2098787791}
+  beard: {fileID: 1013196317}
+  moustache: {fileID: 279897728}
 --- !u!143 &1358409262
 CharacterController:
   m_ObjectHideFlags: 0

@@ -2027,6 +2027,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1001 &140497348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8552,6 +8558,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 1944664354}
   prev: {fileID: 1562525912}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1001 &654865486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26222,6 +26234,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!1001 &1563922868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30467,6 +30485,8 @@ MonoBehaviour:
   partTwo: {fileID: 807752053}
   partThree: {fileID: 1203192695}
   partFour: {fileID: 1936068267}
+  partFive: {fileID: 0}
+  partSix: {fileID: 0}
 --- !u!4 &1785484121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5754540700685751215, guid: d4fdeae2fb6f5d245b9a6116920d503e, type: 3}
@@ -33551,6 +33571,12 @@ MonoBehaviour:
   storyImage: {fileID: 1780408573}
   next: {fileID: 0}
   prev: {fileID: 0}
+  diary: {fileID: 0}
+  diaryText: {fileID: 0}
+  diaryText2: {fileID: 0}
+  diaryText3: {fileID: 0}
+  diaryImage: {fileID: 0}
+  diaryDecryped: 0
 --- !u!4 &1952811338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3640300687198572528, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
@@ -37701,6 +37727,13 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  head: {fileID: 8021075065850589651}
+  neck: {fileID: 6022708929893960072}
+  hands: {fileID: 6625647970251252719}
+  shirt: {fileID: 7379328495530014085}
+  pants: {fileID: 8862013751534501104}
+  beard: {fileID: 2232492666152504944}
+  moustache: {fileID: 6392668409552884950}
 --- !u!143 &432873761250716093
 CharacterController:
   m_ObjectHideFlags: 0
@@ -42821,6 +42854,7 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
+  decryptCanvas: {fileID: 0}
 --- !u!1 &7710598513287210262
 GameObject:
   m_ObjectHideFlags: 0
