@@ -40,7 +40,12 @@ public class MaterialController : MonoBehaviour, IDataPersistence
         data.skin = skinChoise;
     }
 
-
+    private void Awake()
+    {
+        skinChoise = skinMaterials[0];
+        pantsChoise = pantsMaterials[0];
+        shirtChoise = shirtMaterials[0];
+    }
     private void Update()
     {
         for (int j = 0; j < beard.Length; j++)
