@@ -113,7 +113,9 @@ public class JailDoor : MonoBehaviour, IInteractable
         else
         {
             if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
-            interactionPromptUI.SetUp("You need to find a key");
+            if (itemId == 2) interactionPromptUI.SetUp("You need to find a key");
+            if (itemId == 10) interactionPromptUI.SetUp("You should pick up that torch on the groud");
+            if (itemId == 3) interactionPromptUI.SetUp("You should pick up that diary");
         }
         return true;
     }

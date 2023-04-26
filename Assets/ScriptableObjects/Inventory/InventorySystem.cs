@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -36,6 +37,10 @@ public class InventorySystem : ScriptableObject
         else if (_item.Name == "Diary")
         {
             EventManager.OnShowDiary();
+            OnInventoryChanged?.Invoke(false);
+        }
+        else if (_item.Name == "Torch")
+        {
             OnInventoryChanged?.Invoke(false);
         }
         else OnInventoryChanged?.Invoke(true);

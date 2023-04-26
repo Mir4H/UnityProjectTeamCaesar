@@ -31,6 +31,7 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     private void OnDiaryDecrypted()
     {
         diaryDecryped = true;
+        OnShowDiary();
     }
 
     public void SaveData(GameData data)

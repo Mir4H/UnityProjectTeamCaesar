@@ -12,11 +12,10 @@ public class DecryptCanvas : MonoBehaviour
     [SerializeField] private Button QuitBtn;
     [SerializeField] private GameObject resolve;
     [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private GameObject goalDoors;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         submitBtn.onClick.AddListener(GetInputOnClick);
         QuitBtn.onClick.AddListener(Close);
     }
@@ -29,9 +28,14 @@ public class DecryptCanvas : MonoBehaviour
     public void GetInputOnClick()
     {
         Debug.Log(input.text);
-        if (input.text.ToLower() == "caesar")
+        if (input.text.ToLower() == "king")
         {
+            EventManager.OnDiaryDecrypted();
             Debug.Log("read diary");
+            foreach (Transform t in goalDoors.transform)
+            {
+                t.gameObject.tag = "goal";
+            }
             Close();
         }
         else

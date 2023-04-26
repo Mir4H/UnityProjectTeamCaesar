@@ -2,24 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class StartScript : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject startstory;
+    [SerializeField] private GameObject torch;
+    [SerializeField] private ShowGuidance showGuidance;
+
     private bool storyShown = false;
 
     private void Start()
     {
-         Invoke("Story", 2f);
-    }
-    
-    private void Story()
-    {
         if (!storyShown)
         {
-            startstory.SetActive(true);
-            storyShown = true;
+            Invoke("Story", 2f);
         }
+    }
+
+    private void OnEnable()
+    {
+        EventManager.TakeTorch += OnTakeTorch;
+    }
+    private void OnTakeTorch()
+    {
+        Debug.Log("here");
+        torch.SetActive(true);
+        Invoke("CloseTorch", 25f);
+    }
+
+    private void CloseTorch()
+    {
+        torch.SetActive(false);
+    }
+
+    private void Story()
+    {
+        startstory.SetActive(true);
+        storyShown = true;
     }
 
     public void SaveData(GameData data)
@@ -31,4 +51,9 @@ public class StartScript : MonoBehaviour, IDataPersistence
     {
         storyShown = data.firstStory;
     }
+    private void OnDisable()
+    {
+        EventManager.TakeTorch -= OnTakeTorch;
+    }
+
 }
