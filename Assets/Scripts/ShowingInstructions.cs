@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Timeline;
 
 public class ShowingInstructions : MonoBehaviour
 {
@@ -23,9 +25,9 @@ public class ShowingInstructions : MonoBehaviour
         showInstructions += InstructionsRequested;
         compeleted += TaskComplete;
     }
-
     private void TaskComplete()
     {
+        DisablePrivateReflectionAttribute Au
         if (isCompleteText != null)
         {
             instructions.SetActive(true);
@@ -42,7 +44,7 @@ public class ShowingInstructions : MonoBehaviour
         instructionText.SetActive(true);
         if (instructionText2 != null) instructionText2.SetActive(false);
         if (isCompleteText != null) isCompleteText.SetActive(false);
-        if (instructionText2 != null) Invoke("OpenSecond", 14f);
+        if (instructionText2 != null) Invoke("OpenSecond", 18f);
         else Invoke("Close", 20f);
     }
 

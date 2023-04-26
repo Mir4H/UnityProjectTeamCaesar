@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,8 +55,10 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
             solution3.text == "7" &&
             solution4.text == "9")
         {
-            Debug.Log("Math solved");
             goalDoor.tag = "goal";
+            ShowingInstructions.OnShowCompeleted();
+            Debug.Log("Math solved");
+            GameObject.Destroy(this);
         }
     }
 }
