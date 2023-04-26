@@ -4708,8 +4708,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.274601, y: 1.6636374, z: 1.2940369}
-  m_Center: {x: 0.019955635, y: 0.8318187, z: -0.006453514}
+  m_Size: {x: 1.3105793, y: 1.6636374, z: 1.2940369}
+  m_Center: {x: 0.037944794, y: 0.8318187, z: -0.006453514}
 --- !u!114 &470512016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5741,6 +5741,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5200681163901301247, guid: 6d74876d99d459743af39429f3ef69b5, type: 3}
   m_PrefabInstance: {fileID: 523019253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &523698791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523698795}
+  - component: {fileID: 523698794}
+  - component: {fileID: 523698793}
+  - component: {fileID: 523698792}
+  m_Layer: 5
+  m_Name: DecryptCanvasNOTINUSE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &523698792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523698791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &523698793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523698791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &523698794
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523698791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &523698795
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523698791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &534487444
 GameObject:
   m_ObjectHideFlags: 0
@@ -11986,13 +12086,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: Press E to Open
   doorSceneName: CastleEditedScene
-  doorLevel: 0
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
-  keyID: 2
   keyToFind: {fileID: 2084140284}
   interactionPromptUI: {fileID: 298534988}
   player: {fileID: 1358409255}
-  puzzleSolved: 0
 --- !u!1 &1105263349
 GameObject:
   m_ObjectHideFlags: 0
@@ -15623,6 +15720,7 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
+  decryptCanvas: {fileID: 523698791}
 --- !u!114 &1358409256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16331,7 +16429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408320555}
   - component: {fileID: 1408320552}
-  - component: {fileID: 1408320551}
+  - component: {fileID: 1408320556}
   m_Layer: 0
   m_Name: InstructionTrigger
   m_TagString: Untagged
@@ -16339,18 +16437,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1408320551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408320550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ea90f2eea2858469817532e38f49b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1408320552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16379,6 +16465,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408320556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408320550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ea90f2eea2858469817532e38f49b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1417344644
 GameObject:
   m_ObjectHideFlags: 0
@@ -18895,7 +18993,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946251724}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.2701874, y: 1.6636374, z: 1.286828}
@@ -20628,8 +20726,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2147417, y: 1.6636374, z: 1.2142544}
-  m_Center: {x: 0.009962559, y: 0.8318187, z: -0.04632473}
+  m_Size: {x: 1.4668112, y: 1.6636374, z: 1.4295597}
+  m_Center: {x: -0.00828886, y: 0.8318187, z: -0.046147346}
 --- !u!1 &1691338955
 GameObject:
   m_ObjectHideFlags: 0
@@ -22140,6 +22238,8 @@ MonoBehaviour:
   partTwo: {fileID: 807752053}
   partThree: {fileID: 1203192695}
   partFour: {fileID: 1936068267}
+  partFive: {fileID: 0}
+  partSix: {fileID: 0}
 --- !u!1001 &1789210892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26617,8 +26717,8 @@ GameObject:
   - component: {fileID: 2124258952}
   - component: {fileID: 2124258951}
   - component: {fileID: 2124258950}
-  - component: {fileID: 2124258949}
   - component: {fileID: 2124258948}
+  - component: {fileID: 2124258955}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -26640,22 +26740,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 0}
   gameSuccessMenu: {fileID: 0}
---- !u!114 &2124258949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124258947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b326e3b9313d3934292025e6ff4dcb92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instructions: {fileID: 598086241}
-  instructionText: {fileID: 1630783698}
-  instructionText2: {fileID: 1285734885}
-  isCompleteText: {fileID: 1335641119}
 --- !u!114 &2124258950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26754,6 +26838,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2124258955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124258947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b326e3b9313d3934292025e6ff4dcb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instructions: {fileID: 598086241}
+  instructionText: {fileID: 1630783698}
+  instructionText2: {fileID: 1285734885}
+  isCompleteText: {fileID: 1335641119}
 --- !u!1 &2125627698
 GameObject:
   m_ObjectHideFlags: 0
