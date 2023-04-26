@@ -144,11 +144,12 @@ namespace StarterAssets
         // Loading player position
         public void LoadData(GameData data)
         {
+            
             // POISTETTAVA, LINNASCENEN TESTAILUUN
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 this.transform.position = new Vector3(31, 0, -14);
-            }
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
@@ -160,10 +161,10 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
                 this.transform.position = new Vector3(-10, 0, -14);
-            }
+            }*/
             else
             {
-                Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
+            Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
                 this.transform.position = data.playerPosition;
                 this.transform.rotation = data.playerRotation;
             }
@@ -187,7 +188,7 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(31, 0, -14);
                 transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
-            }
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
@@ -200,7 +201,7 @@ namespace StarterAssets
             {
                 this.transform.position = new Vector3(-10, 0, -14);
             }
-
+            */
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);

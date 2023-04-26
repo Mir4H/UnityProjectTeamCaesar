@@ -7503,11 +7503,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: VipuScene
   doorLevel: 2
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &191324704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -30796,6 +30797,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &781819695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -31350,6 +31352,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &801685139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -41472,11 +41475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: DarkRoom
   doorLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &1026653762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -54677,6 +54681,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &1318556605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -58222,6 +58227,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
+  player: {fileID: 7701594329807340365}
 --- !u!4 &1405683705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
