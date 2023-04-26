@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,7 +26,6 @@ public class ShowingInstructions : MonoBehaviour
     }
     private void TaskComplete()
     {
-        DisablePrivateReflectionAttribute Au
         if (isCompleteText != null)
         {
             instructions.SetActive(true);
