@@ -88,13 +88,14 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     }
     private void ShowOneStory()
     {
+        CancelInvoke(); 
         storyImage.SetActive(true);
         next.gameObject.SetActive(false);
         prev.gameObject.SetActive(false);
         Debug.Log("Story request");
-        Invoke("CloseThis", 31.0f);
+        Invoke("CloseThis", 33.0f);
     }
-    private void CloseThis()
+    void CloseThis()
     {
         storyImage.SetActive(false);
     }
@@ -114,7 +115,5 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     {
         storyImage.SetActive(false);
         diary.SetActive(false);
-        CancelInvoke();
-        // Time.timeScale = 1;
     }
 }
