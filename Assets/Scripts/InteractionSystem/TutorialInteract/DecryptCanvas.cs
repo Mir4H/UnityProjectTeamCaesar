@@ -41,7 +41,10 @@ public class DecryptCanvas : MonoBehaviour
         else
         {
             message.text = $"{input.text} is incorrect. Please try again or try to look for clues!";
-            //Close();           
+            foreach (Transform t in goalDoors.transform)
+            {
+                t.gameObject.tag = "dectypt";
+            }
         }
     }
 

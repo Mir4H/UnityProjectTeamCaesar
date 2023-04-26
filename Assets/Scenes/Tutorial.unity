@@ -424,7 +424,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73434653}
-  - component: {fileID: 73434654}
   m_Layer: 5
   m_Name: Diary
   m_TagString: Untagged
@@ -454,18 +453,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &73434654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73434652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4d88e711d85e24fb59d45bcad33109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &77818795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2798,6 +2785,7 @@ Transform:
   - {fileID: 901355836}
   - {fileID: 138523344}
   - {fileID: 985325376}
+  - {fileID: 1988216669}
   - {fileID: 1118930452}
   - {fileID: 980553001}
   - {fileID: 1203054564}
@@ -2807,7 +2795,6 @@ Transform:
   - {fileID: 324560309}
   - {fileID: 1498086138}
   - {fileID: 785541122}
-  - {fileID: 1988216669}
   - {fileID: 1257562525}
   - {fileID: 1637182453}
   - {fileID: 873809445}
@@ -21542,7 +21529,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 237266203}
-  m_RootOrder: 46
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 73.634, y: -89.24, z: 0}
 --- !u!64 &1988216670
 MeshCollider:

@@ -75,6 +75,11 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
                 interactionPromptUI.SetUp($"You need to find a key!");
             }
         }
+        else if (gameObject.tag == "dectypt")
+        {
+            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+            interactionPromptUI.SetUp($"Am I Still a KING?");
+        }
         else
         {
             if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
