@@ -170,7 +170,7 @@ namespace StarterAssets
             }
             if (SceneManager.GetActiveScene().buildIndex == 8)
             {
-                this.transform.position = new Vector3(62, 0, -13);
+                this.transform.position = new Vector3(22, 0, -13);
             }
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
