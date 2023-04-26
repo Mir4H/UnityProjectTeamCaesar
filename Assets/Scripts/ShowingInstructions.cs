@@ -26,33 +26,37 @@ public class ShowingInstructions : MonoBehaviour
     }
     private void TaskComplete()
     {
+        float clipLength = isCompleteText.GetComponent<AudioSource>().clip.length;
+
         if (isCompleteText != null)
         {
             instructions.SetActive(true);
             instructionText.SetActive(false);
             if (instructionText2 != null) instructionText2.SetActive(false);
             isCompleteText.SetActive(true);
-            Invoke("Close", 13f);
+            Invoke("Close", clipLength + 1);
         }
     }
 
     private void InstructionsRequested()
     {
+        float clipLength = instructionText.GetComponent<AudioSource>().clip.length;
         instructions.SetActive(true);
         instructionText.SetActive(true);
         if (instructionText2 != null) instructionText2.SetActive(false);
         if (isCompleteText != null) isCompleteText.SetActive(false);
-        if (instructionText2 != null) Invoke("OpenSecond", 18f);
-        else Invoke("Close", 20f);
+        if (instructionText2 != null) Invoke("OpenSecond", clipLength + 1);
+        else Invoke("Close", clipLength + 1);
     }
 
     private void OpenSecond()
     {
+        float clipLength = instructionText2.GetComponent<AudioSource>().clip.length;
         instructions.SetActive(true);
         instructionText.SetActive(false);
         instructionText2.SetActive(true);
         if (isCompleteText != null) isCompleteText.SetActive(false);
-        Invoke("Close", 15f);
+        Invoke("Close", clipLength + 1);
     }
 
     private void Close()
