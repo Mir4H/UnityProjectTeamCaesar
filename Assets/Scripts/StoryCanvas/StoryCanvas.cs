@@ -92,7 +92,7 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
         next.gameObject.SetActive(false);
         prev.gameObject.SetActive(false);
         Debug.Log("Story request");
-        Invoke("CloseThis", 11.0f);
+        Invoke("CloseThis", 31.0f);
     }
     private void CloseThis()
     {

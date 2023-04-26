@@ -31,7 +31,6 @@ public class DecryptCanvas : MonoBehaviour
         if (input.text.ToLower() == "king")
         {
             EventManager.OnDiaryDecrypted();
-            Debug.Log("read diary");
             foreach (Transform t in goalDoors.transform)
             {
                 t.gameObject.tag = "goal";
