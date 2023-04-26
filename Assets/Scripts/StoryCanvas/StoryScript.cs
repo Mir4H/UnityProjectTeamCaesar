@@ -16,6 +16,8 @@ public class StoryScript : MonoBehaviour
     [SerializeField] GameObject partTwo;
     [SerializeField] GameObject partThree;
     [SerializeField] GameObject partFour;
+    [SerializeField] GameObject partFive;
+    [SerializeField] GameObject partSix;
     private Button selectedItem;
     private int nroOfScrolls;
     public static int currentlyShown = 0;
@@ -66,6 +68,8 @@ public class StoryScript : MonoBehaviour
         if (storynro == 2) partTwo.gameObject.SetActive(true); else partTwo.gameObject.SetActive(false);
         if (storynro == 3) partThree.gameObject.SetActive(true); else partThree.gameObject.SetActive(false);
         if (storynro == 4) partFour.gameObject.SetActive(true); else partFour.gameObject.SetActive(false);
+        if (storynro == 5) partFive.gameObject.SetActive(true); else partFive.gameObject.SetActive(false);
+        if (storynro == 6) partSix.gameObject.SetActive(true); else partSix.gameObject.SetActive(false);
     }
 
     private void OnDisable()
