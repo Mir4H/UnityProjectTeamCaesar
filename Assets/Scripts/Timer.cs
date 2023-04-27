@@ -54,11 +54,11 @@ public class Timer : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        data.timeToDisplay = timeToDisplay;
+        timeToDisplay = data.timeToDisplay;
     }
 
     public void SaveData(GameData data)
     {
-        timeToDisplay = data.timeToDisplay;
+        data.timeToDisplay = timeToDisplay;
     }
 }
