@@ -179,18 +179,21 @@ namespace StarterAssets
             else
             {*/
             Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
-                this.transform.position = data.playerPosition;
-                this.transform.rotation = data.playerRotation;
+            this.transform.position = data.playerPosition;
+            this.transform.rotation = data.playerRotation;
             //}
 
             // Material loading
             moustache.SetActive(data.moustache);
             beard.SetActive(data.beard);
-            shirt.GetComponent<Renderer>().material = data.shirt;
-            pants.GetComponent<Renderer>().material = data.pants;
-            head.GetComponent<Renderer>().material = data.skin;
-            neck.GetComponent<Renderer>().material = data.skin;
-            hands.GetComponent<Renderer>().material = data.skin;
+            shirt.GetComponent<Renderer>().material.color = data.shirt;
+            Debug.Log(data.shirt);
+            pants.GetComponent<Renderer>().material.color = data.pants;
+            Debug.Log(data.pants);
+            head.GetComponent<Renderer>().material.color = data.skin;
+            neck.GetComponent<Renderer>().material.color = data.skin;
+            hands.GetComponent<Renderer>().material.color = data.skin;
+            Debug.Log(data.skin);
 
         }
 

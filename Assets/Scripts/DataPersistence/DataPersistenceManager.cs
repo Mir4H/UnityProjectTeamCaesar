@@ -150,13 +150,10 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("State of new puzzlestarted: " + newPuzzleLevelStarted);
     }
 
-
-    // TÄMÄ VOIMASSA NYT VAIN TESTIN AJAN, POISTETAAN, KUN TALLENNUS ON LIITETTY MUUALLE!!
-    /*
     private void OnApplicationQuit()
     {
         SaveGame();
-    }*/
+    }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {

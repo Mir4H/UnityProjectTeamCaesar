@@ -25,9 +25,9 @@ public class GameData
     // Material saving from customization
     public bool beard;
     public bool moustache;
-    public Material shirt;
-    public Material pants;
-    public Material skin;
+    public Color shirt;
+    public Color pants;
+    public Color skin;
 
 
     // The values defined in this constructor will be the default values the game starts with when there's no data to load
