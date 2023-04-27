@@ -226,11 +226,11 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 this.transform.position = new Vector3(20.0799999f, 0, -19.1599998f);
-            }/*
-            if (SceneManager.GetActiveScene().buildIndex == 9)
+            }
+            if (SceneManager.GetActiveScene().name == "DarkRoom")
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
-            }*/
+            }
             
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             

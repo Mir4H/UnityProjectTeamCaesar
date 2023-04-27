@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour, IDataPersistence
 {
     [Header("Menu Navigation")]
-    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+    //[SerializeField] private OptionsMenu optionsMenu;
 
     [Header("Pause Menu Buttons")]
     [SerializeField] private Button continueButton;
@@ -22,6 +22,11 @@ public class PauseMenu : MonoBehaviour, IDataPersistence
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if (currentSceneName == "CastleEditedScene" || currentSceneName == "Tutorial")
+        {
+            restartLevelButton.gameObject.SetActive(false);
+        }
     }
 
     // Getting current scene name
@@ -60,7 +65,7 @@ public class PauseMenu : MonoBehaviour, IDataPersistence
         DisableMenuButtons();
         // Setting save file to restart-file
         DataPersistenceManager.instance.SetRestartLevel(true);
-        SceneManager.LoadSceneAsync(currentSceneName);
+        SceneManager.LoadSceneAsync("CastleEditedScene");
         DataPersistenceManager.instance.SaveGame();
         Debug.Log("Restarting level");
     }

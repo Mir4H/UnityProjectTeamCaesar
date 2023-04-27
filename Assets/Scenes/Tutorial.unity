@@ -11173,7 +11173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerType: 0
-  timeToDisplay: 5
+  timeToDisplay: 360
 --- !u!114 &942003225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21071,6 +21071,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: useEncryption
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
+      propertyPath: initalizeDataIfNull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
+      propertyPath: overrideSelectedProfileId
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059847, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}

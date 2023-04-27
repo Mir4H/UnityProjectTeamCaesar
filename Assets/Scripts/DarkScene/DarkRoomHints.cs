@@ -8,6 +8,8 @@ public class DarkRoomHints : MonoBehaviour
     [SerializeField] private GameObject lamps;
     [SerializeField] private GameObject middleDoor;
     [SerializeField] private GameObject goalDoor;
+    [SerializeField] private GameObject storyCanvas;
+    [SerializeField] private GameObject startStory;
 
     private void OnEnable()
     {
@@ -17,7 +19,20 @@ public class DarkRoomHints : MonoBehaviour
 
     private void Start()
     {
-        Invoke("FirstHint", 30f);
+        Invoke("StartStory", 2f);
+        Invoke("FirstHint", 50f);
+    }
+
+    private void StartStory()
+    {
+        float cliplenght = startStory.GetComponent<AudioSource>().clip.length;
+        storyCanvas.SetActive(true);
+        Invoke("CloseStory", cliplenght +1);
+    }
+
+    private void CloseStory()
+    {
+        storyCanvas.SetActive(false);
     }
 
     private void FirstHint()
@@ -97,16 +112,4 @@ public class DarkRoomHints : MonoBehaviour
         EventManager.FirstPartSolved -= ThroneHints;
         EventManager.SecondPartSolved -= MathHints;
     }
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (!lamps.activeInHierarchy)
-        {
-            showGuidance.SetUpGuidance("Maybe check your inventory for help?");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        showGuidance.CloseGuidance();
-    }*/
 }
