@@ -17,6 +17,7 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject diaryText3;
     [SerializeField] private GameObject diaryImage;
     [SerializeField] private bool diaryDecryped = false;
+    [SerializeField] private GameObject gameOverMenu;
 
     private void OnEnable()
     {
@@ -26,6 +27,12 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
         EventManager.DiaryDecrypted += OnDiaryDecrypted;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        EventManager.TimerStop += EventManagerOnTimeStop;
+    }
+
+    void Start()
+    {
+        EventManager.OnTimerStart();
     }
 
     private void OnDiaryDecrypted()
@@ -85,6 +92,7 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
         EventManager.ShowOneStory -= ShowOneStory;
         EventManager.ShowDiary -= OnShowDiary;
         EventManager.DiaryDecrypted -= OnDiaryDecrypted;
+        EventManager.TimerStop -= EventManagerOnTimeStop;
     }
     private void ShowOneStory()
     {
@@ -115,5 +123,10 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     {
         storyImage.SetActive(false);
         diary.SetActive(false);
+    }
+
+    private void EventManagerOnTimeStop()
+    {
+        gameOverMenu.SetActive(true);
     }
 }

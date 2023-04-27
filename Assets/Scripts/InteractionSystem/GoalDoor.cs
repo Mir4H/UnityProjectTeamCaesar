@@ -17,6 +17,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
     //[SerializeField] private bool puzzleSolved;
+    [SerializeField] private GameObject LoadingScreen;
 
     private string playedScene;
 
@@ -42,20 +43,21 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
             //Tää tarkastaa
             if (keyToFind == null)
             {
-                Debug.Log("Pass");
-
-                playedScene = SceneManager.GetActiveScene().name;
-
-                SceneManager.LoadSceneAsync(doorSceneName);
-
-                SetPlayerPosition(roomLevel);
-
-                DataPersistenceManager.instance.SaveGame();
-
-                if (SceneManager.GetActiveScene().buildIndex == 5)
+                if (SceneManager.GetActiveScene().buildIndex == 2)
                 {
                     if (inventory.Container.Items.Any(x => x.ID == 10))
                     {
+                        Debug.Log("Pass");
+
+                        playedScene = SceneManager.GetActiveScene().name;
+
+                        //SceneManager.LoadSceneAsync(doorSceneName);
+                        LoadScene();
+
+                        SetPlayerPosition(roomLevel);
+
+                        DataPersistenceManager.instance.SaveGame();
+
                         return true;
                     }
                     else
@@ -64,9 +66,21 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
                         interactionPromptUI.SetUp($"You need the Torch!");
                         return false;
                     }
-                }
+                } else
+                {
+                    Debug.Log("Pass");
 
-                return true;
+                    playedScene = SceneManager.GetActiveScene().name;
+
+                    //SceneManager.LoadSceneAsync(doorSceneName);
+                    LoadScene();
+
+                    SetPlayerPosition(roomLevel);
+
+                    DataPersistenceManager.instance.SaveGame();
+
+                    return true;
+                }
             }
             else
             {
@@ -106,6 +120,22 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
             //TÄHÄN VIIMEISEN SKENEN ALOITUSPOSITIO LOPULLISESSA VERSIOSSA
             player.transform.position = new Vector3(-3.59259224f, 10.0299997f, -5.42291737f);
             player.transform.rotation = new Quaternion(0, 0.890683353f, 0, -0.454624176f);
+        }
+    }
+
+    public void LoadScene()
+    {
+        StartCoroutine(LoadSceneAsync(doorSceneName));
+    }
+
+    IEnumerator LoadSceneAsync(string doorSceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(doorSceneName);
+        LoadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
         }
     }
 }
