@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -38,7 +39,10 @@ public class SaveSlot : MonoBehaviour
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
 
-            currentSceneText.text = data.currentScene;
+            int profileNum;
+            Int32.TryParse(profileId, out profileNum);
+
+            currentSceneText.text = $"Player {profileNum+1}";
             savingDateText.text = System.DateTime.Now.ToString();
         }
     }

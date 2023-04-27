@@ -48,19 +48,11 @@ public class MaterialController : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
-        if (skinChoise == null)
-        {
-            skinChoise = skinMaterials[0].color;
-        }
-        if (pantsChoise == null)
-        {
-            pantsChoise = pantsMaterials[0].color;
-        }
-        if (shirtChoise == null)
-        {
-            shirtChoise = shirtMaterials[0].color;
-        }
+        skinChoise = skinMaterials[0].color;
+        pantsChoise = pantsMaterials[0].color;
+        shirtChoise = shirtMaterials[0].color;
     }
+
     private void Update()
     {
         for (int j = 0; j < beard.Length; j++)
