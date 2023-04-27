@@ -29,6 +29,8 @@ public class GameData
     public Color pants;
     public Color skin;
 
+    public float timeToDisplay;
+
 
     // The values defined in this constructor will be the default values the game starts with when there's no data to load
     public GameData()

@@ -15,18 +15,23 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: e8f5a35846abbff4182e1c20183f0229, type: 2}
   Container:
     Items:
-    - ID: 10
-      Item:
-        Name: Torch
-        Id: 10
-      StackSize: 1
-    - ID: 2
-      Item:
-        Name: Rusty Key
-        Id: 2
-      StackSize: 1
     - ID: 1
       Item:
         Name: Scroll
         Id: 1
       StackSize: 6
+    - ID: 2
+      Item:
+        Name: Rusty Key
+        Id: 2
+      StackSize: 4
+    - ID: 4
+      Item:
+        Name: Bread
+        Id: 4
+      StackSize: 1
+    - ID: 6
+      Item:
+        Name: Meat
+        Id: 6
+      StackSize: 1
