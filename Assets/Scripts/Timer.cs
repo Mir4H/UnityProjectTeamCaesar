@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour, IDataPersistence
 {
@@ -34,7 +35,7 @@ public class Timer : MonoBehaviour, IDataPersistence
 
     private void EventManagerOnTimerStart() => _isRunning = true;
     private void EventManagerOnTimerStop() => _isRunning = false;
-    private void EventManagerOnTimerToNull() => timeToDisplay = float.NaN;
+    private void EventManagerOnTimerToNull() => timeToDisplay = 900f;
     private void EventManagerOnTimerUpdate(float value) => timeToDisplay += value;
 
     private void Update()
@@ -59,6 +60,13 @@ public class Timer : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.timeToDisplay = timeToDisplay;
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            data.timeToDisplay = 900f;
+        }
+        else
+        {
+            data.timeToDisplay = timeToDisplay;
+        }
     }
 }
