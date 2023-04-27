@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour, IInteractable, IDataPersistence
 {
     [SerializeField] private string _prompt;
     [SerializeField] private string doorSceneName;
@@ -19,6 +19,16 @@ public class Door : MonoBehaviour, IInteractable
     private int numberOfKeys;
 
     public string InteractionPrompt => _prompt;
+
+    public void LoadData(GameData data)
+    {
+        //data.scenesCompleted = scenesCom
+    }
+
+    public void SaveData(GameData data)
+    {
+        //
+    }
 
     public bool Interact(Player interactor)
     {
