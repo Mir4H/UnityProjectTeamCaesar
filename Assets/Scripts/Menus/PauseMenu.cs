@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour, IDataPersistence
 {
     [Header("Menu Navigation")]
-    //[SerializeField] private OptionsMenu optionsMenu;
+    [SerializeField] private OptionsMenu optionsMenu;
 
     [Header("Pause Menu Buttons")]
     [SerializeField] private Button continueButton;
@@ -72,8 +72,8 @@ public class PauseMenu : MonoBehaviour, IDataPersistence
 
     public void Options()
     {
-        DisableMenuButtons();
-        Debug.Log("Opening options");
+        optionsMenu.ActivateMenu(true);
+        this.DeactivateMenu();
     }
 
     public void Quit()

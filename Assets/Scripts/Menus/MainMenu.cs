@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour, IDataPersistence
 {
     [Header("Menu Navigation")]
     [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+    [SerializeField] private OptionsMenu optionsMenu;
 
     [Header("Main Menu Buttons")]
     [SerializeField] private Button continueButton;
@@ -67,8 +68,8 @@ public class MainMenu : MonoBehaviour, IDataPersistence
 
     public void Options()
     {
-        DisableMenuButtons();
-        Debug.Log("Opening options");
+        optionsMenu.ActivateMenu(true);
+        this.DeactivateMenu();
     }
 
     public void Quit()

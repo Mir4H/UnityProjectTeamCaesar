@@ -214,15 +214,15 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(31, 0, -14);
                 transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
-            }*/
+            }
             if (SceneManager.GetActiveScene().buildIndex == 8)
             {
                 transform.position = new Vector3(-5.7f, 0f, -13.44f);
-            }/*
+            }
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
-            }*/
+            }
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 this.transform.position = new Vector3(20.0799999f, 0, -19.1599998f);
@@ -230,8 +230,12 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().name == "DarkRoom")
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
+            }*/
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                this.transform.position = new Vector3(31, 0, -14);
             }
-            
+
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);

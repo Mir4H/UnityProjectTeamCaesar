@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -128,5 +129,15 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
     private void EventManagerOnTimeStop()
     {
         gameOverMenu.SetActive(true);
+        Invoke("RestartLevel", 7f);
+
+    }
+
+    private void RestartLevel()
+    {
+        DataPersistenceManager.instance.SetRestartLevel(true);
+        gameOverMenu.SetActive(false);
+        SceneManager.LoadSceneAsync("CastleEditedScene");
+        DataPersistenceManager.instance.SaveGame();
     }
 }
