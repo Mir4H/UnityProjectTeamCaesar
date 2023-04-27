@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SceneOneExtension.unity
     guid: 61247b88461618346b19d8e37e4f0aa2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SaveTestScene.unity
     guid: d411f0f84e444a145b7544f156d8b5f9
   - enabled: 0

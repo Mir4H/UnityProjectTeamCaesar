@@ -10,7 +10,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
 {
     [SerializeField] private string _prompt;
     [SerializeField] private string doorSceneName;
-    //[SerializeField] private int doorLevel;
+    [SerializeField] private int roomLevel;
     [SerializeField] private InventorySystem inventory;
     //[SerializeField] private int keyID;
     [SerializeField] private GameObject keyToFind;
@@ -48,8 +48,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
 
                 SceneManager.LoadSceneAsync(doorSceneName);
 
-                player.transform.position = new Vector3((float)-5.7, (float)0.2500001, (float)-9.93);
-                player.transform.rotation = new Quaternion((float)0.00000, (float)0.65060, (float)0.00000, (float)0.75942);
+                SetPlayerPosition(roomLevel);
 
                 DataPersistenceManager.instance.SaveGame();
 
@@ -88,5 +87,25 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
 
         Debug.Log("Puzzle not solved yet!");
         return false;
+    }
+
+    public void SetPlayerPosition(int _roomLevel)
+    {
+        if (_roomLevel == 1)
+        {
+            player.transform.position = new Vector3(31, 0, -14);
+            player.transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
+        }
+        if (_roomLevel == 2)
+        {
+            player.transform.position = new Vector3(-22.8608246f, 0.0377888083f, -11.7435255f);
+            player.transform.rotation = new Quaternion(0, 0.904906988f, 0, 0.42560941f);
+        }
+        if (_roomLevel == 3)
+        {
+            //TÄHÄN VIIMEISEN SKENEN ALOITUSPOSITIO LOPULLISESSA VERSIOSSA
+            player.transform.position = new Vector3(-3.59259224f, 10.0299997f, -5.42291737f);
+            player.transform.rotation = new Quaternion(0, 0.890683353f, 0, -0.454624176f);
+        }
     }
 }

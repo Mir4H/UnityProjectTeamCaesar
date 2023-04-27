@@ -22,43 +22,52 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool Interact(Player interactor)
     {
-        foreach (InventoryItem item in inventory.Container.Items)
-        {
-            if (item.ID == keyID)
-            {
-                numberOfKeys = item.StackSize;
-            }
-        }
-
-        if (numberOfKeys >= doorLevel)
-        {
-            canOpen = true;
-        }
-
-        if (canOpen)
-        {
-            SceneManager.LoadSceneAsync(doorSceneName);
-            SetPlayerPosition(doorSceneName);
-            DataPersistenceManager.instance.SetNewLevel(true);
-            DataPersistenceManager.instance.SaveGame();
-            Debug.Log("Opening Door!");
-            return true;
-        }
-        else
+        if (doorSceneName == "UnderConstruction")
         {
             if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
-            interactionPromptUI.SetUp($"You need {doorLevel} keys for this door!");
-        }
+            interactionPromptUI.SetUp("This room is still under construction. Come back on final version!");
+            return false;
+        } 
+        else 
+        {
+            foreach (InventoryItem item in inventory.Container.Items)
+            {
+                if (item.ID == keyID)
+                {
+                    numberOfKeys = item.StackSize;
+                }
+            }
 
-        Debug.Log("No key found!");
-        return false;
+            if (numberOfKeys >= doorLevel)
+            {
+                canOpen = true;
+            }
+
+            if (canOpen)
+            {
+                SceneManager.LoadSceneAsync(doorSceneName);
+                SetPlayerPosition(doorSceneName);
+                DataPersistenceManager.instance.SetNewLevel(true);
+                DataPersistenceManager.instance.SaveGame();
+                Debug.Log("Opening Door!");
+                return true;
+            }
+            else
+            {
+                if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+                interactionPromptUI.SetUp($"You need {doorLevel} keys for this door!");
+            }
+
+            Debug.Log("No key found!");
+            return false;
+        }
     }
 
     public void SetPlayerPosition(string sceneName)
     {
-        if (sceneName == "Tutorial") player.transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
+        if (sceneName == "Tutorial") player.transform.position = new Vector3(-5.69999981f, 0.25000006f, -9.93000031f);
         if (sceneName == "Sokkelo") player.transform.position = new Vector3(62, 0, -14); Debug.Log(sceneName);
         if (sceneName == "VipuScene") player.transform.position = new Vector3(62, 0, -13); Debug.Log(sceneName);
-        if (sceneName == "DarkRoom") player.transform.position = new Vector3(-10, 0, -14); Debug.Log(sceneName);
+        if (sceneName == "DarkRoom") player.transform.position = new Vector3(-6.32999992f, 0, -14);
     }
 }

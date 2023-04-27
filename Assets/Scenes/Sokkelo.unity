@@ -22615,6 +22615,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4735221276785060878, guid: 5c58fb2d7ad52444f85fc37bcad1f0a5, type: 3}
   m_PrefabInstance: {fileID: 1367232579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1369274081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369274085}
+  - component: {fileID: 1369274084}
+  - component: {fileID: 1369274083}
+  - component: {fileID: 1369274082}
+  m_Layer: 5
+  m_Name: DecryptCanvasNOTINUSE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1369274082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369274081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1369274083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369274081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1369274084
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369274081}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1369274085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369274081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1001 &1369733302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27009,7 +27109,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4290646081106745868, guid: 1152c7a5a8c8f0f49890654cbe047528, type: 3}
   m_PrefabInstance: {fileID: 2141156217}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1599543951
+--- !u!114 &1599543943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27018,15 +27118,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1599543942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba66e35eb70ec53428c01b90d89dd6f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7241b83f19a426741b5c8cca0b59e637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: Press E to Open
   doorSceneName: CastleEditedScene
+  roomLevel: 2
+  inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
+  keyToFind: {fileID: 688100863}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
-  puzzleSolved: 0
-  keyToFind: {fileID: 688100863}
 --- !u!1001 &1603155368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42854,7 +42955,7 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
-  decryptCanvas: {fileID: 0}
+  decryptCanvas: {fileID: 1369274081}
 --- !u!1 &7710598513287210262
 GameObject:
   m_ObjectHideFlags: 0

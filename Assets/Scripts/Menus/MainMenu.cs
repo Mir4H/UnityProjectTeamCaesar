@@ -58,11 +58,10 @@ public class MainMenu : MonoBehaviour, IDataPersistence
     {
         DisableMenuButtons();
         // Save the game anytime before a new scene
-        // DataPersistenceManager.instance.SaveGame();
+        DataPersistenceManager.instance.SaveGame();
         // Load the scene where player was when pressing esc - which will in turn load the game because of OnSceneLoaded() in the DataPersistenceManager
         SceneManager.LoadSceneAsync(currentSceneName);
 
-        //SceneManager.LoadSceneAsync("SaveTestScene");
         Debug.Log("Continue from the last save");
     }
 
@@ -75,6 +74,7 @@ public class MainMenu : MonoBehaviour, IDataPersistence
     public void Quit()
     {
         DisableMenuButtons();
+        DataPersistenceManager.instance.SaveGame();
         Debug.Log("QUIT");
         Application.Quit();
     }

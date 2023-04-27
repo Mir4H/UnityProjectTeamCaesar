@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 [RequireComponent(typeof(UniqueID))]
 public class ItemObject : MonoBehaviour, IDataPersistence

@@ -7503,7 +7503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: VipuScene
+  doorSceneName: UnderConstruction
   doorLevel: 2
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
@@ -30793,7 +30793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: UnderConstruction
   doorLevel: 3
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
@@ -31348,7 +31348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: DarkRoom
   doorLevel: 3
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
@@ -41476,7 +41476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: DarkRoom
+  doorSceneName: VipuScene
   doorLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
@@ -54676,7 +54676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: UnderConstruction
   doorLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
@@ -58222,7 +58222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
-  doorSceneName: Tutorial
+  doorSceneName: Sokkelo
   doorLevel: 2
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2

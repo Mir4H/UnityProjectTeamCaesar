@@ -16,6 +16,8 @@ public static class EventManager
     public static event UnityAction DiaryDecrypted;
     public static event UnityAction TorchInHand;
     public static event UnityAction TakeTorch;
+    public static event UnityAction FirstPartSolved;
+    public static event UnityAction SecondPartSolved;
 
 
     public static void OnTimerStart() => TimerStart?.Invoke();
@@ -37,4 +39,7 @@ public static class EventManager
     public static void OnTorchInHand() => TorchInHand?.Invoke();
 
     public static void OnTakeTorch() => TakeTorch?.Invoke();
+
+    public static void OnFirstPartSolved() => FirstPartSolved?.Invoke();
+    public static void OnSecondPartSolved() => SecondPartSolved?.Invoke();
 }
