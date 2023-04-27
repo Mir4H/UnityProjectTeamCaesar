@@ -33,12 +33,12 @@ public class VipuSceneScript : MonoBehaviour
     // Up: 315, Down: 45
     private void SwitchCheck()
     {
-        if (switch1.transform.eulerAngles.x == 45 &&
-            switch2.transform.eulerAngles.x == 315 &&
-            switch3.transform.eulerAngles.x == 315 &&
+        if (switch1.transform.eulerAngles.x == 315 &&
+            switch2.transform.eulerAngles.x == 45 &&
+            switch3.transform.eulerAngles.x == 315 &&  
             switch4.transform.eulerAngles.x == 315 &&
             switch5.transform.eulerAngles.x == 45 &&
-            switch6.transform.eulerAngles.x == 315)
+            switch6.transform.eulerAngles.x == 45)
         {
             Debug.Log("thrones right");
 

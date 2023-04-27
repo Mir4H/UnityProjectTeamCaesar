@@ -9,7 +9,6 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     [SerializeField] private float Speed = 1.0f;
     [SerializeField] private int RotationAmount = 90;
-    [SerializeField] GameObject lever;
 
     private Vector3 StartRotation;
 
@@ -17,7 +16,7 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        StartRotation = lever.transform.rotation.eulerAngles;
+        StartRotation = transform.localRotation.eulerAngles;
     }
     public void TurnSwitch()
     {
@@ -31,24 +30,42 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     private IEnumerator DoRotation()
     {
-        Quaternion startRotation = lever.transform.rotation;
+        Quaternion startRotation = transform.localRotation;
         Quaternion endRotation;
 
         Debug.Log("start" + startRotation);
 
-        endRotation = Quaternion.Euler(new Vector3(StartRotation.x - RotationAmount, 0, 0));
-
-        float time = 0;
-        while (time < 1)
+        if (StartRotation.x <= 46f)
         {
-            lever.transform.rotation = Quaternion.Lerp(startRotation, endRotation, time);
-            yield return null;
-            time += Time.deltaTime;
+            endRotation = Quaternion.Euler(new Vector3(StartRotation.x - RotationAmount, 0, 0));
+
+            float time = 0;
+            while (time < 1)
+            {
+                transform.localRotation = Quaternion.Lerp(startRotation, endRotation, time);
+                yield return null;
+                time += Time.deltaTime;
+            }
+            transform.localRotation = endRotation;
         }
 
-        lever.transform.rotation = endRotation;
+        if (StartRotation.x >= 315f)
+        {
+            endRotation = Quaternion.Euler(new Vector3(StartRotation.x + RotationAmount, 0, 0));
 
-        StartRotation = lever.transform.rotation.eulerAngles;
+            float time = 0;
+            while (time < 1)
+            {
+                transform.localRotation = Quaternion.Lerp(startRotation, endRotation, time);
+                yield return null;
+                time += Time.deltaTime;
+            }
+
+            transform.localRotation = endRotation;
+        }
+
+        StartRotation = transform.localRotation.eulerAngles;
+        Debug.Log("Start Rotation: " + StartRotation);
     }
     public bool Interact(Player interactor)
     {
