@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour, IDataPersistence
     enum TimerType { Countdown, Stopwatch }
     [SerializeField] private TimerType timerType;
 
-    [SerializeField] private float timeToDisplay = 60.0f;
+    [SerializeField] private float timeToDisplay = 900f;
 
     private bool _isRunning;
 
@@ -56,6 +56,7 @@ public class Timer : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         timeToDisplay = data.timeToDisplay;
+        Debug.Log("Loading: " + data.timeToDisplay);
     }
 
     public void SaveData(GameData data)
@@ -63,10 +64,12 @@ public class Timer : MonoBehaviour, IDataPersistence
         if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 1)
         {
             data.timeToDisplay = 900f;
+            Debug.Log("special time save: " + data.timeToDisplay);
         }
         else
         {
             data.timeToDisplay = timeToDisplay;
+            Debug.Log("normal timesave: " + data.timeToDisplay);
         }
     }
 }
