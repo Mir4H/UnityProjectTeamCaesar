@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour, IDataPersistence
 {
     private TMP_Text _timerText;
     enum TimerType { Countdown, Stopwatch }
@@ -19,6 +19,8 @@ public class Timer : MonoBehaviour
         EventManager.TimerStart += EventManagerOnTimerStart;
         EventManager.TimerStop += EventManagerOnTimerStop;
         EventManager.TimerUpdate += EventManagerOnTimerUpdate;
+        EventManager.TimerToNull += EventManagerOnTimerToNull;
+
     }
 
     private void OnDisable()
@@ -26,10 +28,13 @@ public class Timer : MonoBehaviour
         EventManager.TimerStart -= EventManagerOnTimerStart;
         EventManager.TimerStop -= EventManagerOnTimerStop;
         EventManager.TimerUpdate -= EventManagerOnTimerUpdate;
+        EventManager.TimerToNull -= EventManagerOnTimerToNull;
+
     }
 
     private void EventManagerOnTimerStart() => _isRunning = true;
     private void EventManagerOnTimerStop() => _isRunning = false;
+    private void EventManagerOnTimerToNull() => timeToDisplay = float.NaN;
     private void EventManagerOnTimerUpdate(float value) => timeToDisplay += value;
 
     private void Update()
@@ -45,5 +50,15 @@ public class Timer : MonoBehaviour
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(timeToDisplay);
         _timerText.text = timeSpan.ToString(@"mm\:ss");
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.timeToDisplay = timeToDisplay;
+    }
+
+    public void SaveData(GameData data)
+    {
+        timeToDisplay = data.timeToDisplay;
     }
 }

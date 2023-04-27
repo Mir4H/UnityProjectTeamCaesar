@@ -50,7 +50,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
                         Debug.Log("Pass");
 
                         playedScene = SceneManager.GetActiveScene().name;
-
+                        OnTimerToNull();
                         //SceneManager.LoadSceneAsync(doorSceneName);
                         LoadScene();
 
@@ -71,7 +71,7 @@ public class GoalDoor : MonoBehaviour, IInteractable, IDataPersistence
                     Debug.Log("Pass");
 
                     playedScene = SceneManager.GetActiveScene().name;
-
+                    OnTimerToNull();
                     //SceneManager.LoadSceneAsync(doorSceneName);
                     LoadScene();
 
