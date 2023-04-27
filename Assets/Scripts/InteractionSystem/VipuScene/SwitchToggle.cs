@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SwitchToggle : MonoBehaviour, IInteractable
 {
-    private string _prompt = "Press E to turn the switch";
-    public string InteractionPrompt => _prompt;
+    [SerializeField] private string _prompt = "Press E to turn the switch";
 
     [SerializeField] private float Speed = 1.0f;
     [SerializeField] private int RotationAmount = 90;
+
+    public string InteractionPrompt => _prompt;
 
     private Vector3 StartRotation;
 

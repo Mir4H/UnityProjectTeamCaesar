@@ -2027,6 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &223990867
@@ -13647,18 +13648,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123511295}
-  m_LocalRotation: {x: -0, y: 0.74172294, z: -0, w: 0.6707065}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1776961738}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 95.757, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9985, y: 1.6}
-  m_SizeDelta: {x: 880, y: 190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123511297
 MonoBehaviour:
@@ -13680,7 +13681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Moro
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13707,7 +13708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 105.32
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13743,7 +13744,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 807.1313, w: 0}
+  m_margin: {x: 25.335297, y: 12.60305, z: 18.120209, w: 17.129662}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15740,6 +15741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &1241219008
@@ -17421,6 +17423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &1374912475
@@ -20444,6 +20447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &1644694561
@@ -23602,6 +23606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &1933164851
@@ -23788,6 +23793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38e4bde52136eb4ab403f87eb07e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prompt: Press E to turn the switch
   Speed: 1
   RotationAmount: 90
 --- !u!65 &1952793652
