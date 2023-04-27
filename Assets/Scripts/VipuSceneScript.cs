@@ -27,7 +27,7 @@ public class VipuSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SwitchCheck();
     }
 
     // Up: 315, Down: 45
@@ -46,6 +46,11 @@ public class VipuSceneScript : MonoBehaviour
             GameObject.Destroy(fence2);
             GameObject.Destroy(fence3);
             GameObject.Destroy(fence4);
+        } else
+        {
+            Debug.Log("thrones wrong");
+            Debug.Log(switch1.transform.eulerAngles.x);
+            Debug.Log(switch2.transform.eulerAngles.x);
         }
     }
 }
