@@ -9,6 +9,7 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     [SerializeField] private float Speed = 1.0f;
     [SerializeField] private int RotationAmount = 90;
+    [SerializeField] GameObject lever;
 
     private Vector3 StartRotation;
 
@@ -16,7 +17,7 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        StartRotation = transform.rotation.eulerAngles;
+        StartRotation = lever.transform.rotation.eulerAngles;
     }
     public void TurnSwitch()
     {
@@ -30,7 +31,7 @@ public class SwitchToggle : MonoBehaviour, IInteractable
 
     private IEnumerator DoRotation()
     {
-        Quaternion startRotation = transform.rotation;
+        Quaternion startRotation = lever.transform.rotation;
         Quaternion endRotation;
 
         Debug.Log("start" + startRotation);
@@ -40,14 +41,14 @@ public class SwitchToggle : MonoBehaviour, IInteractable
         float time = 0;
         while (time < 1)
         {
-            transform.rotation = Quaternion.Lerp(startRotation, endRotation, time);
+            lever.transform.rotation = Quaternion.Lerp(startRotation, endRotation, time);
             yield return null;
             time += Time.deltaTime;
         }
 
-        transform.rotation = endRotation;
+        lever.transform.rotation = endRotation;
 
-        StartRotation = transform.rotation.eulerAngles;
+        StartRotation = lever.transform.rotation.eulerAngles;
     }
     public bool Interact(Player interactor)
     {
