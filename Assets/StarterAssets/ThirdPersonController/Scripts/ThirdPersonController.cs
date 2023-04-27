@@ -154,7 +154,7 @@ namespace StarterAssets
         // Loading player position
         public void LoadData(GameData data)
         {
-            
+            /*
             // POISTETTAVA, LINNASCENEN TESTAILUUN
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
@@ -168,7 +168,7 @@ namespace StarterAssets
             {
                 this.transform.position = new Vector3(62, 0, -14);
             }
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            if (SceneManager.GetActiveScene().buildIndex == 8)
             {
                 this.transform.position = new Vector3(22, 0, -13);
             }
@@ -177,11 +177,11 @@ namespace StarterAssets
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
             }
             else
-            {
+            {*/
             Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
             this.transform.position = data.playerPosition;
             this.transform.rotation = data.playerRotation;
-            }
+            //}
 
             // Material loading
             moustache.SetActive(data.moustache);
@@ -218,19 +218,19 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
-            }
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
-            }
+            }*/
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
-                this.transform.position = new Vector3(22, 0, -13);
-            }
+                this.transform.position = new Vector3(20.0799999f, 0, -19.1599998f);
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
-            }
+            }*/
             
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
