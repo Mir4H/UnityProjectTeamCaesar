@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class Door : MonoBehaviour, IInteractable, IDataPersistence
 {
@@ -14,6 +15,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
     [SerializeField] private GameObject LoadingScreen;
+    [SerializeField] private int requiredAmount;
 
     private bool canOpen = false;
 
@@ -72,7 +74,31 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
             if (numberOfKeys >= doorLevel)
             {
-                canOpen = true;
+                if (doorSceneName == "FinalScene")
+                {
+                    var items = inventory.Container.Items.Find(x => x.ID == 1);
+                    var nroOfItems = 0;
+                    if (items != null)
+                    {
+                        Debug.Log(items.StackSize);
+                        nroOfItems = items.StackSize;
+                    }
+                    if (nroOfItems < requiredAmount)
+                    {
+                        string secondaryPrompt = $"Find {requiredAmount - nroOfItems} diary pages to open.";
+                        if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+                        interactionPromptUI.SetUp(secondaryPrompt);
+                        return false;
+                    }
+                    else
+                    {
+                        canOpen = true;
+                    }
+                }
+                else
+                {
+                    canOpen = true;
+                }
             }
 
             if (canOpen)
@@ -90,6 +116,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
             {
                 if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
                 interactionPromptUI.SetUp($"You need {doorLevel} keys for this door!");
+                return false;
             }
 
             Debug.Log("No key found!");
