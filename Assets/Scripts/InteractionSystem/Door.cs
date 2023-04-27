@@ -18,11 +18,13 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
     private int numberOfKeys;
 
+    private SerializableDictionary<string, bool> _scenesCompleted;
+
     public string InteractionPrompt => _prompt;
 
     public void LoadData(GameData data)
     {
-        //data.scenesCompleted = scenesCom
+         _scenesCompleted = data.scenesCompleted;
     }
 
     public void SaveData(GameData data)
@@ -32,12 +34,31 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
     public bool Interact(Player interactor)
     {
+        bool sceneCompleted = false;
+
+        if (_scenesCompleted != null)
+        {
+            foreach (KeyValuePair<string, bool> entry in _scenesCompleted)
+            {
+                if (entry.Key == doorSceneName)
+                {
+                    sceneCompleted = true;
+                }
+            }
+        }
+
         if (doorSceneName == "UnderConstruction")
         {
             if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
             interactionPromptUI.SetUp("This room is still under construction. Come back on final version!");
             return false;
         } 
+        else if (sceneCompleted) 
+        {
+            if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
+            interactionPromptUI.SetUp("You have already completed this challenge!");
+            return false;
+        }
         else 
         {
             foreach (InventoryItem item in inventory.Container.Items)

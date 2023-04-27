@@ -58659,7 +58659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: 'Challenge Room: Press E to Open'
   doorSceneName: Sokkelo
-  doorLevel: 2
+  doorLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyID: 2
   interactionPromptUI: {fileID: 2026913408}
