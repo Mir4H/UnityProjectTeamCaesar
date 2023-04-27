@@ -13,6 +13,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private int keyID;
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
+    [SerializeField] private GameObject LoadingScreen;
 
     private bool canOpen = false;
 
@@ -78,7 +79,8 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
             {
                 DataPersistenceManager.instance.SetNewLevel(true);
                 DataPersistenceManager.instance.SaveGame();
-                SceneManager.LoadSceneAsync(doorSceneName);
+                //SceneManager.LoadSceneAsync(doorSceneName);
+                LoadScene();
                 SetPlayerPosition(doorSceneName);
                 DataPersistenceManager.instance.SaveGame();
                 Debug.Log("Opening Door!");
@@ -101,5 +103,21 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
         if (sceneName == "Sokkelo") player.transform.position = new Vector3(62, 0, -14);
         if (sceneName == "VipuScene") player.transform.position = new Vector3(62, 0, -13);
         if (sceneName == "DarkRoom") player.transform.position = new Vector3(-6.32999992f, 0, -14);
+    }
+
+    public void LoadScene()
+    {
+        StartCoroutine(LoadSceneAsync(doorSceneName));
+    }
+
+    IEnumerator LoadSceneAsync(string doorSceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(doorSceneName);
+        LoadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 }
