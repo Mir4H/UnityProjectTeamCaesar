@@ -222,16 +222,16 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 8)
+            }*/
+            if (SceneManager.GetActiveScene().buildIndex == 5)
             {
-                this.transform.position = new Vector3(62, 0, -13);
-            }
+                this.transform.position = new Vector3(20.0799999f, 0, -19.1599998f);
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
-            }
-            */
+            }*/
+            
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
