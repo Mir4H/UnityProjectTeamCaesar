@@ -45,6 +45,7 @@ public class GameData
         activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
         inventoryItems = new List<InventoryItem>();
         TorchFirst = true;
+        timeToDisplay = 900f;
 
     }
 }
