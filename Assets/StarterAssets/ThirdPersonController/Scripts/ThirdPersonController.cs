@@ -179,18 +179,21 @@ namespace StarterAssets
             else
             {*/
             Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
-                this.transform.position = data.playerPosition;
-                this.transform.rotation = data.playerRotation;
+            this.transform.position = data.playerPosition;
+            this.transform.rotation = data.playerRotation;
             //}
 
             // Material loading
             moustache.SetActive(data.moustache);
             beard.SetActive(data.beard);
-            shirt.GetComponent<Renderer>().material = data.shirt;
-            pants.GetComponent<Renderer>().material = data.pants;
-            head.GetComponent<Renderer>().material = data.skin;
-            neck.GetComponent<Renderer>().material = data.skin;
-            hands.GetComponent<Renderer>().material = data.skin;
+            shirt.GetComponent<Renderer>().material.color = data.shirt;
+            Debug.Log(data.shirt);
+            pants.GetComponent<Renderer>().material.color = data.pants;
+            Debug.Log(data.pants);
+            head.GetComponent<Renderer>().material.color = data.skin;
+            neck.GetComponent<Renderer>().material.color = data.skin;
+            hands.GetComponent<Renderer>().material.color = data.skin;
+            Debug.Log(data.skin);
 
         }
 
@@ -211,11 +214,11 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(31, 0, -14);
                 transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            }*/
+            if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
-            }
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
