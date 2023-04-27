@@ -211,11 +211,11 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(31, 0, -14);
                 transform.rotation = new Quaternion(0, 0.718266487121582f, 0, -0.6957681179046631f);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            }*/
+            if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 transform.position = new Vector3((float)-5.69999981, (float)0.25000006, (float)-9.93000031);
-            }
+            }/*
             if (SceneManager.GetActiveScene().buildIndex == 7)
             {
                 this.transform.position = new Vector3(62, 0, -14);
