@@ -124,7 +124,7 @@ public class FileDataHandler
         }
 
         // FOR DEVELOPING PURPOSES, DISABLE WHEN BUILDING FINAL GAME
-        GUIUtility.systemCopyBuffer = fullPath;
+        //GUIUtility.systemCopyBuffer = fullPath;
         DataPersistenceManager.instance.SetNewLevel(false);
     }
 
