@@ -3177,7 +3177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shirt: {fileID: 954956075426650046}
   shirtMaterials:
-  - {fileID: 2100000, guid: 22e7fb49e2b49e0418ef97b61b1c8db5, type: 2}
+  - {fileID: 2100000, guid: 34c68400a5b052f419a1641e94cac494, type: 2}
   - {fileID: 2100000, guid: bbb254b5eb7877244b85c6b47922a37e, type: 2}
   - {fileID: 2100000, guid: 08a4341cc3f29d34198aab8c6b0af4d0, type: 2}
   - {fileID: 2100000, guid: bf37835e30684f34c907d5def8742de2, type: 2}
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   - {fileID: 5177202355626045500, guid: ecec9226167ad6a449f4f1b112b740b3, type: 3}
   pants: {fileID: 1284715407504367307}
   pantsMaterials:
-  - {fileID: 2100000, guid: 22e7fb49e2b49e0418ef97b61b1c8db5, type: 2}
+  - {fileID: 2100000, guid: 34c68400a5b052f419a1641e94cac494, type: 2}
   - {fileID: 2100000, guid: bbb254b5eb7877244b85c6b47922a37e, type: 2}
   - {fileID: 2100000, guid: 08a4341cc3f29d34198aab8c6b0af4d0, type: 2}
   - {fileID: 2100000, guid: bf37835e30684f34c907d5def8742de2, type: 2}
