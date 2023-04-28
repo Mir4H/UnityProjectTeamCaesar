@@ -313,7 +313,7 @@ public class Player : MonoBehaviour, IDataPersistence
         if (name == "Mug of Beer") selectedObject = mug;
         if (name == "Carrot") selectedObject = carrot;
         if (name == "Bread") selectedObject = bread;
-        if (name == "Torch" && currentScene != "DarkRoom") selectedObject = torch;
+        if (name == "Torch" && currentScene != "DarkRoom" && currentScene != "Sokkelo") selectedObject = torch;
         if (name == "Torch" && currentScene == "DarkRoom")
         {
             EventManager.OnTorchInHand();
