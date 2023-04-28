@@ -128,8 +128,9 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     {
         if (sceneName == "Tutorial") player.transform.position = new Vector3(-5.69999981f, 0.25000006f, -9.93000031f);
         if (sceneName == "Sokkelo") player.transform.position = new Vector3(62, 0, -14);
-        if (sceneName == "VipuScene") player.transform.position = new Vector3(62, 0, -13);
+        if (sceneName == "VipuScene") player.transform.position = new Vector3(20.0799999f, 0, -12.5600004f);
         if (sceneName == "DarkRoom") player.transform.position = new Vector3(-6.32999992f, 0, -14);
+        if (sceneName == "FinalScene") player.transform.position = new Vector3(-5.69999981f, 0.25000006f, -13.4399996f);
     }
 
     public void LoadScene()

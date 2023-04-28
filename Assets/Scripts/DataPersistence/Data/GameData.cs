@@ -14,6 +14,9 @@ public class GameData
     public bool firstStory;
     public bool diaryDecryped;
     public bool TorchFirst;
+    public bool darkStory;
+    public bool lightsOn;
+    public bool darkMiddle;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -47,5 +50,9 @@ public class GameData
         TorchFirst = true;
         timeToDisplay = 900f;
 
-    }
+        darkStory = false;
+        lightsOn = false;
+        darkMiddle = false;
+
+}
 }

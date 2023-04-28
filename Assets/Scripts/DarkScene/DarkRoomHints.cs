@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DarkRoomHints : MonoBehaviour
+public class DarkRoomHints : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private ShowGuidance showGuidance;
     [SerializeField] private GameObject lamps;
@@ -11,6 +11,18 @@ public class DarkRoomHints : MonoBehaviour
     [SerializeField] private GameObject storyCanvas;
     [SerializeField] private GameObject startStory;
 
+    private bool darkStory;
+
+    public void LoadData(GameData data)
+    {
+        darkStory = data.darkStory;
+
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.darkStory = darkStory;
+    }
     private void OnEnable()
     {
         EventManager.FirstPartSolved += ThroneHints;
@@ -19,7 +31,10 @@ public class DarkRoomHints : MonoBehaviour
 
     private void Start()
     {
-        Invoke("StartStory", 2f);
+        if (!darkStory)
+        {
+            Invoke("StartStory", 2f);
+        }
         Invoke("FirstHint", 50f);
     }
 
@@ -27,6 +42,7 @@ public class DarkRoomHints : MonoBehaviour
     {
         float cliplenght = startStory.GetComponent<AudioSource>().clip.length;
         storyCanvas.SetActive(true);
+        darkStory = true;
         Invoke("CloseStory", cliplenght +1);
     }
 

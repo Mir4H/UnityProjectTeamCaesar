@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DarkRoomPuzzleConditions : MonoBehaviour
+public class DarkRoomPuzzleConditions : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject throne1;
     [SerializeField] private GameObject throne2;
@@ -21,6 +21,30 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
     [SerializeField] private GameObject goalDoor;
     [SerializeField] private GameObject middleDoor;
 
+    private bool darkMiddle;
+
+    public void LoadData(GameData data)
+    {
+        darkMiddle = data.darkMiddle;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.darkMiddle = darkMiddle;
+    }
+
+    private void Start()
+    {
+        if (darkMiddle)
+        {
+            middleDoor.tag = "goal";
+            GameObject.Destroy(throne1);
+            GameObject.Destroy(throne2);
+            GameObject.Destroy(throne3);
+            GameObject.Destroy(throne4);
+            GameObject.Destroy(throne5);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +63,8 @@ public class DarkRoomPuzzleConditions : MonoBehaviour
             Debug.Log("thrones right");
             middleDoor.tag = "goal";
             EventManager.OnSecondPartSolved();
+
+            darkMiddle = true;
 
             GameObject.Destroy(throne1);
             GameObject.Destroy(throne2);
