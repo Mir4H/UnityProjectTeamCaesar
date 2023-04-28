@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VipuSceneScript : MonoBehaviour
+public class VipuSceneScript : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject switch1;
     [SerializeField] private GameObject switch2;
@@ -17,10 +17,28 @@ public class VipuSceneScript : MonoBehaviour
     [SerializeField] private GameObject fence4;
     [SerializeField] private GameObject goalDoor;
 
+    private bool vipuPuzzle;
+    public void LoadData (GameData data)
+    {
+        vipuPuzzle = data.vipuPuzzle;
+    }
+
+    public void SaveData (GameData data)
+    {
+        data.vipuPuzzle = vipuPuzzle;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (vipuPuzzle)
+        {
+            GameObject.Destroy(fence1);
+            GameObject.Destroy(fence2);
+            GameObject.Destroy(fence3);
+            GameObject.Destroy(fence4);
+            goalDoor.gameObject.tag = "goal";
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +57,8 @@ public class VipuSceneScript : MonoBehaviour
             switch5.transform.eulerAngles.x == 45 &&
             switch6.transform.eulerAngles.x == 45)
         {
-            Debug.Log("thrones right");
+            Debug.Log("switces right");
+            vipuPuzzle = true;
 
             GameObject.Destroy(fence1);
             GameObject.Destroy(fence2);

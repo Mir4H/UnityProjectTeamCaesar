@@ -17,6 +17,7 @@ public class GameData
     public bool darkStory;
     public bool lightsOn;
     public bool darkMiddle;
+    public bool vipuPuzzle;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -53,6 +54,7 @@ public class GameData
         darkStory = false;
         lightsOn = false;
         darkMiddle = false;
+        vipuPuzzle = false;
 
 }
 }
