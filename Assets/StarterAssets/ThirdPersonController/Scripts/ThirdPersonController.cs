@@ -154,7 +154,7 @@ namespace StarterAssets
         // Loading player position
         public void LoadData(GameData data)
         {
-            
+            /*
             // POISTETTAVA, LINNASCENEN TESTAILUUN
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
@@ -178,11 +178,11 @@ namespace StarterAssets
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
             }
             else
-            {
+            {*/
             Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
             this.transform.position = data.playerPosition;
             this.transform.rotation = data.playerRotation;
-            }
+            //}
 
             // Material loading
             moustache.SetActive(data.moustache);
@@ -211,6 +211,7 @@ namespace StarterAssets
             //lockmouse
             // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
+            /*
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 transform.position = new Vector3(31, 0, -14);
@@ -235,7 +236,7 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 3)
             {
                 this.transform.position = new Vector3(31, 0, -14);
-            }
+            }*/
 
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
