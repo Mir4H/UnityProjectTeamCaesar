@@ -4987,8 +4987,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 264, y: -308}
-  m_SizeDelta: {x: 528, y: 350}
+  m_AnchoredPosition: {x: 255.75, y: -297.5}
+  m_SizeDelta: {x: 511.5, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393271274
 MonoBehaviour:
@@ -5237,7 +5237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 558, y: -308}
+  m_AnchoredPosition: {x: 541.5, y: -297.5}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &431029603
@@ -5448,8 +5448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 852, y: -284.5}
-  m_SizeDelta: {x: 528, y: 350}
+  m_AnchoredPosition: {x: 827.25, y: -297.5}
+  m_SizeDelta: {x: 511.5, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491074730
 MonoBehaviour:
@@ -12473,7 +12473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 558, y: -284.5}
+  m_AnchoredPosition: {x: 541.5, y: -297.5}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1102094157
@@ -13631,7 +13631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1180129686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15047,7 +15047,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.75
+  m_fontSize: 24.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16394,8 +16394,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 264, y: -284.5}
-  m_SizeDelta: {x: 528, y: 350}
+  m_AnchoredPosition: {x: 255.75, y: -297.5}
+  m_SizeDelta: {x: 511.5, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435158261
 MonoBehaviour:
@@ -16955,8 +16955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 852, y: -308}
-  m_SizeDelta: {x: 528, y: 350}
+  m_AnchoredPosition: {x: 827.25, y: -297.5}
+  m_SizeDelta: {x: 511.5, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482765035
 MonoBehaviour:
@@ -19239,11 +19239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4670346630760956116, guid: 1add762ec8da9a14186707622e95112c, type: 3}
       propertyPath: m_text
-      value: How long was the battle for the castle?
+      value: How many days long was the battle for the castle?
       objectReference: {fileID: 0}
     - target: {fileID: 4670346630760956116, guid: 1add762ec8da9a14186707622e95112c, type: 3}
       propertyPath: m_fontSize
-      value: 19.9
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4670346630760956116, guid: 1add762ec8da9a14186707622e95112c, type: 3}
       propertyPath: m_margin.x
