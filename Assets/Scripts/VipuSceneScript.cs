@@ -15,7 +15,6 @@ public class VipuSceneScript : MonoBehaviour
     [SerializeField] private GameObject fence2;
     [SerializeField] private GameObject fence3;
     [SerializeField] private GameObject fence4;
-
     [SerializeField] private GameObject goalDoor;
 
     // Start is called before the first frame update
@@ -46,6 +45,7 @@ public class VipuSceneScript : MonoBehaviour
             GameObject.Destroy(fence2);
             GameObject.Destroy(fence3);
             GameObject.Destroy(fence4);
+            goalDoor.gameObject.tag = "goal";
         } else
         {
             Debug.Log("thrones wrong");
