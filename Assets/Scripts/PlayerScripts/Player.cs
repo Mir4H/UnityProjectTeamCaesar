@@ -104,7 +104,7 @@ public class Player : MonoBehaviour, IDataPersistence
         EventManager.GetInventoryItem -= EventManagerOnGetInventoryItem;
     }
 
-    private void placeItems(GameData data)
+    /*private void placeItems(GameData data)
     {
         UniqueID[] itemsWithIds = FindObjectsOfType<UniqueID>();
 
@@ -115,6 +115,24 @@ public class Player : MonoBehaviour, IDataPersistence
                 Debug.Log("creating" + entry.Key);
                 var item = Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);
                 if (!(item.AddComponent<ItemObject>())) item.AddComponent<ItemObject>();
+            }
+        }
+    }*/
+
+    private void placeItems(GameData data)
+    {
+        UniqueID[] itemsWithIds = FindObjectsOfType<UniqueID>();
+
+        foreach (KeyValuePair<string, ItemPickUpSaveData> entry in data.activeItems)
+        {
+            if (!(itemsWithIds.Any(x => x.ID == entry.Key)))
+            {
+                if (entry.Value.id != 1)
+                {
+                    Debug.Log("creating" + entry.Key);
+                    var item = Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);
+                    if (!(item.AddComponent<ItemObject>())) item.AddComponent<ItemObject>();
+                }
             }
         }
     }
