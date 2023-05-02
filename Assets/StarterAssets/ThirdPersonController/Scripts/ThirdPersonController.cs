@@ -188,13 +188,10 @@ namespace StarterAssets
             moustache.SetActive(data.moustache);
             beard.SetActive(data.beard);
             shirt.GetComponent<Renderer>().material.color = data.shirt;
-            Debug.Log(data.shirt);
             pants.GetComponent<Renderer>().material.color = data.pants;
-            Debug.Log(data.pants);
             head.GetComponent<Renderer>().material.color = data.skin;
             neck.GetComponent<Renderer>().material.color = data.skin;
             hands.GetComponent<Renderer>().material.color = data.skin;
-            Debug.Log(data.skin);
 
         }
 
@@ -220,15 +217,15 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 8)
             {
                 transform.position = new Vector3(-5.7f, 0f, -13.44f);
-            }
-            if (SceneManager.GetActiveScene().buildIndex == 7)
+            }*/
+            if (SceneManager.GetActiveScene().buildIndex == 4)
             {
                 this.transform.position = new Vector3(62, 0, -14);
             }
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 this.transform.position = new Vector3(20.0799999f, 0, -19.1599998f);
-            }
+            }/*
             if (SceneManager.GetActiveScene().name == "DarkRoom")
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);

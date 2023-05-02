@@ -20922,6 +20922,14 @@ PrefabInstance:
       propertyPath: useEncryption
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
+      propertyPath: initalizeDataIfNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
+      propertyPath: overrideSelectedProfileId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059847, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -30739,11 +30747,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472607450}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40508515, y: 0.05967404, z: 0.5595876}
-  m_Center: {x: -0.0024640348, y: 0.02489249, z: 0.039483696}
+  m_Size: {x: 0.40508515, y: 0.76004845, z: 0.5595876}
+  m_Center: {x: -0.0024640302, y: 0.37507975, z: 0.039483696}
 --- !u!1 &5128496979121967748
 GameObject:
   m_ObjectHideFlags: 0

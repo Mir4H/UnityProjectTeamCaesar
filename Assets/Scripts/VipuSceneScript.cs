@@ -50,14 +50,14 @@ public class VipuSceneScript : MonoBehaviour, IDataPersistence
     // Up: 315, Down: 45
     private void SwitchCheck()
     {
-        if (switch1.transform.eulerAngles.x == 315 &&
-            switch2.transform.eulerAngles.x == 45 &&
-            switch3.transform.eulerAngles.x == 315 &&  
-            switch4.transform.eulerAngles.x == 315 &&
-            switch5.transform.eulerAngles.x == 45 &&
-            switch6.transform.eulerAngles.x == 45)
+        if (switch1.transform.eulerAngles.x >= 314 &&
+            switch2.transform.eulerAngles.x <= 46 &&
+            switch3.transform.eulerAngles.x >= 314 &&  
+            switch4.transform.eulerAngles.x >= 314 &&
+            switch5.transform.eulerAngles.x <= 46 &&
+            switch6.transform.eulerAngles.x <= 46)
         {
-            Debug.Log("switces right");
+            Debug.Log("switches right");
             vipuPuzzle = true;
 
             GameObject.Destroy(fence1);
@@ -65,11 +65,16 @@ public class VipuSceneScript : MonoBehaviour, IDataPersistence
             GameObject.Destroy(fence3);
             GameObject.Destroy(fence4);
             goalDoor.gameObject.tag = "goal";
-        } else
+        }
+        else
         {
-            Debug.Log("thrones wrong");
-            Debug.Log(switch1.transform.eulerAngles.x);
+            Debug.Log("switches wrong");
+            /*Debug.Log(switch1.transform.eulerAngles.x);
             Debug.Log(switch2.transform.eulerAngles.x);
+            Debug.Log(switch3.transform.eulerAngles.x);
+            Debug.Log(switch4.transform.eulerAngles.x);
+            Debug.Log(switch5.transform.eulerAngles.x);
+            Debug.Log(switch6.transform.eulerAngles.x);*/
         }
     }
 }

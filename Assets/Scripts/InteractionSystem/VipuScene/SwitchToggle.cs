@@ -67,7 +67,6 @@ public class SwitchToggle : MonoBehaviour, IInteractable
         }
 
         StartRotation = transform.localRotation.eulerAngles;
-        Debug.Log("Start Rotation: " + StartRotation);
     }
     public bool Interact(Player interactor)
     {

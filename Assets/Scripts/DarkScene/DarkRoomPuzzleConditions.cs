@@ -22,15 +22,18 @@ public class DarkRoomPuzzleConditions : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject middleDoor;
 
     private bool darkMiddle;
+    private bool darkGoal;
 
     public void LoadData(GameData data)
     {
         darkMiddle = data.darkMiddle;
+        darkGoal = data.darkGoal;
     }
 
     public void SaveData(GameData data)
     {
         data.darkMiddle = darkMiddle;
+        data.darkGoal = darkGoal;
     }
 
     private void Start()
@@ -83,6 +86,7 @@ public class DarkRoomPuzzleConditions : MonoBehaviour, IDataPersistence
             solution4.text == "9")
         {
             goalDoor.tag = "goal";
+            darkGoal = true;
             ShowingInstructions.OnShowCompeleted();
             Debug.Log("Math solved");
             GameObject.Destroy(this);

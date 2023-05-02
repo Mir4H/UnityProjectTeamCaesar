@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DecryptCanvas : MonoBehaviour
+public class DecryptCanvas : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private TMP_InputField input;
     [SerializeField] private Button submitBtn;
@@ -14,8 +14,28 @@ public class DecryptCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI message;
     [SerializeField] private GameObject goalDoors;
 
+    private bool diaryDecrypted;
+
+    public void LoadData(GameData data)
+    {
+        diaryDecrypted = data.diaryDecryped;
+    }
+
+    public void SaveData(GameData data)
+    {
+        //
+    }
     private void Start()
     {
+        Debug.Log("Diary state: " + diaryDecrypted);
+        if (diaryDecrypted)
+        {
+            foreach (Transform t in goalDoors.transform)
+            {
+                t.gameObject.tag = "goal";
+            }
+        }
+
         submitBtn.onClick.AddListener(GetInputOnClick);
         QuitBtn.onClick.AddListener(Close);
     }

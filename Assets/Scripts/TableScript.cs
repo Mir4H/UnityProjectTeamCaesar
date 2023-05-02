@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 //using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 
-public class TableScript : MonoBehaviour
+public class TableScript : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject goalDoor;
     private int carrots = 0;
@@ -12,7 +12,23 @@ public class TableScript : MonoBehaviour
     private int mug = 0;
     private int meat = 0;
 
+    private bool sokkeloSolved;
+    public void LoadData(GameData data)
+    {
+        sokkeloSolved = data.sokkeloPuzzle;
+    }
+    public void SaveData(GameData data)
+    {
+        data.sokkeloPuzzle = sokkeloSolved;
+    }
 
+    private void Start()
+    {
+        if (sokkeloSolved)
+        {
+            goalDoor.tag = "goal";
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
        
@@ -27,9 +43,10 @@ public class TableScript : MonoBehaviour
             Debug.Log("carrots " + carrots);
         }
 
-        if (carrots >= 2 && bread >= 2 && mug >= 1 && meat >= 1)
+        if (carrots >= 2 && bread >= 2 && mug >= 1 && meat >= 1 && goalDoor.tag != "goal")
         {
             goalDoor.gameObject.tag = "goal";
+            sokkeloSolved = true;
             ShowingInstructions.OnShowCompeleted();
             Debug.Log("done");
         }

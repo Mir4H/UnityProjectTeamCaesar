@@ -33,9 +33,9 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
     {
         if (!darkStory)
         {
-            Invoke("StartStory", 2f);
+            Invoke("StartStory", 1f);
         }
-        Invoke("FirstHint", 50f);
+        Invoke("FirstHint", 180f);
     }
 
     private void StartStory()
@@ -57,7 +57,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
         {
             showGuidance.SetUpGuidance("Maybe check your inventory for help?");
             Invoke("Close", 10f);
-            Invoke("SecondHint", 30f);
+            Invoke("SecondHint", 120f);
         }
     }
 
@@ -72,7 +72,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
 
     private void ThroneHints()
     {
-        Invoke("ThirdHint", 40f);
+        Invoke("ThirdHint", 120f);
     }
     private void ThirdHint()
     {
@@ -80,7 +80,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
         {
             showGuidance.SetUpGuidance("Is there some picture to help with thrones?");
             Invoke("Close", 10f);
-            Invoke("FourthHint", 40f);
+            Invoke("FourthHint", 120f);
         }
     }
 
@@ -95,7 +95,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
 
     private void MathHints()
     {
-        Invoke("FifthHint", 60f);
+        Invoke("FifthHint", 120f);
     }
 
     private void FifthHint()
@@ -104,7 +104,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
         {
             showGuidance.SetUpGuidance("The colors in the numbers might have a meaning.");
             Invoke("Close", 10f);
-            Invoke("SixthHint", 60f);
+            Invoke("SixthHint", 120f);
         }
     }
 
@@ -114,7 +114,7 @@ public class DarkRoomHints : MonoBehaviour, IDataPersistence
         {
             showGuidance.SetUpGuidance("Do the calculations in the first room and change the same colored number to match the answer.");
             Invoke("Close", 10f);
-            Invoke("SixthHint", 60f);
+            Invoke("SixthHint", 120f);
         }
     }
 

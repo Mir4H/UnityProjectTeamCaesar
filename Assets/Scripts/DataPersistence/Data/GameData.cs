@@ -11,13 +11,21 @@ public class GameData
     public Quaternion playerRotation;
     public long lastUpdated;
     public string currentScene;
+
+    // Puzzleroom events:
+    // Tutorial
     public bool firstStory;
     public bool diaryDecryped;
     public bool TorchFirst;
+    // Dark Room
     public bool darkStory;
     public bool lightsOn;
     public bool darkMiddle;
+    public bool darkGoal;
+    // Vipu Scene
     public bool vipuPuzzle;
+    // Sokkelo
+    public bool sokkeloPuzzle;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -51,10 +59,13 @@ public class GameData
         TorchFirst = true;
         timeToDisplay = 900f;
 
+        // Puzzle events
         darkStory = false;
         lightsOn = false;
         darkMiddle = false;
+        darkGoal = false;
         vipuPuzzle = false;
+        sokkeloPuzzle = false;
 
-}
+    }
 }
