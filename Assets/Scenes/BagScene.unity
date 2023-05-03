@@ -9842,6 +9842,8 @@ MonoBehaviour:
   startStory: {fileID: 1239137728}
   image: {fileID: 1864971864}
   image2: {fileID: 1020063111}
+  instructions: {fileID: 0}
+  torch: {fileID: 0}
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
 --- !u!1001 &1120777475
 PrefabInstance:
@@ -9926,13 +9928,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: Press E to Exit Castle
-  doorSceneName: Complete
-  roomLevel: 0
+  doorSceneName: BagScene
+  roomLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
-  keyToFind: {fileID: 0}
+  keyToFind: {fileID: 462258303}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
-  LoadingScreen: {fileID: 0}
+  LoadingScreen: {fileID: 1697685367}
 --- !u!65 &1120777482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10903,6 +10905,8 @@ MonoBehaviour:
   startStory: {fileID: 1239137728}
   image: {fileID: 1864971864}
   image2: {fileID: 1020063111}
+  instructions: {fileID: 0}
+  torch: {fileID: 0}
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
 --- !u!114 &1239137731
 MonoBehaviour:
@@ -18715,20 +18719,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40508512, y: 0.61051774, z: 0.5595876}
   m_Center: {x: -0.0024640362, y: 0.30031443, z: 0.039483685}
---- !u!114 &2140741458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140741452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d767683a0830ad4d93a8eaf12ef4051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: Press E for Hint
-  _canvasText: {fileID: 843420560}
 --- !u!114 &2140741459
 MonoBehaviour:
   m_ObjectHideFlags: 0
