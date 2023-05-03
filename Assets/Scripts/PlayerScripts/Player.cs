@@ -282,7 +282,7 @@ public class Player : MonoBehaviour, IDataPersistence
             canvasOpen = false;
             foreach (Transform t in storyCanvas.transform)
             {
-                if (t.gameObject.activeSelf)
+                if (t.gameObject.activeSelf && t.gameObject.tag != "timer")
                 {
                     canvasOpen = true;
                 }
