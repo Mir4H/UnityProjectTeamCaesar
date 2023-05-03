@@ -256,9 +256,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Mira H\xE4m\xE4l\xE4inen\nAija Ojala\nNina Tulilahti\n\nBlink\n\nBroken
-    Vector\n\nLiam (textmagic.com)\n\nImages.ai\n\nAlexander Nakarada (chosic.com)\n\nWise
-    people on YouTube and forums\nMira's husband\n\xC5\nNina's cat\nYll\xE4s Chalets
-    Sauna\nFazer candyfactory\nSloth suit\nCoffee\n\nAll the test players:\nAleksi\nEmmi\nRosa\nTeemu\nTia\nTiina\nVille"
+    Vector\n\nLiam (textmagic.com)\n\nImages.ai\n\nAlexander Nakarada (chosic.com)\n\nHAMK
+    teachers\nWise people on YouTube and forums\nMira's husband\n\xC5\nNina's cat\nYll\xE4s
+    Chalets Sauna\nFazer candyfactory\nSloth suit\nCoffee\n\nAll the test players:\nAleksi\nEmmi\nRosa\nTeemu\nTia\nTiina\nVille"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1276,6 +1276,7 @@ MonoBehaviour:
 
 
     Special thanks
+
 
 
 
