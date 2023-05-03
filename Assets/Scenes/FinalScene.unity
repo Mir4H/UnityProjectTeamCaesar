@@ -2545,22 +2545,32 @@ MonoBehaviour:
   m_text: 'Move with WASD / arrow keys
 
 
-    Jump with SPACE
+    Look direction with mouse
 
 
-    Collect, pick
-    up and interact with things with E
+    Jump
+    with SPACE
+
+
+    Run by keeping SHIFT pressed
+
+
+    Collect, pick up and interact
+    with things with E
 
 
     Open/Close inventory with I
 
 
-    Select
-    inventory items with arrow keys and by pressing ENTER.
+    Select inventory items
+    with arrow keys and by pressing ENTER.
 
 
-    Open/Close instructions
-    by pressing H'
+    Open/Close instructions by pressing
+    H
+
+
+    Close stories and instructions with C'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
