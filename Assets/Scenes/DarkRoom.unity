@@ -16836,7 +16836,7 @@ GameObject:
   - component: {fileID: 1144381918}
   m_Layer: 5
   m_Name: Instructions
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31778,7 +31778,6 @@ GameObject:
   - component: {fileID: 2124258951}
   - component: {fileID: 2124258950}
   - component: {fileID: 2124258955}
-  - component: {fileID: 2124258956}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -31900,18 +31899,9 @@ MonoBehaviour:
   instructionText: {fileID: 18066566}
   instructionText2: {fileID: 0}
   isCompleteText: {fileID: 1335641119}
---- !u!114 &2124258956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124258947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e51612fe8edb6f42afcdca7947dd624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  storyCanvas: {fileID: 397925314}
+  instructionCanvas: {fileID: 2124258947}
+  decryptCanvas: {fileID: 523698791}
 --- !u!1 &2125627698
 GameObject:
   m_ObjectHideFlags: 0

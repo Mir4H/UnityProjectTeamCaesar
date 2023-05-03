@@ -17126,9 +17126,9 @@ MonoBehaviour:
   instructionText: {fileID: 201222455}
   instructionText2: {fileID: 0}
   isCompleteText: {fileID: 0}
-  storyCanvas: {fileID: 0}
-  instructionCanvas: {fileID: 0}
-  decryptCanvas: {fileID: 0}
+  storyCanvas: {fileID: 1556667843}
+  instructionCanvas: {fileID: 1484329338}
+  decryptCanvas: {fileID: 209648617}
 --- !u!1 &1486024651
 GameObject:
   m_ObjectHideFlags: 0

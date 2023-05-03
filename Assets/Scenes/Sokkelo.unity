@@ -10822,7 +10822,7 @@ GameObject:
   - component: {fileID: 666725501}
   m_Layer: 5
   m_Name: InstructionSokkelo
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27488,6 +27488,9 @@ MonoBehaviour:
   instructionText: {fileID: 798033511}
   instructionText2: {fileID: 1910848661}
   isCompleteText: {fileID: 1807185839}
+  storyCanvas: {fileID: 1520044003}
+  instructionCanvas: {fileID: 1484329338}
+  decryptCanvas: {fileID: 1369274081}
 --- !u!1 &1486604710
 GameObject:
   m_ObjectHideFlags: 0

@@ -5765,6 +5765,9 @@ MonoBehaviour:
   instructionText: {fileID: 564099417}
   instructionText2: {fileID: 0}
   isCompleteText: {fileID: 851124362}
+  storyCanvas: {fileID: 790319512}
+  instructionCanvas: {fileID: 590760141}
+  decryptCanvas: {fileID: 2104999246}
 --- !u!114 &590760143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16785,7 +16788,7 @@ GameObject:
   - component: {fileID: 1254863505}
   m_Layer: 5
   m_Name: Instructions
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
