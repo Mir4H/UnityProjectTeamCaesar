@@ -27578,7 +27578,7 @@ GameObject:
   - component: {fileID: 1488117366}
   m_Layer: 5
   m_Name: Timer Text
-  m_TagString: Untagged
+  m_TagString: timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42984,8 +42984,6 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
-  storyCanvas: {fileID: 1520044003}
-  instructionCanvas: {fileID: 1484329338}
   head: {fileID: 8021075065850589651}
   neck: {fileID: 6022708929893960072}
   hands: {fileID: 6625647970251252719}
@@ -48113,6 +48111,8 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
+  storyCanvas: {fileID: 0}
+  instructionCanvas: {fileID: 0}
   decryptCanvas: {fileID: 1369274081}
 --- !u!1 &7710598513287210262
 GameObject:

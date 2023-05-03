@@ -19502,6 +19502,8 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
+  storyCanvas: {fileID: 397925314}
+  instructionCanvas: {fileID: 2124258947}
   decryptCanvas: {fileID: 523698791}
 --- !u!114 &1358409256
 MonoBehaviour:
@@ -19700,8 +19702,6 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
-  storyCanvas: {fileID: 397925314}
-  instructionCanvas: {fileID: 2124258947}
   head: {fileID: 363709077}
   neck: {fileID: 1540747884}
   hands: {fileID: 500858254}
@@ -23478,7 +23478,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.4
+  m_fontSize: 32.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29921,7 +29921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: initalizeDataIfNull
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: overrideSelectedProfileId
@@ -31778,6 +31778,7 @@ GameObject:
   - component: {fileID: 2124258951}
   - component: {fileID: 2124258950}
   - component: {fileID: 2124258955}
+  - component: {fileID: 2124258956}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -31899,6 +31900,18 @@ MonoBehaviour:
   instructionText: {fileID: 18066566}
   instructionText2: {fileID: 0}
   isCompleteText: {fileID: 1335641119}
+--- !u!114 &2124258956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124258947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e51612fe8edb6f42afcdca7947dd624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125627698
 GameObject:
   m_ObjectHideFlags: 0
