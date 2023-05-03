@@ -9,6 +9,8 @@ using static System.Net.Mime.MediaTypeNames;
 public class CompleteCanvas : MonoBehaviour
 {
     [SerializeField] private GameObject completed;
+    [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject gameName;
     void Start()
     {
         Invoke("Complete", 1f);
@@ -17,11 +19,30 @@ public class CompleteCanvas : MonoBehaviour
     void Complete()
     {
         completed.SetActive(true);
-        Invoke("MainMenu", 16f);
+        Invoke("Credits", 16f);
     }
 
+    void Credits()
+    {
+        completed.SetActive(false);
+        credits.SetActive(true);
+        Invoke("GameName", 31f);
+    }
+
+    void GameName()
+    {
+        credits.SetActive(false);
+        gameName.SetActive(true);
+        Invoke("MusicFade", 7f);
+        Invoke("MainMenu", 8f);
+    }
     void MainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    void MusicFade()
+    {
+        EventManager.OnMusicOut();
     }
 }
