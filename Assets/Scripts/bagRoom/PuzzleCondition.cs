@@ -9,6 +9,7 @@ public class PuzzleCondition : MonoBehaviour
     [SerializeField] private GameObject bowlGreen;
     [SerializeField] private GameObject potionBowl;
     [SerializeField] private GameObject key;
+    [SerializeField] private GameObject goalDoor;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PuzzleCondition : MonoBehaviour
             Debug.Log("done");
             potionBowl.SetActive(true);
             key.SetActive(true);
+            goalDoor.tag = "goal";
             Destroy(gameObject);
         }
             

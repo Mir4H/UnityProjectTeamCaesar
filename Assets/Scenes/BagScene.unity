@@ -9902,7 +9902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923930166926854605, guid: 16efa409f7809d6499a20bf293c5df05, type: 3}
       propertyPath: m_Name
-      value: CompleteDoor
+      value: GoalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1923930166926854605, guid: 16efa409f7809d6499a20bf293c5df05, type: 3}
       propertyPath: m_Layer
@@ -9928,7 +9928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: Press E to Exit Castle
-  doorSceneName: BagScene
+  doorSceneName: CastleEditedScene
   roomLevel: 1
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
   keyToFind: {fileID: 462258303}
@@ -18412,6 +18412,7 @@ MonoBehaviour:
   bowlGreen: {fileID: 290486441}
   potionBowl: {fileID: 1759828962}
   key: {fileID: 462258303}
+  goalDoor: {fileID: 1120777476}
 --- !u!4 &2099068700
 Transform:
   m_ObjectHideFlags: 0
