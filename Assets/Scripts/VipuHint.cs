@@ -12,11 +12,14 @@ public class VipuHint : MonoBehaviour
     {
         Invoke("Instructions", 60f);
         Invoke("ShowHint", 300f);
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
+
 
     }
 
@@ -28,12 +31,8 @@ public class VipuHint : MonoBehaviour
 
     private void ShowHint()
     {
-       
-        
         guidance.SetUpGuidance("What goes up? What goes down? Look at the images and try to think where you normally find these things.");
         Invoke("Close", 10f);
-        
-
     }
 
     private void Close()
@@ -41,5 +40,4 @@ public class VipuHint : MonoBehaviour
         guidance.CloseGuidance();
     }
 }
-
 
