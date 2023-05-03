@@ -9,6 +9,9 @@ public class StartSceneCanvas : MonoBehaviour
     [SerializeField] private GameObject startStory;
     [SerializeField] private GameObject image;
     [SerializeField] private GameObject image2;
+    [SerializeField] private GameObject instructions;
+    [SerializeField] private GameObject torch;
+
     [SerializeField] private InventorySystem inventory;
 
     private void OnEnable()
@@ -22,12 +25,27 @@ public class StartSceneCanvas : MonoBehaviour
     {
         image.SetActive(false);
         image2.SetActive(true);
-        Invoke("Close", 15f);
+        Invoke("ShowInstructions", 15f);
+    }
+
+    private void ShowInstructions()
+    {
+        if (torch.gameObject.activeSelf)
+        {
+            Close();
+        } 
+        else
+        {
+            startStory.SetActive(false);
+            instructions.SetActive(true);
+            Invoke("Close", 21f);
+        }
     }
 
     public void Close()
     {
         startStory.SetActive(false);
+        instructions.SetActive(false);
     }
 
 }
