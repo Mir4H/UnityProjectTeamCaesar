@@ -16,6 +16,7 @@ TagManager:
   - dectypt
   - timer
   - info
+  - music
   layers:
   - Default
   - TransparentFX

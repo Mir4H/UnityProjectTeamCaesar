@@ -19,6 +19,8 @@ public static class EventManager
     public static event UnityAction TakeTorch;
     public static event UnityAction FirstPartSolved;
     public static event UnityAction SecondPartSolved;
+    public static event UnityAction MusicIn;
+    public static event UnityAction MusicOut;
 
 
     public static void OnTimerStart() => TimerStart?.Invoke();
@@ -44,4 +46,8 @@ public static class EventManager
 
     public static void OnFirstPartSolved() => FirstPartSolved?.Invoke();
     public static void OnSecondPartSolved() => SecondPartSolved?.Invoke();
+
+    public static void OnMusicIn() => MusicIn?.Invoke();
+
+    public static void OnMusicOut() => MusicOut?.Invoke();
 }
