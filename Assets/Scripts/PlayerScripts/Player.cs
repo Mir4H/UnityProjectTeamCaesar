@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private RaycastHit hit;
     private bool firstTime;
+    private bool canvasOpen;
 
     [SerializeField] private float pickupForce = 150.0f;
     private GameObject selectedObject;
@@ -60,7 +62,12 @@ public class Player : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject carrot;
     [SerializeField] private GameObject bread;
     [SerializeField] private GameObject torch;
+
+    // Story canvas for closing
+    [SerializeField] private GameObject storyCanvas;
+    [SerializeField] private GameObject instructionCanvas;
     [SerializeField] private GameObject decryptCanvas;
+
 
     private void Awake()
     {
@@ -272,7 +279,30 @@ public class Player : MonoBehaviour, IDataPersistence
         //open inventory
         if (Input.GetKeyDown(KeyCode.I) && decryptCanvas.activeSelf == false)
         {
-            EventManager.OnOpenInventory();
+            canvasOpen = false;
+            foreach (Transform t in storyCanvas.transform)
+            {
+                if (t.gameObject.activeSelf)
+                {
+                    canvasOpen = true;
+                }
+            }
+            if (!canvasOpen) EventManager.OnOpenInventory();          
+        }
+        //close canvases
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            foreach (Transform t in storyCanvas.transform)
+            {
+                if (t.gameObject.tag != "timer")
+                {
+                    t.gameObject.SetActive(false);
+                }
+            }
+            foreach (Transform t in instructionCanvas.transform)
+            {
+                t.gameObject.SetActive(false);
+            }
         }
 
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);

@@ -103,10 +103,6 @@ namespace StarterAssets
         // datasaving
         private string _currentScene;
 
-        // Story canvas for closing
-        [SerializeField] private GameObject storyCanvas;
-        [SerializeField] private GameObject instructionCanvas;
-
         // assign materials
         [SerializeField] private GameObject head;
         [SerializeField] private GameObject neck;
@@ -271,21 +267,6 @@ namespace StarterAssets
             {
                 DataPersistenceManager.instance.SaveGame();
                 SceneManager.LoadSceneAsync("PauseMenu");
-            }
-
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                foreach (Transform t in storyCanvas.transform)
-                {
-                    if (t.gameObject.tag != "timer")
-                    {
-                        t.gameObject.SetActive(false);
-                    }
-                }
-                foreach (Transform t in instructionCanvas.transform)
-                {
-                    t.gameObject.SetActive(false);
-                }
             }
         }
 
