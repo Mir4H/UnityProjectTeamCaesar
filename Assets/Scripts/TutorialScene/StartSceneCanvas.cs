@@ -25,7 +25,13 @@ public class StartSceneCanvas : MonoBehaviour
     {
         image.SetActive(false);
         image2.SetActive(true);
-        Invoke("ShowInstructions", 15f);
+        Invoke("CloseStory", 15f);
+    }
+
+    private void CloseStory()
+    {
+        startStory.SetActive(false);
+        Invoke("ShowInstructions", 1f);
     }
 
     private void ShowInstructions()
