@@ -9,20 +9,20 @@ public class VipuHint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("Instructions", 60f);
+        Invoke("ShowHint", 300f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Invoke("Instructions", 3f);
-        Invoke("ShowHint", 180f);
+        
     }
 
     private void Instructions()
     {
         guidance.SetUpGuidance("There are 6 switches in the room. Use hints to figure out the right direction to those switces.");
-        Invoke("Close", 15f);
+        Invoke("Close", 10f);
     }
 
     private void ShowHint()
