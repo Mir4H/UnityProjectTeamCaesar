@@ -35,6 +35,15 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
         //
     }
 
+    private void Start()
+    {
+        if (doorSceneName == "FinalScene")
+        {
+            _prompt = "You are about to enter the final Challenge! \n" +
+                "Press E to Open";
+        }
+    }
+
     public bool Interact(Player interactor)
     {
         bool sceneCompleted = false;
