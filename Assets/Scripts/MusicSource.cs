@@ -19,7 +19,7 @@ public class MusicSource : MonoBehaviour
 
     private void VolumeDown()
     {
-        StartCoroutine(FadeAudioSource.StartFade(musicSource, 2, 0.1f));
+        StartCoroutine(FadeAudioSource.StartFade(musicSource, 1, 0.1f));
     }
 
     private void OnDisable()
