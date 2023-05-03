@@ -205,10 +205,19 @@ namespace StarterAssets
 
         private void Start()
         {
+            if (SceneManager.GetActiveScene().buildIndex == 10)
+            {
+                transform.position = new Vector3(-6, 0, -14);
+            }
             //lockmouse
             // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;
             /*
+             * 
+             *             if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                this.transform.position = new Vector3(62, 0, -14);
+            }
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
                 transform.position = new Vector3(31, 0, -14);

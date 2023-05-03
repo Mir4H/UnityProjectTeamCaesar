@@ -17,6 +17,9 @@ TagManager:
   - timer
   - info
   - music
+  - GreenBag
+  - OrangeBag
+  - PurpleBag
   layers:
   - Default
   - TransparentFX
