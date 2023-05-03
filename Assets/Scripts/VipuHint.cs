@@ -5,6 +5,7 @@ using UnityEngine;
 public class VipuHint : MonoBehaviour
 {
     [SerializeField] private ShowGuidance guidance;
+    [SerializeField] private GameObject fence;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class VipuHint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Instructions()
@@ -27,8 +28,12 @@ public class VipuHint : MonoBehaviour
 
     private void ShowHint()
     {
+       
+        
         guidance.SetUpGuidance("What goes up? What goes down? Look at the images and try to think where you normally find these things.");
         Invoke("Close", 10f);
+        
+
     }
 
     private void Close()
