@@ -103,6 +103,10 @@ namespace StarterAssets
         // datasaving
         private string _currentScene;
 
+        // Story canvas for closing
+        [SerializeField] private GameObject storyCanvas;
+        [SerializeField] private GameObject instructionCanvas;
+
         // assign materials
         [SerializeField] private GameObject head;
         [SerializeField] private GameObject neck;
@@ -217,7 +221,7 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 8)
             {
                 transform.position = new Vector3(-5.7f, 0f, -13.44f);
-            }*/
+            }*//*
             if (SceneManager.GetActiveScene().buildIndex == 4)
             {
                 this.transform.position = new Vector3(62, 0, -14);
@@ -267,6 +271,21 @@ namespace StarterAssets
             {
                 DataPersistenceManager.instance.SaveGame();
                 SceneManager.LoadSceneAsync("PauseMenu");
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                foreach (Transform t in storyCanvas.transform)
+                {
+                    if (t.gameObject.tag != "timer")
+                    {
+                        t.gameObject.SetActive(false);
+                    }
+                }
+                foreach (Transform t in instructionCanvas.transform)
+                {
+                    t.gameObject.SetActive(false);
+                }
             }
         }
 

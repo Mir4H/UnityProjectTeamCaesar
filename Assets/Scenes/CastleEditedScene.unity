@@ -73687,11 +73687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: initalizeDataIfNull
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059846, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: overrideSelectedProfileId
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149824993992059847, guid: ae012f0ba9663f24fa0f3a82665e3baf, type: 3}
       propertyPath: m_RootOrder
@@ -92541,6 +92541,8 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  storyCanvas: {fileID: 1739263661}
+  instructionCanvas: {fileID: 1484329338}
   head: {fileID: 8021075065850589651}
   neck: {fileID: 6022708929893960072}
   hands: {fileID: 6625647970251252719}

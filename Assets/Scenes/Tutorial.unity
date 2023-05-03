@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.05
+  m_fontSize: 24.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4854,7 +4854,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.25
+  m_fontSize: 30.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4978,8 +4978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 893.25, y: -366.5}
-  m_SizeDelta: {x: 595.5, y: 480}
+  m_AnchoredPosition: {x: 795, y: -258}
+  m_SizeDelta: {x: 530, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395770378
 MonoBehaviour:
@@ -10954,8 +10954,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875.25, y: -304}
-  m_SizeDelta: {x: 583.5, y: 480}
+  m_AnchoredPosition: {x: 795, y: -258}
+  m_SizeDelta: {x: 530, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &920791009
 MonoBehaviour:
@@ -15062,8 +15062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 291.75, y: -304}
-  m_SizeDelta: {x: 583.5, y: 509}
+  m_AnchoredPosition: {x: 265, y: -258}
+  m_SizeDelta: {x: 530, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218303931
 MonoBehaviour:
@@ -24876,8 +24876,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 297.75, y: -366.5}
-  m_SizeDelta: {x: 595.5, y: 509}
+  m_AnchoredPosition: {x: 265, y: -258}
+  m_SizeDelta: {x: 530, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012672336
 MonoBehaviour:
@@ -26925,6 +26925,8 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  storyCanvas: {fileID: 1704835095}
+  instructionCanvas: {fileID: 1484329338}
   head: {fileID: 8021075065850589651}
   neck: {fileID: 6022708929893960072}
   hands: {fileID: 6625647970251252719}

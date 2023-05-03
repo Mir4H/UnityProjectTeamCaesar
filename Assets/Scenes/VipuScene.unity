@@ -27889,6 +27889,8 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  storyCanvas: {fileID: 790319512}
+  instructionCanvas: {fileID: 0}
   head: {fileID: 8021075065850589651}
   neck: {fileID: 6022708929893960072}
   hands: {fileID: 6625647970251252719}
