@@ -40,7 +40,6 @@ public class TableScript : MonoBehaviour, IDataPersistence
             if (other.gameObject.name.Contains("Meat")) meat += 1;
             other.gameObject.tag = "Untagged";
             other.gameObject.name = "TableItem";
-            Debug.Log("carrots " + carrots);
         }
 
         if (carrots >= 2 && bread >= 2 && mug >= 1 && meat >= 1 && goalDoor.tag != "goal")
@@ -48,7 +47,11 @@ public class TableScript : MonoBehaviour, IDataPersistence
             goalDoor.gameObject.tag = "goal";
             sokkeloSolved = true;
             ShowingInstructions.OnShowCompeleted();
-            Debug.Log("done");
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        other.gameObject.tag = "PointOfInterest";
     }
 }
