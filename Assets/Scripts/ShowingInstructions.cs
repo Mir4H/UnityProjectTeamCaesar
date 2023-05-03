@@ -14,6 +14,10 @@ public class ShowingInstructions : MonoBehaviour
     [SerializeField] private GameObject instructionText2;
     [SerializeField] private GameObject isCompleteText;
 
+    [SerializeField] private GameObject storyCanvas;
+    [SerializeField] private GameObject instructionCanvas;
+    [SerializeField] private GameObject decryptCanvas;
+
     public static event UnityAction showInstructions;
     public static event UnityAction compeleted;
     public static void OnShowInstructions() => showInstructions?.Invoke();
@@ -72,16 +76,34 @@ public class ShowingInstructions : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
+        if(Input.GetKeyDown(KeyCode.H) && decryptCanvas.activeSelf == false)
         {
-            if (instructions.activeSelf)
+            bool canvasOpen = false;
+            foreach (Transform t in storyCanvas.transform)
             {
-                Close();
-                CancelInvoke();
+                if (t.gameObject.activeSelf && t.gameObject.tag != "timer")
+                {
+                    canvasOpen = true;
+                }
             }
-            else
+            foreach (Transform t in instructionCanvas.transform)
             {
-                InstructionsRequested();
+                if (t.gameObject.activeSelf && t.gameObject.tag != "info")
+                {
+                    canvasOpen = true;
+                }
+            }
+            if (!canvasOpen)
+            {
+                if (instructions.activeSelf)
+                {
+                    Close();
+                    CancelInvoke();
+                }
+                else
+                {
+                    InstructionsRequested();
+                }
             }
         }
     }

@@ -5765,6 +5765,9 @@ MonoBehaviour:
   instructionText: {fileID: 564099417}
   instructionText2: {fileID: 0}
   isCompleteText: {fileID: 851124362}
+  storyCanvas: {fileID: 790319512}
+  instructionCanvas: {fileID: 590760141}
+  decryptCanvas: {fileID: 2104999246}
 --- !u!114 &590760143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16785,7 +16788,7 @@ GameObject:
   - component: {fileID: 1254863505}
   m_Layer: 5
   m_Name: Instructions
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34525,8 +34528,8 @@ MonoBehaviour:
   carrot: {fileID: 6006247403153440517, guid: 2fbcd37cb0266cb4eb6c954528c3c5e0, type: 3}
   bread: {fileID: 3578940917146643392, guid: 3defefdcb188eca4b8de269db3298fd2, type: 3}
   torch: {fileID: 3530487434920885555, guid: 9689e52f1926dda46923ce64bf00f875, type: 3}
-  storyCanvas: {fileID: 0}
-  instructionCanvas: {fileID: 0}
+  storyCanvas: {fileID: 790319512}
+  instructionCanvas: {fileID: 590760141}
   decryptCanvas: {fileID: 2104999246}
 --- !u!1 &7710598513287210262
 GameObject:

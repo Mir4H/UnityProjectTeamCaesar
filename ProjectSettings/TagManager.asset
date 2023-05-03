@@ -15,6 +15,7 @@ TagManager:
   - level1a
   - dectypt
   - timer
+  - info
   layers:
   - Default
   - TransparentFX
