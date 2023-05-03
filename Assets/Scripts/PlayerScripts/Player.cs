@@ -287,6 +287,13 @@ public class Player : MonoBehaviour, IDataPersistence
                     canvasOpen = true;
                 }
             }
+            foreach (Transform t in instructionCanvas.transform)
+            {
+                if (t.gameObject.activeSelf)
+                {
+                    canvasOpen = true;
+                }
+            }
             if (!canvasOpen) EventManager.OnOpenInventory();          
         }
         //close canvases
