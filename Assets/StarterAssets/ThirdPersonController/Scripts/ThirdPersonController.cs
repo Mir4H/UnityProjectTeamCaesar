@@ -209,6 +209,10 @@ namespace StarterAssets
             {
                 transform.position = new Vector3(-6, 0, -14);
             }
+            if (SceneManager.GetActiveScene().name == "PlatformScene")
+            {
+                transform.position = new Vector3(39.4000015f, 5, -12.5600004f);
+            }
             //lockmouse
             // Cursor.lockState = CursorLockMode.Locked;
             //Cursor.visible = false;

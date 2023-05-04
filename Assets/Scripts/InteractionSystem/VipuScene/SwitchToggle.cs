@@ -51,7 +51,7 @@ public class SwitchToggle : MonoBehaviour, IInteractable
             transform.localRotation = endRotation;
         }
 
-        if (StartRotation.x >= 315f)
+        if (StartRotation.x >= 314f)
         {
             endRotation = Quaternion.Euler(new Vector3(StartRotation.x + RotationAmount, 0, 0));
 
