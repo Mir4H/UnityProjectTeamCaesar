@@ -22480,7 +22480,7 @@ MonoBehaviour:
   keyToFind: {fileID: 911907955}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
-  LoadingScreen: {fileID: 0}
+  LoadingScreen: {fileID: 699884605}
 --- !u!1001 &1603155368
 PrefabInstance:
   m_ObjectHideFlags: 0
