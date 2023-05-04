@@ -12440,7 +12440,7 @@ MonoBehaviour:
   keyToFind: {fileID: 2084140284}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
-  LoadingScreen: {fileID: 0}
+  LoadingScreen: {fileID: 1692999893}
 --- !u!1001 &1059813540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25061,7 +25061,7 @@ MonoBehaviour:
   keyToFind: {fileID: 2084140284}
   interactionPromptUI: {fileID: 2026913408}
   player: {fileID: 7701594329807340365}
-  LoadingScreen: {fileID: 0}
+  LoadingScreen: {fileID: 1692999893}
 --- !u!1 &2123984508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9222988866110790705, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
