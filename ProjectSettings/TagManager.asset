@@ -20,11 +20,12 @@ TagManager:
   - GreenBag
   - OrangeBag
   - PurpleBag
+  - InHand
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - FloorLayer
