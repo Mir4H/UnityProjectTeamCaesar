@@ -25,6 +25,7 @@ public class PuzzleCondition : MonoBehaviour
             potionBowl.SetActive(true);
             key.SetActive(true);
             goalDoor.tag = "goal";
+            ShowingInstructions.OnShowCompeleted();
             Destroy(gameObject);
         }
             

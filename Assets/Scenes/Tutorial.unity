@@ -6014,7 +6014,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03df7c774c240f94d9ab762816d2edb8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 03a3ca7b6d635de44a63a38992ae8076, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9384,8 +9384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You successfully decrypted my diary.
 
-    I''m King Liam and this is
-    my castle. I was wrongfully locked down here in the dungeon and left to my death.
+    I''m King Liam and this is my
+    castle. I was wrongfully locked down here in the dungeon and left to my death.
     Now it''s my turn: No one leaves here unless I decide so.
 
     To survive in
