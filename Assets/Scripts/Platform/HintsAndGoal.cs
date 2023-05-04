@@ -8,16 +8,21 @@ public class HintsAndGoal : MonoBehaviour
     [SerializeField] private GameObject keyPlatform;
     [SerializeField] private ShowGuidance showGuidance;
     [SerializeField] private GameObject platform;
+    [SerializeField] private GameObject storyCanvas;
+    [SerializeField] private GameObject startStory;
 
     private bool platformPuzzle;
+    private bool platformStory;
     public void LoadData(GameData data)
     {
         platformPuzzle = data.platformPuzzle;
+        platformStory = data.platformStory;
     }
 
     public void SaveData(GameData data)
     {
         data.platformPuzzle = platformPuzzle;
+        data.platformStory = platformStory;
     }
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,10 @@ public class HintsAndGoal : MonoBehaviour
         if (platformPuzzle == false)
         {
             Invoke("ShowFirstHint", 360f);
+        }
+        if(!platformStory)
+        {
+            Invoke("StartStory", 1f);
         }
     }
 
@@ -63,5 +72,17 @@ public class HintsAndGoal : MonoBehaviour
     private void CloseGuidance()
     {
         showGuidance.CloseGuidance();
+    }
+
+    private void StartStory()
+    {
+        float cliplenght = startStory.GetComponent<AudioSource>().clip.length;
+        storyCanvas.SetActive(true);
+        platformStory = true;
+        Invoke("CloseStory", cliplenght + 1);
+    }
+    private void CloseStory()
+    {
+        storyCanvas.SetActive(false);
     }
 }

@@ -28,6 +28,7 @@ public class GameData
     public bool sokkeloPuzzle;
     // Platform
     public bool platformPuzzle;
+    public bool platformStory;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -69,5 +70,6 @@ public class GameData
         vipuPuzzle = false;
         sokkeloPuzzle = false;
         platformPuzzle = false;
+        platformStory = false;
     }
 }
