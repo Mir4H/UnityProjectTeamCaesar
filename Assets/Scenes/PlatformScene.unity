@@ -23868,8 +23868,8 @@ MonoBehaviour:
   keyPlatform: {fileID: 1639445069}
   showGuidance: {fileID: 590760143}
   platform: {fileID: 1704682867}
-  storyCanvas: {fileID: 0}
-  startStory: {fileID: 0}
+  storyCanvas: {fileID: 337218039}
+  startStory: {fileID: 1774302210}
 --- !u!1 &1693128482
 GameObject:
   m_ObjectHideFlags: 0
@@ -25288,7 +25288,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4bd8eaf893def1e4198bf3c21c03946c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 726618908844a3b40aad78db0b9331b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -25394,8 +25394,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All the pathways are not always easy to find in this castle. But the hidden
-    road can lead us to unexpected treasures.
+  m_text: Not all the pathways are easy to find in this castle. But the hidden roads
+    can lead us to unexpected treasures.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
