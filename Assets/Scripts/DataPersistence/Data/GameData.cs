@@ -29,6 +29,9 @@ public class GameData
     // Platform
     public bool platformPuzzle;
     public bool platformStory;
+    //bags
+    public bool bagsStory;
+    public bool bagsSolved;
 
     public SerializableDictionary<string, bool> scenesCompleted;
 
@@ -45,7 +48,6 @@ public class GameData
     public Color skin;
 
     public float timeToDisplay;
-
 
     // The values defined in this constructor will be the default values the game starts with when there's no data to load
     public GameData()
@@ -71,5 +73,8 @@ public class GameData
         sokkeloPuzzle = false;
         platformPuzzle = false;
         platformStory = false;
+        bagsStory = false;
+        bagsSolved = false;
+
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleCondition : MonoBehaviour
+public class PuzzleCondition : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject bowlOrange;
     [SerializeField] private GameObject bowlPurple;
@@ -12,8 +12,8 @@ public class PuzzleCondition : MonoBehaviour
     [SerializeField] private GameObject goalDoor;
     [SerializeField] private GameObject canvasStart;
     [SerializeField] private GameObject starttext;
-
-
+    private bool storyShown = false;
+    private bool solved = false;
 
     private void Awake()
     {
@@ -23,10 +23,11 @@ public class PuzzleCondition : MonoBehaviour
 
     private void Start()
     {
-        if (!key.activeSelf)
+        if (!storyShown)
         {
             canvasStart.SetActive(true);
             starttext.SetActive(true);
+            storyShown = true;
             Invoke("Close", 5f);
         }
     }
@@ -47,7 +48,27 @@ public class PuzzleCondition : MonoBehaviour
             goalDoor.tag = "goal";
             ShowingInstructions.OnShowCompeleted();
             Destroy(gameObject);
+            solved = true;
+        }
+        else if (solved)
+        {
+            potionBowl.SetActive(true);
+            key.SetActive(true);
+            goalDoor.tag = "goal";
+            Destroy(gameObject);
         }
             
+    }
+
+    public void LoadData(GameData data)
+    {
+        storyShown = data.bagsStory;
+        solved = data.bagsSolved;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.bagsStory = storyShown;
+        data.bagsSolved = solved;
     }
 }

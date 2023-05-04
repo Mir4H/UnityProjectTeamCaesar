@@ -134,7 +134,7 @@ public class Player : MonoBehaviour, IDataPersistence
         {
             if (!(itemsWithIds.Any(x => x.ID == entry.Key)))
             {
-                if (entry.Value.id != 1)
+                if (entry.Value.id != 1 && entry.Value.id != 2 && entry.Value.id != 0)
                 {
                     Debug.Log("creating" + entry.Key);
                     var item = Instantiate(inventory.database.GetItem[entry.Value.id].prefab, entry.Value.position, entry.Value.rotation);

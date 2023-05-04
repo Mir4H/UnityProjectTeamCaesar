@@ -21,6 +21,7 @@ TagManager:
   - OrangeBag
   - PurpleBag
   - InHand
+  - PotionBowl
   layers:
   - Default
   - TransparentFX
