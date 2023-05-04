@@ -18,14 +18,14 @@ public class StartSceneCanvas : MonoBehaviour
     {
         image.SetActive(true);
         image2.SetActive(false);
-        Invoke("ChangeImage", 15f);
+        Invoke("ChangeImage", 13f);
     }
 
     private void ChangeImage()
     {
         image.SetActive(false);
         image2.SetActive(true);
-        Invoke("CloseStory", 15f);
+        Invoke("CloseStory", 13f);
     }
 
     private void CloseStory()

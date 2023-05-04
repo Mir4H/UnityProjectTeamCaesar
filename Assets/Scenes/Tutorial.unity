@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6036069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0ed00955c44820946ace9673f2a6fe2e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 29a1d88a199753e4fab64f46068cf923, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1721,12 +1721,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "You wake up in a castle and after a while you remember how you ended up
-    there. Your friend told you about a legend of an evil king. The story told that
-    there was a cursed castle deep in the forest and anyone who dared to visit it
-    went missing. You didn\u2019t believe in such a thing and decided to embark on
-    a journey to find the castle and to prove your friend wrong. Maybe there was
-    some truth to this story, at least now you are here, seemingly locked in a dungeon.
-    What is this place?"
+    there. The legend of an evil king. Your friend told you about a cursed castle
+    deep in the forest and that anyone who dared to visit it went missing. Not believing
+    in such a thing, you decided to embark on a journey to find the castle. \nMaybe
+    there was some truth to this story, at least now you are here, seemingly locked
+    in a dungeon..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1753,12 +1752,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.2
+  m_fontSize: 16
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18.2
-  m_fontSizeMax: 72
+  m_fontSizeMin: 16
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3406,7 +3405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &289137037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3572,7 +3571,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 32.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9249,7 +9248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &772979701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9417,7 +9416,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.25
+  m_fontSize: 20.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10442,8 +10441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1145, y: -281.5}
-  m_SizeDelta: {x: 590.1299, y: 443}
+  m_AnchoredPosition: {x: 1088, y: -285}
+  m_SizeDelta: {x: 558.5454, y: 450}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &870978373
 GameObject:
@@ -12265,8 +12264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1145, y: -279.5}
-  m_SizeDelta: {x: 352.18433, y: 439}
+  m_AnchoredPosition: {x: 1060, y: -285}
+  m_SizeDelta: {x: 323.26096, y: 450}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1020063113
 MonoBehaviour:
@@ -14109,8 +14108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 215.31569, y: -279.5}
-  m_SizeDelta: {x: 330.63138, y: 439}
+  m_AnchoredPosition: {x: 201.73903, y: -285}
+  m_SizeDelta: {x: 303.47806, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218303931
 MonoBehaviour:
@@ -16178,8 +16177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 287.43506, y: -281.5}
-  m_SizeDelta: {x: 474.87015, y: 443}
+  m_AnchoredPosition: {x: 274.72726, y: -285}
+  m_SizeDelta: {x: 449.45453, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369293157
 MonoBehaviour:
@@ -22187,8 +22186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 762.8157, y: -279.5}
-  m_SizeDelta: {x: 352.18433, y: 439}
+  m_AnchoredPosition: {x: 706.739, y: -285}
+  m_SizeDelta: {x: 323.26096, y: 450}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1864971866
 MonoBehaviour:
