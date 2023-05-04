@@ -29,7 +29,7 @@ public class HintsAndGoal : MonoBehaviour
         }
         if (platformPuzzle == false)
         {
-            Invoke("ShowFirstHint", 60f);
+            Invoke("ShowFirstHint", 360f);
         }
     }
 
@@ -40,7 +40,7 @@ public class HintsAndGoal : MonoBehaviour
         {
             platformPuzzle = true;
             goalDoor.tag = "goal";
-            Invoke("ShowSecondHint", 60f);
+            Invoke("ShowSecondHint", 360f);
         }
 
     }
