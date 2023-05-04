@@ -6267,7 +6267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_RootOrder
@@ -8530,7 +8530,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61d4917765ece8d4396125a791447e38, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bfe513e1477901b449defe3f5265b68a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8636,7 +8636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You made it accross the room! But why did that platform appear?
+  m_text: You made it across the room! But why did that platform appear?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11867,7 +11867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_RootOrder
@@ -14670,6 +14670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190668985}
   - component: {fileID: 1190668984}
+  - component: {fileID: 1190668986}
   m_Layer: 0
   m_Name: KeyInfo
   m_TagString: Untagged
@@ -14705,6 +14706,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190668986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190668983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e161a47d4557849ac90a570fafdebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showGuidance: {fileID: 590760143}
 --- !u!1 &1209727360
 GameObject:
   m_ObjectHideFlags: 0
@@ -17159,7 +17173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076291542469164221, guid: f4e570d462737bc429f0510b07c6bc9e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9076291542469451933, guid: f4e570d462737bc429f0510b07c6bc9e, type: 3}
       propertyPath: m_RootOrder
@@ -19338,7 +19352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_RootOrder
@@ -20737,6 +20751,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_Name
       value: Platform4b
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99e55592c6d88984cb6b00f2455032dc, type: 3}
       propertyPath: m_RootOrder
