@@ -17008,7 +17008,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1510548080}
   m_Father: {fileID: 1607021246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20604,8 +20605,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1607021246}
-  m_RootOrder: 1
+  m_Father: {fileID: 1284746502}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22740,7 +22741,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1284746502}
-  - {fileID: 1510548080}
   m_Father: {fileID: 2124258954}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25419,8 +25419,8 @@ MonoBehaviour:
   lamps: {fileID: 519575059}
   middleDoor: {fileID: 656916563}
   goalDoor: {fileID: 1104479870}
-  storyCanvas: {fileID: 928843304}
-  startStory: {fileID: 1284746501}
+  storyCanvas: {fileID: 1607021245}
+  startStory: {fileID: 1510548079}
 --- !u!65 &1789174288
 BoxCollider:
   m_ObjectHideFlags: 0
