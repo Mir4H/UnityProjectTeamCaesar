@@ -11,6 +11,8 @@ public class StartSceneCanvas : MonoBehaviour
     [SerializeField] private GameObject image2;
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject torch;
+    [SerializeField] private GameObject storyCanvas;
+
 
     [SerializeField] private InventorySystem inventory;
 
@@ -36,7 +38,15 @@ public class StartSceneCanvas : MonoBehaviour
 
     private void ShowInstructions()
     {
-        if (torch.gameObject.activeSelf)
+        bool canvasOpen = false;
+        foreach (Transform t in storyCanvas.transform)
+        {
+            if (t.gameObject.activeSelf)
+            {
+                canvasOpen = true;
+            }
+        }
+        if (torch.gameObject.activeSelf || canvasOpen)
         {
             Close();
         } 

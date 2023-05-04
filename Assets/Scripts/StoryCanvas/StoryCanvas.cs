@@ -65,11 +65,12 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
         }
         else
         {
+            CancelInvoke();
             diaryText.SetActive(false);
             diaryText2.SetActive(true);
             diaryText3.SetActive(false);
             diaryImage.SetActive(true);
-            Invoke("NextPage", 25f);
+            Invoke("NextPage", 18f);
         }
     }
 
@@ -78,7 +79,7 @@ public class StoryCanvas : MonoBehaviour, IDataPersistence
         diaryText.SetActive(false);
         diaryText2.SetActive(false);
         diaryText3.SetActive(true);
-        Invoke("Exit", 44f);
+        Invoke("Exit", 29f);
     }
 
     private void Storyrequested()

@@ -17,7 +17,7 @@ public class TriggerTutorial2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (showBarrel)
+        if (showBarrel && other.gameObject.tag == "Player")
         {
             showGuidance.SetUpGuidance("Maybe try to move that barrel");
             showBarrel = false;

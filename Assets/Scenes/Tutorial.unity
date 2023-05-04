@@ -172,7 +172,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07db92d2af36df84690f82b450f56fc0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d1282ffaf50323488c2cf28ed10ef76, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -278,15 +278,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In order to survive you have to find pieces of my diary. I think they
-    look like scrolls. I know they are somewhere in my castle. You\u2019ll understand
-    me better once you discover those writings. \r\n\nFurthermore, there are different
-    locked challenge rooms in my castle, for which you\u2019ll need a certain number
-    of keys to enter. In order to gather keys, you have to enter those rooms and
-    keep your eyes open for them, whilst you try to solve the challenge I prepared
-    for you. But be careful. Those rooms collapse after a certain amount of time
-    and only the smart can live in my castle. Many didn\u2019t survive. Are you the
-    clever one?\r\n\r\nNow go on. You should already have one key."
+  m_text: "You have to find pieces of my diary. I know they are somewhere in my castle
+    and they look like scrolls.\r\n\r\nFurthermore, there are locked challenge rooms
+    in my castle, for which you\u2019ll need a certain number of keys to enter. To
+    gather keys, you have to enter those rooms and keep your eyes open\u200B whilst
+    you try to solve the challenge I prepared for you. But be careful. Those rooms
+    collapse after a certain amount of time. Many didn\u2019t survive. Are you the
+    clever one?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -313,11 +311,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -3571,11 +3569,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.8
+  m_fontSize: 31.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -3738,7 +3736,6 @@ RectTransform:
   m_Children:
   - {fileID: 1219423958}
   - {fileID: 365943694}
-  - {fileID: 1536078556}
   - {fileID: 2092987814}
   - {fileID: 1692999894}
   m_Father: {fileID: 0}
@@ -4432,8 +4429,8 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18.2
-  m_fontSizeMax: 72
+  m_fontSizeMin: 16
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -4552,8 +4549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 795, y: -258}
-  m_SizeDelta: {x: 530, y: 480}
+  m_AnchoredPosition: {x: 832.5, y: -302}
+  m_SizeDelta: {x: 555, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395770378
 MonoBehaviour:
@@ -9248,7 +9245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &772979701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9279,7 +9276,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e32a50970b9ae94292edb0f7df11760, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e91a434894dfe145af78aff28a98559, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9385,11 +9382,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You successfully decrypted my diary. Maybe you are clever!\r\n\r\nMy name
-    is Liam and this is my castle. No one leaves it unless I decide so. I was wrongfully
-    locked down here in the dungeon and left to my death. But my spirit lives in
-    these walls and I still have power. This is my moment to turn things around.\r\n\r\nMaybe
-    it\u2019s fair to give you some clues. So remember the following."
+  m_text: 'You successfully decrypted my diary.
+
+    I''m King Liam and this is
+    my castle. I was wrongfully locked down here in the dungeon and left to my death.
+    Now it''s my turn: No one leaves here unless I decide so.
+
+    To survive in
+    my castle, remember the following. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9416,11 +9416,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.5
+  m_fontSize: 26.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 16
   m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -10441,8 +10441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1088, y: -285}
-  m_SizeDelta: {x: 558.5454, y: 450}
+  m_AnchoredPosition: {x: 1060, y: -285}
+  m_SizeDelta: {x: 543.03033, y: 450}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &870978373
 GameObject:
@@ -12937,6 +12937,7 @@ MonoBehaviour:
   image2: {fileID: 1020063111}
   instructions: {fileID: 243367857}
   torch: {fileID: 1168268811}
+  storyCanvas: {fileID: 289432483}
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
 --- !u!4 &1118930452 stripped
 Transform:
@@ -13804,8 +13805,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.78}
+  m_Center: {x: 0, y: -0.87, z: -0.09}
 --- !u!4 &1176495478
 Transform:
   m_ObjectHideFlags: 0
@@ -13814,7 +13815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176495473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.7, y: 1.54, z: -18.75}
+  m_LocalPosition: {x: -8.7, y: 1.297, z: -19.001}
   m_LocalScale: {x: 6.94, y: 0.52, z: 0.61}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14526,6 +14527,7 @@ MonoBehaviour:
   image2: {fileID: 1020063111}
   instructions: {fileID: 243367857}
   torch: {fileID: 1168268811}
+  storyCanvas: {fileID: 289432483}
   inventory: {fileID: 11400000, guid: a6edf4caf92c6034f9a6e227218d62fc, type: 2}
 --- !u!114 &1239137731
 MonoBehaviour:
@@ -16177,8 +16179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 274.72726, y: -285}
-  m_SizeDelta: {x: 449.45453, y: 450}
+  m_AnchoredPosition: {x: 268.48486, y: -285}
+  m_SizeDelta: {x: 436.9697, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369293157
 MonoBehaviour:
@@ -17943,82 +17945,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b437f1c2454a2c409b1b7f35e69d661, type: 3}
---- !u!1 &1536078555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1536078556}
-  - component: {fileID: 1536078558}
-  - component: {fileID: 1536078557}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1536078556
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536078555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 289432488}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1536078557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536078555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1536078558
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536078555}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1539962310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19013,7 +18939,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e92aa3fb46af77b49bff47c2f781a3c5, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -19046,8 +18972,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: 0}
-  m_SizeDelta: {x: -240, y: -240}
+  m_AnchoredPosition: {x: -166.6, y: 0}
+  m_SizeDelta: {x: -286.6001, y: -240}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &1634317964
 GameObject:
@@ -19750,7 +19676,7 @@ RectTransform:
   - {fileID: 1765628111}
   - {fileID: 2134460991}
   m_Father: {fileID: 289432488}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23936,8 +23862,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 265, y: -258}
-  m_SizeDelta: {x: 530, y: 509}
+  m_AnchoredPosition: {x: 277.5, y: -302}
+  m_SizeDelta: {x: 555, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012672336
 MonoBehaviour:
@@ -24822,7 +24748,7 @@ RectTransform:
   - {fileID: 1769314278}
   - {fileID: 2138688766}
   m_Father: {fileID: 289432488}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -29530,6 +29456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: Press E to decrypt the word
   resolve: {fileID: 209648617}
+  instructions: {fileID: 243367857}
 --- !u!65 &4978485614431463237
 BoxCollider:
   m_ObjectHideFlags: 0

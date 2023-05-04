@@ -8,13 +8,20 @@ public class Decrypt : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     [SerializeField] private GameObject resolve;
+    [SerializeField] private GameObject instructions;
 
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Player interactor)
     {
-        //Tähän  mitä se interaktio tekee!!
-        resolve.SetActive(true);
-        return true;
+        if (!instructions.activeSelf)
+        {
+            resolve.SetActive(true);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
