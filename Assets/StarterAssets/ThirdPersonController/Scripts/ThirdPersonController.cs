@@ -205,6 +205,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            /*
             if (SceneManager.GetActiveScene().buildIndex == 10)
             {
                 transform.position = new Vector3(-6, 0, -14);

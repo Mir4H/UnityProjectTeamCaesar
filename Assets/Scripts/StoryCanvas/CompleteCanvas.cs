@@ -26,7 +26,7 @@ public class CompleteCanvas : MonoBehaviour
     {
         completed.SetActive(false);
         credits.SetActive(true);
-        Invoke("GameName", 31f);
+        Invoke("GameName", 35f);
     }
 
     void GameName()

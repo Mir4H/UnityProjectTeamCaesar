@@ -15,7 +15,6 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] private InteractionPromptUI interactionPromptUI;
     [SerializeField] private Player player;
     [SerializeField] private GameObject LoadingScreen;
-    [SerializeField] private int requiredAmount;
 
     private bool canOpen = false;
 
@@ -33,15 +32,6 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     public void SaveData(GameData data)
     {
         //
-    }
-
-    private void Start()
-    {
-        if (doorSceneName == "FinalScene")
-        {
-            _prompt = "You are about to enter the final Challenge! \n" +
-                "Press E to Open";
-        }
     }
 
     public bool Interact(Player interactor)
@@ -83,31 +73,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
             if (numberOfKeys >= doorLevel)
             {
-                if (doorSceneName == "FinalScene")
-                {
-                    var items = inventory.Container.Items.Find(x => x.ID == 1);
-                    var nroOfItems = 0;
-                    if (items != null)
-                    {
-                        Debug.Log(items.StackSize);
-                        nroOfItems = items.StackSize;
-                    }
-                    if (nroOfItems < requiredAmount)
-                    {
-                        string secondaryPrompt = $"Find {requiredAmount - nroOfItems} diary pages to open.";
-                        if (interactionPromptUI.IsDisplayed) interactionPromptUI.Close();
-                        interactionPromptUI.SetUp(secondaryPrompt);
-                        return false;
-                    }
-                    else
-                    {
-                        canOpen = true;
-                    }
-                }
-                else
-                {
-                    canOpen = true;
-                }
+                canOpen = true;
             }
 
             if (canOpen)
@@ -139,7 +105,8 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
         if (sceneName == "Sokkelo") player.transform.position = new Vector3(62, 0, -14);
         if (sceneName == "VipuScene") player.transform.position = new Vector3(20.0799999f, 0, -12.5600004f);
         if (sceneName == "DarkRoom") player.transform.position = new Vector3(-6.32999992f, 0, -14);
-        if (sceneName == "FinalScene") player.transform.position = new Vector3(-5.69999981f, 0.25000006f, -13.4399996f);
+        if (sceneName == "BagScene") player.transform.position = new Vector3(-6, 0, -14);
+        if (sceneName == "PlatformScene") player.transform.position = new Vector3(44.4000015f, 5, -12.5600004f);
     }
 
     public void LoadScene()
