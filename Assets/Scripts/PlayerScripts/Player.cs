@@ -193,7 +193,10 @@ public class Player : MonoBehaviour, IDataPersistence
     void DropObject()
     {
         heldObjRB.useGravity = true;
-        if (inHandItem.tag == "Pickable") inHandItem.tag = "PointOfInterest";
+        if (SceneManager.GetActiveScene().buildIndex != 10)
+        {
+            if (inHandItem.tag == "Pickable") inHandItem.tag = "PointOfInterest";
+        }
         if (inHandItem.layer == 10) inHandItem.layer = 8;
         heldObjRB.drag = 1;
         heldObjRB.constraints = RigidbodyConstraints.None;
@@ -225,7 +228,7 @@ public class Player : MonoBehaviour, IDataPersistence
             Debug.Log(hit.collider.name);
             PickupObject(hit.collider.gameObject);
         }
-        else if (hit.collider == null && inHandItem != null)
+        else if ((hit.collider != null || hit.collider == null) && inHandItem != null)
         {
             if (inHandItem != null)
             {
@@ -236,11 +239,26 @@ public class Player : MonoBehaviour, IDataPersistence
                 return;
             }
         }
-
-        if (inHandItem != null)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            MoveObject();
+            if (inHandItem != null)
+            {
+                MoveObject();
+            }
         }
+        /*
+         *  else if (hit.collider == null && inHandItem != null)
+        {
+            if (inHandItem != null)
+            {
+                DropObject();
+            }
+            else
+            {
+                return;
+            }
+        }
+        */
         return;
 
 
@@ -252,12 +270,25 @@ public class Player : MonoBehaviour, IDataPersistence
         Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);
     }
 
+    private void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 4)
+        {
+            if (inHandItem != null)
+            {
+                MoveObject();
+            }
+        }
+    }
+
     private void Update()
     {
         /*if (!useLookAt && !collectableItem && hit.collider != null)
         {
             showGuidance.CloseGuidance();
         }*/
+        
+
         if (!useLookAt || !collectableItem)
         {
             if (numFound <= 0 || hit.collider != null)
