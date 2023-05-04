@@ -9,9 +9,7 @@ public class PlatformComplete : MonoBehaviour
     private void OnEnable()
     {
         goldenKey.SetActive(true);
-        goalDoor.tag = "goal";
         ShowingInstructions.OnShowCompeleted();
-
     }
 
     private void OnDisable()
