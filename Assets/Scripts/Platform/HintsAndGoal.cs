@@ -15,6 +15,7 @@ public class HintsAndGoal : MonoBehaviour, IDataPersistence
     private bool platformPuzzle;
     private bool platformStory;
 
+    /*
     private void OnEnable()
     {
         EventManager.PlatformUnActivated += HideKey;
@@ -23,7 +24,8 @@ public class HintsAndGoal : MonoBehaviour, IDataPersistence
     private void OnDisable()
     {
         EventManager.PlatformUnActivated -= HideKey;
-    }
+    }*/
+
     public void LoadData(GameData data)
     {
         platformPuzzle = data.platformPuzzle;
@@ -85,10 +87,11 @@ public class HintsAndGoal : MonoBehaviour, IDataPersistence
         showGuidance.CloseGuidance();
     }
 
+    /*
     private void HideKey()
     {
         goldKey.SetActive(false);
-    }
+    }*/
 
     private void StartStory()
     {

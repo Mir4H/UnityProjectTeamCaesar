@@ -2210,10 +2210,10 @@ MonoBehaviour:
   showAngle: 46
   hidePlatform: {fileID: 1639445069}
   showPlatform: {fileID: 1639445069}
-  hideAngle2: 314
-  showAngle2: 46
-  hidePlatform2: {fileID: 594101147}
-  showPlatform2: {fileID: 594101147}
+  hideAngle2: 0
+  showAngle2: 0
+  hidePlatform2: {fileID: 0}
+  showPlatform2: {fileID: 0}
 --- !u!114 &165316646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23309,6 +23309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldenKey: {fileID: 1438509178}
   goalDoor: {fileID: 1599543942}
+  candle: {fileID: 594101147}
 --- !u!1001 &1645235427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36819,7 +36820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigLayers:
-  - m_Rig: {fileID: 0}
+  - m_Rig: {fileID: 199287207}
     m_Active: 1
   m_Effectors:
   - m_Transform: {fileID: 329068371}

@@ -6,9 +6,11 @@ public class PlatformComplete : MonoBehaviour
 {
     [SerializeField] private GameObject goldenKey;
     [SerializeField] private GameObject goalDoor;
+    [SerializeField] private GameObject candle;
     private void OnEnable()
     {
         goldenKey.SetActive(true);
+        candle.SetActive(true);
         if (goalDoor.tag != "goal" )
         {
             ShowingInstructions.OnShowCompeleted();
@@ -17,6 +19,7 @@ public class PlatformComplete : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.OnPlatformUnActivated();
+        goldenKey.SetActive(false);
+        candle.SetActive(false);
     }
 }
