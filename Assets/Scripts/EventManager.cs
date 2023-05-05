@@ -21,6 +21,7 @@ public static class EventManager
     public static event UnityAction SecondPartSolved;
     public static event UnityAction MusicIn;
     public static event UnityAction MusicOut;
+    public static event UnityAction PlatformUnActivated;
 
 
     public static void OnTimerStart() => TimerStart?.Invoke();
@@ -50,4 +51,6 @@ public static class EventManager
     public static void OnMusicIn() => MusicIn?.Invoke();
 
     public static void OnMusicOut() => MusicOut?.Invoke();
+
+    public static void OnPlatformUnActivated() => PlatformUnActivated?.Invoke();
 }

@@ -47,6 +47,10 @@ public class DarkRoomPuzzleConditions : MonoBehaviour, IDataPersistence
             GameObject.Destroy(throne4);
             GameObject.Destroy(throne5);
         }
+        if (darkGoal)
+        {
+            goalDoor.tag = "goal";
+        }
     }
     // Update is called once per frame
     void Update()

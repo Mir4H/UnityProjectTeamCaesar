@@ -10,9 +10,20 @@ public class HintsAndGoal : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject platform;
     [SerializeField] private GameObject storyCanvas;
     [SerializeField] private GameObject startStory;
+    [SerializeField] private GameObject goldKey;
 
     private bool platformPuzzle;
     private bool platformStory;
+
+    private void OnEnable()
+    {
+        EventManager.PlatformUnActivated += HideKey;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PlatformUnActivated -= HideKey;
+    }
     public void LoadData(GameData data)
     {
         platformPuzzle = data.platformPuzzle;
@@ -72,6 +83,11 @@ public class HintsAndGoal : MonoBehaviour, IDataPersistence
     private void CloseGuidance()
     {
         showGuidance.CloseGuidance();
+    }
+
+    private void HideKey()
+    {
+        goldKey.SetActive(false);
     }
 
     private void StartStory()

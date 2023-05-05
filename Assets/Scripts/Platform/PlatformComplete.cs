@@ -17,6 +17,6 @@ public class PlatformComplete : MonoBehaviour
 
     private void OnDisable()
     {
-        goldenKey.SetActive(false);
+        EventManager.OnPlatformUnActivated();
     }
 }
