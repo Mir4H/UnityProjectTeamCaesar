@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HintsAndGoal : MonoBehaviour
+public class HintsAndGoal : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private GameObject goalDoor;
     [SerializeField] private GameObject keyPlatform;
@@ -25,7 +25,7 @@ public class HintsAndGoal : MonoBehaviour
         data.platformStory = platformStory;
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (platformPuzzle)
         {
@@ -36,7 +36,7 @@ public class HintsAndGoal : MonoBehaviour
         {
             Invoke("ShowFirstHint", 360f);
         }
-        if(!platformStory)
+        if (!platformStory)
         {
             Invoke("StartStory", 1f);
         }

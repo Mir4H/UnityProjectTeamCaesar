@@ -176,14 +176,12 @@ namespace StarterAssets
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
                 this.transform.position = new Vector3((float)-6.32999992, 0, -14);
-            }
-            else
-            {*/
+            }*/
+            
             Debug.Log("Getting new position " + data.playerPosition + " and rotation " + data.playerRotation);
             this.transform.position = data.playerPosition;
             this.transform.rotation = data.playerRotation;
-            //}
-
+            
             // Material loading
             moustache.SetActive(data.moustache);
             beard.SetActive(data.beard);
