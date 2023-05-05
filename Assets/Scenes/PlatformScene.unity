@@ -23870,6 +23870,7 @@ MonoBehaviour:
   platform: {fileID: 1704682867}
   storyCanvas: {fileID: 337218039}
   startStory: {fileID: 1774302210}
+  goldKey: {fileID: 1438509178}
 --- !u!1 &1693128482
 GameObject:
   m_ObjectHideFlags: 0
